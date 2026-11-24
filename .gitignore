@@ -6,3 +6,8 @@ tests/*
 !tests/test_agent_parallel_preload.py
 src/test/*
 /startup_reports/
+__pycache__/
+*.pyc
+early_bird/热点资讯追踪/
+early_bird/工作台/
+early_bird/aggregate.log
