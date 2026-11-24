@@ -6,6 +6,10 @@
 
 调度方式：6 条领域日程（错峰）+ 1 条聚合日程。
 
+检索能力：B1 以 `web_search` 打底，`find-news`（多引擎 + 微信公众号/GitHub/Reddit 垂类）补充覆盖，
+`multi-source-research` 扩面去重；B2 事实存疑时用 `research-orchestrator` 交叉验证。
+技能只增强覆盖度与核实强度，**不改变 high 信源硬规则**——所有事件最终都要过脚本校验。
+
 ---
 
 ## 1. 早鸟雷达-科技（每天 08:03）
@@ -14,8 +18,8 @@
 早鸟雷达-科技 · 每日 briefing
 1. 执行 early_bird_briefing(action="init", setup_token="setup_0da2e5ce")，读取科技领域完整追踪契约与首步指引。
 2. 按脚本指引完成完整 briefing 流程（B1→B2→B3→B4），直到状态为 DONE；中途校验未通过时，按返回的错误项修正产物后重新提交同一步骤。
-3. B1 用 web_search 围绕契约 search_seeds 检索 24-48 小时候选，写入 raw_candidates.json。
-4. B2 按 include/exclude 过滤并聚类为事件组，逐组执行 high 信源校验（≥3 独立域名，Tier-1 官方源 ×1 或 Tier-2 主流媒体 ×2），写入 event_list.json；来源或时间不确定的事件不提交。
+3. B1 用 web_search 围绕契约 search_seeds 检索 24-48 小时候选，再用 find-news 补充多引擎与垂类源（微信公众号/GitHub/Reddit），必要时用 multi-source-research 扩面去重，写入 raw_candidates.json；发布时间不确定的候选用 find-news 的 crawl_results 取回原文核实，仍无法确认则丢弃。
+4. B2 按 include/exclude 过滤并聚类为事件组，逐组执行 high 信源校验（≥3 独立域名，Tier-1 官方源 ×1 或 Tier-2 主流媒体 ×2），写入 event_list.json；来源或时间不确定的事件不提交；域名数卡线或来源事实冲突时用 research-orchestrator 交叉验证，冲突无法消解则丢弃。
 5. B3 撰写日报 daily/YYYY-MM-DD.md 与 summary.json。
 6. 产物统一写入：early_bird/热点资讯追踪/早鸟雷达-科技/
 7. 若 empty_silent=true 且 B2/B3 确认为空结果，仍需完成 B3/B4 空结果日报，然后按指引静默结束（no_reply）。
@@ -28,8 +32,8 @@
 早鸟雷达-医学 · 每日 briefing
 1. 执行 early_bird_briefing(action="init", setup_token="setup_244e21da")，读取医学领域完整追踪契约与首步指引。
 2. 按脚本指引完成完整 briefing 流程（B1→B2→B3→B4），直到状态为 DONE；中途校验未通过时，按返回的错误项修正产物后重新提交同一步骤。
-3. B1 用 web_search 围绕契约 search_seeds 检索 24-48 小时候选，写入 raw_candidates.json。
-4. B2 按 include/exclude 过滤并聚类为事件组，逐组执行 high 信源校验（≥3 独立域名，Tier-1 官方源 ×1 或 Tier-2 主流媒体 ×2），写入 event_list.json；可拒绝单源爆料。
+3. B1 用 web_search 围绕契约 search_seeds 检索 24-48 小时候选，再用 find-news 补充多引擎与垂类源（微信公众号/GitHub/Reddit），必要时用 multi-source-research 扩面去重，写入 raw_candidates.json；发布时间不确定的候选用 find-news 的 crawl_results 取回原文核实，仍无法确认则丢弃。
+4. B2 按 include/exclude 过滤并聚类为事件组，逐组执行 high 信源校验（≥3 独立域名，Tier-1 官方源 ×1 或 Tier-2 主流媒体 ×2），写入 event_list.json；可拒绝单源爆料；域名数卡线或来源事实冲突时用 research-orchestrator 交叉验证，冲突无法消解则丢弃。
 5. B3 撰写日报 daily/YYYY-MM-DD.md 与 summary.json。
 6. 产物统一写入：early_bird/热点资讯追踪/早鸟雷达-医学/
 7. 若 empty_silent=true 且 B2/B3 确认为空结果，仍需完成 B3/B4 空结果日报，然后按指引静默结束（no_reply）。
@@ -42,8 +46,8 @@
 早鸟雷达-金融 · 每日 briefing
 1. 执行 early_bird_briefing(action="init", setup_token="setup_ccbd5295")，读取金融领域完整追踪契约与首步指引。
 2. 按脚本指引完成完整 briefing 流程（B1→B2→B3→B4），直到状态为 DONE；中途校验未通过时，按返回的错误项修正产物后重新提交同一步骤。
-3. B1 用 web_search 围绕契约 search_seeds 检索 24-48 小时候选，写入 raw_candidates.json。
-4. B2 按 include/exclude 过滤并聚类为事件组，逐组执行 high 信源校验（≥3 独立域名，Tier-1 官方源 ×1 或 Tier-2 主流媒体 ×2），写入 event_list.json；可拒绝单源爆料。
+3. B1 用 web_search 围绕契约 search_seeds 检索 24-48 小时候选，再用 find-news 补充多引擎与垂类源（微信公众号/GitHub/Reddit），必要时用 multi-source-research 扩面去重，写入 raw_candidates.json；发布时间不确定的候选用 find-news 的 crawl_results 取回原文核实，仍无法确认则丢弃。
+4. B2 按 include/exclude 过滤并聚类为事件组，逐组执行 high 信源校验（≥3 独立域名，Tier-1 官方源 ×1 或 Tier-2 主流媒体 ×2），写入 event_list.json；可拒绝单源爆料；域名数卡线或来源事实冲突时用 research-orchestrator 交叉验证，冲突无法消解则丢弃。
 5. B3 撰写日报 daily/YYYY-MM-DD.md 与 summary.json。
 6. 产物统一写入：early_bird/热点资讯追踪/早鸟雷达-金融/
 7. 若 empty_silent=true 且 B2/B3 确认为空结果，仍需完成 B3/B4 空结果日报，然后按指引静默结束（no_reply）。
@@ -56,8 +60,8 @@
 早鸟雷达-消费 · 每日 briefing
 1. 执行 early_bird_briefing(action="init", setup_token="setup_63c56ee9")，读取消费领域完整追踪契约与首步指引。
 2. 按脚本指引完成完整 briefing 流程（B1→B2→B3→B4），直到状态为 DONE；中途校验未通过时，按返回的错误项修正产物后重新提交同一步骤。
-3. B1 用 web_search 围绕契约 search_seeds 检索 24-48 小时候选，写入 raw_candidates.json。
-4. B2 按 include/exclude 过滤并聚类为事件组，逐组执行 high 信源校验（≥3 独立域名，Tier-1 官方源 ×1 或 Tier-2 主流媒体 ×2），写入 event_list.json。
+3. B1 用 web_search 围绕契约 search_seeds 检索 24-48 小时候选，再用 find-news 补充多引擎与垂类源（微信公众号/GitHub/Reddit），必要时用 multi-source-research 扩面去重，写入 raw_candidates.json；发布时间不确定的候选用 find-news 的 crawl_results 取回原文核实，仍无法确认则丢弃。
+4. B2 按 include/exclude 过滤并聚类为事件组，逐组执行 high 信源校验（≥3 独立域名，Tier-1 官方源 ×1 或 Tier-2 主流媒体 ×2），写入 event_list.json；来源或时间不确定的事件不提交；域名数卡线或来源事实冲突时用 research-orchestrator 交叉验证，冲突无法消解则丢弃。
 5. B3 撰写日报 daily/YYYY-MM-DD.md 与 summary.json。
 6. 产物统一写入：early_bird/热点资讯追踪/早鸟雷达-消费/
 7. 若 empty_silent=true 且 B2/B3 确认为空结果，仍需完成 B3/B4 空结果日报，然后按指引静默结束（no_reply）。
@@ -70,8 +74,8 @@
 早鸟雷达-商业 · 每日 briefing
 1. 执行 early_bird_briefing(action="init", setup_token="setup_d93a5b44")，读取商业领域完整追踪契约与首步指引。
 2. 按脚本指引完成完整 briefing 流程（B1→B2→B3→B4），直到状态为 DONE；中途校验未通过时，按返回的错误项修正产物后重新提交同一步骤。
-3. B1 用 web_search 围绕契约 search_seeds 检索 24-48 小时候选，写入 raw_candidates.json。
-4. B2 按 include/exclude 过滤并聚类为事件组，逐组执行 high 信源校验（≥3 独立域名，Tier-1 官方源 ×1 或 Tier-2 主流媒体 ×2），写入 event_list.json。
+3. B1 用 web_search 围绕契约 search_seeds 检索 24-48 小时候选，再用 find-news 补充多引擎与垂类源（微信公众号/GitHub/Reddit），必要时用 multi-source-research 扩面去重，写入 raw_candidates.json；发布时间不确定的候选用 find-news 的 crawl_results 取回原文核实，仍无法确认则丢弃。
+4. B2 按 include/exclude 过滤并聚类为事件组，逐组执行 high 信源校验（≥3 独立域名，Tier-1 官方源 ×1 或 Tier-2 主流媒体 ×2），写入 event_list.json；来源或时间不确定的事件不提交；域名数卡线或来源事实冲突时用 research-orchestrator 交叉验证，冲突无法消解则丢弃。
 5. B3 撰写日报 daily/YYYY-MM-DD.md 与 summary.json。
 6. 产物统一写入：early_bird/热点资讯追踪/早鸟雷达-商业/
 7. 若 empty_silent=true 且 B2/B3 确认为空结果，仍需完成 B3/B4 空结果日报，然后按指引静默结束（no_reply）。
@@ -84,8 +88,8 @@
 早鸟雷达-人才 · 每日 briefing
 1. 执行 early_bird_briefing(action="init", setup_token="setup_26010b88")，读取人才领域完整追踪契约与首步指引。
 2. 按脚本指引完成完整 briefing 流程（B1→B2→B3→B4），直到状态为 DONE；中途校验未通过时，按返回的错误项修正产物后重新提交同一步骤。
-3. B1 用 web_search 围绕契约 search_seeds 检索 24-48 小时候选，写入 raw_candidates.json。
-4. B2 按 include/exclude 过滤并聚类为事件组，逐组执行 high 信源校验（≥3 独立域名，Tier-1 官方源 ×1 或 Tier-2 主流媒体 ×2），写入 event_list.json。
+3. B1 用 web_search 围绕契约 search_seeds 检索 24-48 小时候选，再用 find-news 补充多引擎与垂类源（微信公众号/GitHub/Reddit），必要时用 multi-source-research 扩面去重，写入 raw_candidates.json；发布时间不确定的候选用 find-news 的 crawl_results 取回原文核实，仍无法确认则丢弃。
+4. B2 按 include/exclude 过滤并聚类为事件组，逐组执行 high 信源校验（≥3 独立域名，Tier-1 官方源 ×1 或 Tier-2 主流媒体 ×2），写入 event_list.json；来源或时间不确定的事件不提交；域名数卡线或来源事实冲突时用 research-orchestrator 交叉验证，冲突无法消解则丢弃。
 5. B3 撰写日报 daily/YYYY-MM-DD.md 与 summary.json。
 6. 产物统一写入：early_bird/热点资讯追踪/早鸟雷达-人才/
 7. 若 empty_silent=true 且 B2/B3 确认为空结果，仍需完成 B3/B4 空结果日报，然后按指引静默结束（no_reply）。

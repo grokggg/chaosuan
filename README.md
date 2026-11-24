@@ -70,6 +70,18 @@
 - `web_search`：B1 候选检索（支持 `freshness` 时间窗）
 - `preview_file` / `preview_folder`：预览工作台页面与产物目录
 
+### 已配置的社区技能（`skills/`）
+
+三个检索与核实技能，用于增强 B1 覆盖度与 B2/B3 核实强度。**它们不改变 high 信源硬规则**——无论候选来自哪个技能，最终都必须由 `early_bird_briefing` 的脚本校验通过才算合格。
+
+| 技能 | 接入环节 | 作用 |
+| --- | --- | --- |
+| `find-news`（查找资料） | B1 | 多引擎搜索（Google/Baidu/Bing/DuckDuckGo/Yahoo）+ 微信公众号/GitHub/Reddit/Bilibili 垂类；`crawl_results>0` 取回原文核实发布时间与引文 |
+| `multi-source-research`（多源研究） | B1+B2 | 整合网页/学术/社交/新闻聚合，自动去重并按可信度分级；辅助转载聚类与独立域名判定 |
+| `research-orchestrator`（深度研究） | B2+B3 | 多源交叉验证、可信度评估与冲突检测；域名数卡线或来源冲突时深度核实 |
+
+可信度分级映射：A 级（官方/政府/核心期刊）→ `tier1`；B 级（主流媒体）→ `tier2`（须在契约清单内）；C 级（自媒体/社交）→ `unknown`（不得单独支撑事件组）。
+
 ## 调度时刻表
 
 | 链条 | 时间 | setup_token | 执行内容 |

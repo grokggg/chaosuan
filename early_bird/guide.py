@@ -108,17 +108,23 @@ def _step_instruction(
         instruction["artifacts"] = [str(paths["candidates"])]
         instruction["howto"] = [
             "使用 web_search 工具，围绕本领域 search_seeds 执行 6-10 轮检索，freshness 建议 oneDay 或 oneWeek。",
+            "再用 find-news 技能补充多引擎与垂类源（微信公众号/GitHub/Reddit/Bilibili），"
+            "必要时用 multi-source-research 扩面并自动去重。",
             "只收集 24-48 小时内的候选，不做质量筛选；每条必须记录真实 url、主域名、发布机构、tier、发布日期。",
-            "tier 判定：官方来源（官网/官方账号/监管/交易所/上市公司公告）= tier1；契约 tier2 列表内主流媒体 = tier2；无法确认 = unknown。",
+            "tier 判定：官方来源（官网/官方账号/监管/交易所/上市公司公告）= tier1；契约 tier2 列表内主流媒体 = tier2；"
+            "无法确认 = unknown。技能给出的 A/B/C 可信度分级按 A→tier1、B→tier2（须在契约清单内）、C→unknown 映射。",
+            "发布时间不确定时，用 find-news 的 crawl_results 取回原文核实；仍无法确认则丢弃该候选。",
             "禁止编造链接或日期；无法确认发布日期的候选直接丢弃。",
             f"把候选数组写入 {paths['candidates']}（UTF-8 JSON 数组），然后执行 submit。",
         ]
     elif step == "B2":
         instruction["artifacts"] = [str(paths["event_list"])]
         instruction["howto"] = [
-            "读取 B1 候选，按 include 保留、按 exclude 剔除，把同一事件的多个报道聚成一个事件组。",
+            "读取 B1 候选，按 include 保留、按 exclude 剔除，把同一事件的多个报道聚成一个事件组"
+            "（multi-source-research 的自动去重可辅助聚类）。",
             f"每个事件组必须满足：独立主域名 ≥ {common.min_domains(contract, domain)}，且 Tier-1 官方源 ×1 或 Tier-2 主流媒体 ×2。",
             "同一媒体集团下的子站算同一域名；来源或时间不确定的事件一律不提交。",
+            "域名数刚好卡线或来源事实冲突时，用 research-orchestrator 做交叉验证；冲突无法消解则丢弃该事件。",
             "confidence 只允许 high/medium；low 直接丢弃。",
             f"把合格事件数组写入 {paths['event_list']}，然后执行 submit。",
             "若过滤后无合格事件，写入空数组 [] 并 submit，脚本会引导进入空结果分支。",

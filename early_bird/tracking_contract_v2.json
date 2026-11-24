@@ -19,6 +19,41 @@
     "dedup_policy": "同一事件在多领域命中时，归属最贴近其定义的单一领域，避免跨领域重复",
     "empty_silent_default": true
   },
+  "capabilities": {
+    "note": "检索与核实辅助能力。它们只增强覆盖度与核实强度，不改变 high 信源硬规则；所有候选最终都必须通过 guide.py 的脚本校验。",
+    "search": [
+      {
+        "name": "web_search",
+        "kind": "builtin_tool",
+        "stage": "B1",
+        "usage": "基础覆盖：围绕本领域 search_seeds 执行 6-10 轮检索，freshness 建议 oneDay 或 oneWeek"
+      },
+      {
+        "name": "find-news",
+        "kind": "skill",
+        "stage": "B1",
+        "usage": "多引擎补充（Google/Baidu/Bing/DuckDuckGo/Yahoo）与垂类检索（微信公众号/GitHub/Reddit/Bilibili）；crawl_results>0 可取回页面完整内容，用于核实发布时间与原文引文"
+      },
+      {
+        "name": "multi-source-research",
+        "kind": "skill",
+        "stage": "B1+B2",
+        "usage": "整合网页、学术平台、社交媒体与新闻聚合，自动去重并按可信度分级；B2 阶段辅助同一事件的转载聚类与独立域名判定"
+      },
+      {
+        "name": "research-orchestrator",
+        "kind": "skill",
+        "stage": "B2+B3",
+        "usage": "多源交叉验证、可信度评估与冲突检测；域名数卡线或来源事实冲突时做深度核实，冲突无法消解则丢弃该事件"
+      }
+    ],
+    "credibility_tier_mapping": {
+      "A": "tier1（官方媒体、政府网站、核心期刊；仍需确认属于本领域 tier1 清单范畴）",
+      "B": "tier2（主流媒体、知名平台；须在本领域 tier2 清单内，否则按 unknown 处理）",
+      "C": "unknown（自媒体、社交媒体；不得作为合格来源，仅可作为线索，须由 tier1/tier2 独立佐证后才可入组）"
+    },
+    "social_media_policy": "社交媒体与自媒体内容即使热度很高也不能单独支撑事件组；必须找到官方或主流媒体的独立报道，且独立域名数仍需 ≥ min_independent_domains_per_event。"
+  },
   "briefing_flow": {
     "name": "briefing",
     "steps": ["B1", "B2", "B3", "B4"],

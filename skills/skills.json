@@ -1,76 +1,184 @@
 {
   "skills": [
     {
-      "nameCn":"SCNet作业管理",
-      "nameEn":"scnet-job-manager",
-      "id":"",
-      "visibility":"PUBLIC",
-      "desc":"SCNet作业管理，包含用户队列的查询，提交作业，查询作业详情，监控作业，取消作业，上传文件到SCNet平台文件系统等功能。当用户提及队列与作业相关，调用该技能。",
-      "httpUrlToRepo":"",
-      "tags":[
+      "nameCn": "SCNet作业管理",
+      "nameEn": "scnet-job-manager",
+      "id": "",
+      "visibility": "PUBLIC",
+      "desc": "SCNet作业管理，包含用户队列的查询，提交作业，查询作业详情，监控作业，取消作业，上传文件到SCNet平台文件系统等功能。当用户提及队列与作业相关，调用该技能。",
+      "httpUrlToRepo": "",
+      "tags": [
         {
-          "category":"",
-          "nameCn":"",
-          "nameEn":"",
-          "name":""
+          "category": "",
+          "nameCn": "",
+          "nameEn": "",
+          "name": ""
         }
       ],
-      "avatarUrl":"",
+      "avatarUrl": "",
       "builtIn": true
     },
     {
-      "nameCn":"SCNet命令执行器",
-      "nameEn":"scnet-command-executor",
-      "id":"",
-      "visibility":"PUBLIC",
-      "desc":"执行 SCNet 业务命令，并根据环境变量 SCNET_SANDBOX 自动选择当前环境直连执行或通过工具 scnet_remote_shell_execute 执行。当其他技能需要执行 SCNet 计算中心命令、远程业务命令时调用。",
-      "httpUrlToRepo":"",
-      "tags":[
+      "nameCn": "SCNet命令执行器",
+      "nameEn": "scnet-command-executor",
+      "id": "",
+      "visibility": "PUBLIC",
+      "desc": "执行 SCNet 业务命令，并根据环境变量 SCNET_SANDBOX 自动选择当前环境直连执行或通过工具 scnet_remote_shell_execute 执行。当其他技能需要执行 SCNet 计算中心命令、远程业务命令时调用。",
+      "httpUrlToRepo": "",
+      "tags": [
         {
-          "category":"",
-          "nameCn":"",
-          "nameEn":"",
-          "name":""
+          "category": "",
+          "nameCn": "",
+          "nameEn": "",
+          "name": ""
         }
       ],
-      "avatarUrl":"",
+      "avatarUrl": "",
       "builtIn": true
     },
     {
-      "nameCn":"学术研究技能包",
-      "nameEn":"academic-research-skills",
-      "id":"",
-      "visibility":"PUBLIC",
-      "desc":"学术研究工作流技能包，覆盖深度研究、文献综述、系统综述、论文写作、同行评审、修订规划、引用与完整性检查，以及从研究到论文定稿的端到端流程。",
-      "httpUrlToRepo":"",
-      "tags":[
+      "nameCn": "学术研究技能包",
+      "nameEn": "academic-research-skills",
+      "id": "",
+      "visibility": "PUBLIC",
+      "desc": "学术研究工作流技能包，覆盖深度研究、文献综述、系统综述、论文写作、同行评审、修订规划、引用与完整性检查，以及从研究到论文定稿的端到端流程。",
+      "httpUrlToRepo": "",
+      "tags": [
         {
-          "category":"",
-          "nameCn":"",
-          "nameEn":"",
-          "name":""
+          "category": "",
+          "nameCn": "",
+          "nameEn": "",
+          "name": ""
         }
       ],
-      "avatarUrl":"",
+      "avatarUrl": "",
       "builtIn": true
     },
     {
-      "nameCn":"论文工作流",
-      "nameEn":"paper-workflow",
-      "id":"",
-      "visibility":"PUBLIC",
-      "desc":"论文搜索、开放 PDF 下载与论文计算流程提取工作流。用户要求找论文、下载合法开放论文 PDF、分析论文复现流程、提取实验/算法/科研计算 DAG 时调用。",
-      "httpUrlToRepo":"",
-      "tags":[
+      "nameCn": "论文工作流",
+      "nameEn": "paper-workflow",
+      "id": "",
+      "visibility": "PUBLIC",
+      "desc": "论文搜索、开放 PDF 下载与论文计算流程提取工作流。用户要求找论文、下载合法开放论文 PDF、分析论文复现流程、提取实验/算法/科研计算 DAG 时调用。",
+      "httpUrlToRepo": "",
+      "tags": [
         {
-          "category":"",
-          "nameCn":"",
-          "nameEn":"",
-          "name":""
+          "category": "",
+          "nameCn": "",
+          "nameEn": "",
+          "name": ""
         }
       ],
-      "avatarUrl":"",
+      "avatarUrl": "",
       "builtIn": true
+    },
+    {
+      "nameCn": "Multi-Source Research - 多源研究",
+      "nameEn": "multi-source-research",
+      "id": "2075758186930380801",
+      "visibility": "PUBLIC",
+      "desc": "多源研究助手，整合网页搜索、学术平台（知网/arXiv）、社交媒体（微博/抖音）和新闻聚合，支持自动去重并按来源与可信度分类。",
+      "avatarUrl": "https://accdn.accloud.cn/assets/images/community/avatar1.png",
+      "httpUrlToRepo": "https://gitlab.scnet.cn:9002/skills/yiziqinx/multi-source-research.git",
+      "tags": [
+        {
+          "category": "category",
+          "nameCn": "搜索工具",
+          "nameEn": "搜索工具",
+          "name": "搜索工具"
+        },
+        {
+          "category": "custom",
+          "nameCn": "信息检索",
+          "nameEn": "信息检索",
+          "name": "信息检索"
+        },
+        {
+          "category": "custom",
+          "nameCn": "摘要总结",
+          "nameEn": "摘要总结",
+          "name": "摘要总结"
+        },
+        {
+          "category": "license",
+          "nameCn": "mit-0",
+          "nameEn": "mit-0",
+          "name": "mit-0"
+        }
+      ],
+      "builtIn": false
+    },
+    {
+      "nameCn": "查找资料",
+      "nameEn": "find-news",
+      "id": "2075758139758215169",
+      "visibility": "PUBLIC",
+      "desc": "多引擎搜索 API 工具，支持通用网页搜索和新闻搜索。使用场景：用户要求搜索网页、新闻、社交媒体内容；需要从 Google/Baidu/Bing/Yahoo/DuckDuckGo 搜索；需要搜索微信公众号、YouTube、GitHub、Reddit、Bilibili；需要获取搜索结果的完整内容。",
+      "avatarUrl": "https://accdn.accloud.cn/assets/images/community/avatar1.png",
+      "httpUrlToRepo": "https://gitlab.scnet.cn:9002/skills/yiziqinx/find-news.git",
+      "tags": [
+        {
+          "category": "category",
+          "nameCn": "搜索工具",
+          "nameEn": "搜索工具",
+          "name": "搜索工具"
+        },
+        {
+          "category": "custom",
+          "nameCn": "信息检索",
+          "nameEn": "信息检索",
+          "name": "信息检索"
+        },
+        {
+          "category": "license",
+          "nameCn": "mit-0",
+          "nameEn": "mit-0",
+          "name": "mit-0"
+        }
+      ],
+      "builtIn": false
+    },
+    {
+      "nameCn": "深度研究 Deep Research",
+      "nameEn": "research-orchestrator",
+      "id": "2075758477700505602",
+      "visibility": "PUBLIC",
+      "desc": "深度研究工作流，支持多源搜索、事实验证、专业报告生成。适用于综合研究、市场分析、竞争分析或专业报告需求，支持网页搜索。",
+      "avatarUrl": "https://accdn.accloud.cn/assets/images/community/avatar1.png",
+      "httpUrlToRepo": "https://gitlab.scnet.cn:9002/skills/yiziqinx/research-orchestrator.git",
+      "tags": [
+        {
+          "category": "category",
+          "nameCn": "知识管理",
+          "nameEn": "知识管理",
+          "name": "知识管理"
+        },
+        {
+          "category": "custom",
+          "nameCn": "知识库问答",
+          "nameEn": "知识库问答",
+          "name": "知识库问答"
+        },
+        {
+          "category": "custom",
+          "nameCn": "信息检索",
+          "nameEn": "信息检索",
+          "name": "信息检索"
+        },
+        {
+          "category": "custom",
+          "nameCn": "摘要总结",
+          "nameEn": "摘要总结",
+          "name": "摘要总结"
+        },
+        {
+          "category": "license",
+          "nameCn": "mit-0",
+          "nameEn": "mit-0",
+          "name": "mit-0"
+        }
+      ],
+      "builtIn": false
     }
   ]
 }
