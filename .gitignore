@@ -1,0 +1,8 @@
+tests/*
+!tests/test_inventory.py
+!tests/test_agent_publish.py
+!tests/test_lazy_image_import.py
+!tests/test_tool_reload_policy.py
+!tests/test_agent_parallel_preload.py
+src/test/*
+/startup_reports/

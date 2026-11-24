@@ -1,0 +1,107 @@
+{
+  "providers": {
+    "alibaba": {
+      "baseUrl": "${UA_BASE_URL}",
+      "apiKey": "${UA_API_KEY}",
+      "logo": "https://cdn.scnet.cn/assets/images/chatbot/config/qwq.png",
+      "models": [
+        {
+          "name": "qwen3.8-max",
+          "description": "Qwen3.8原生视觉语言系列Max模型, 是通义千问迄今能力最强的旗舰模型, 适合高要求场景使用。",
+          "reasoning": true,
+          "input": [
+            "text", "image"
+          ],
+          "contextWindow": 1000000,
+          "maxInputTokens": 991000,
+          "args": {
+            "temperature": 0,
+            "top_p": 0,
+            "enable_thinking": false,
+            "extra_body": {
+              "reasoning_effort": "low"
+            }
+          }
+        },
+        {
+          "name": "qwen3.7-max",
+          "internal": true,
+          "description": "阿里通义旗舰模型，擅长处理复杂任务、代码编写与长流程协作，适合高要求场景使用。",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "contextWindow": 1000000,
+          "maxInputTokens": 991000,
+          "args": {
+            "temperature": 0,
+            "top_p": 0,
+            "enable_thinking": false
+          }
+        },
+        {
+          "name": "qwen3.7-plus",
+          "internal": true,
+          "description": "阿里通义多模态模型，兼顾日常问答、内容创作与图文任务处理，使用体验更加灵活。",
+          "reasoning": true,
+          "input": [
+            "text", "image"
+          ],
+          "contextWindow": 1000000,
+          "maxInputTokens": 991000,
+          "args": {
+            "temperature": 0.1,
+            "top_p": 0.1,
+            "enable_thinking": true
+          }
+        }
+      ]
+    },
+    "scnet": {
+      "baseUrl": "${UA_BASE_URL}",
+      "apiKey": "${UA_API_KEY}",
+      "logo": "https://cdn.scnet.cn/assets/images/icr/SCNet-Max.jpg",
+      "models": [
+        {
+          "name": "SCNet-MAX",
+          "internal": true,
+          "description": "用于智能体场景的高速模型，响应速度快，适合高频问答与内容处理。",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "contextWindow": 1000000,
+          "maxInputTokens": 991000,
+          "args": {
+            "temperature": 0,
+            "top_p": 0,
+            "enable_thinking": true
+          }
+        }
+      ]
+    },
+    "deepseek": {
+      "baseUrl": "${UA_BASE_URL}",
+      "apiKey": "${UA_API_KEY}",
+      "logo": "https://cdn.scnet.cn/assets/images/icr/deepseek_logo.png",
+      "models": [
+        {
+          "name": "deepseek-v4-pro",
+          "internal": true,
+          "description": "DeepSeek 专业推理模型，擅长代码编写、数学推理与复杂问题拆解，适合文本类深度分析任务。",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "contextWindow": 1000000,
+          "maxInputTokens": 991000,
+          "args": {
+            "temperature": 0,
+            "top_p": 0,
+            "enable_thinking": true
+          }
+        }
+      ]
+    }
+  }
+}

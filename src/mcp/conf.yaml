@@ -1,0 +1,17 @@
+mcp:
+  timeout_seconds: 30
+  servers:
+    scnet_search:
+      type: streamable_http
+      url: "${SCNET_MCP_BASE_URL}/mcp/${MCP_API_KEY}/7552849000000000003/mcp"
+      # Expose remote tool names unchanged and activate each category separately.
+      tools:
+        scnet_aihub_skills_search:
+          deferred:
+            keyword: skill
+        scnet_aihub_mcp_search:
+          deferred:
+            keyword: mcp
+        scnet_aihub_knowledge_search:
+          deferred:
+            keyword: knowledge

@@ -1,0 +1,146 @@
+{
+  "name": "早鸟工作台",
+  "repo_name": "early-bird-workbench",
+  "mode": "general",
+  "description": "六领域早期信号雷达与每日聚合工作台。按科技、医学、金融、消费、商业、人才六个领域错峰追踪尚未被市场充分定价的早期节点，执行 B1→B4 briefing 流程并强制 high 信源校验（每事件组 ≥3 独立域名，Tier-1 官方源 ×1 或 Tier-2 主流媒体 ×2），产出各领域日报与结构化事件清单，再聚合渲染为工作台 index.html 与每日快照；来源或时间不确定一律不提交，空结果静默结束，聚合失败保留上一次结果。",
+  "avatar": "",
+  "welcome_message": "你好，我是「早鸟工作台」。我按科技、医学、金融、消费、商业、人才六个领域追踪尚未被充分定价的早期信号，每条信号都要过 high 信源门槛（≥3 个独立域名，且 Tier-1 官方源 ×1 或 Tier-2 主流媒体 ×2），来源或时间不确定的一律不收录，最后聚合成每日工作台。\n\n你可以让我：\n· 跑某个领域的今日简报，例如「跑一下科技领域的早鸟雷达」\n· 查看运行状态，例如「六个领域今天都出报了吗」\n· 刷新工作台，例如「重新聚合渲染工作台」\n· 调整追踪设定，例如「把消费领域的排除项加一条」\n\n也可以直接粘贴你原有的日程提示词，我会自动映射到本项目的目录与流程。",
+  "suggested_questions": [
+    {
+      "question": "跑一下科技领域的早鸟雷达",
+      "weight": 3,
+      "enable": true
+    },
+    {
+      "question": "六个领域今天的追踪状态如何",
+      "weight": 2,
+      "enable": true
+    },
+    {
+      "question": "重新聚合渲染早鸟工作台",
+      "weight": 2,
+      "enable": true
+    },
+    {
+      "question": "医学领域今天有哪些合格早期信号",
+      "weight": 1,
+      "enable": true
+    },
+    {
+      "question": "金融领域的信源分级要求是什么",
+      "weight": 1,
+      "enable": true
+    },
+    {
+      "question": "把消费领域的排除范围加一条",
+      "weight": 1,
+      "enable": true
+    },
+    {
+      "question": "为什么某条新闻没有被收录",
+      "weight": 1,
+      "enable": true
+    }
+  ],
+  "system_prompt": "${file:src/prompt/system_prompt.md}",
+  "skills": [
+    "${PROJECT_ROOT}/skills",
+    "$HOME/.data/skills"
+  ],
+  "llm": {
+    "model": "alibaba/qwen3.8-max",
+    "logo": "https://cdn.scnet.cn/assets/images/chatbot/config/qwq.png",
+    "temperature": 0,
+    "top_p": 0,
+    "enable_thinking": false,
+    "extra_body": {
+      "reasoning_effort": "low"
+    }
+  },
+  "backend": {
+    "root_dir": "",
+    "virtual_mode": false,
+    "timeout": 120,
+    "inherit_env": true
+  },
+  "mcp": [
+    {
+      "name": "scnet_remote_shell",
+      "displayName": "SCNet远程命令执行器",
+      "description": "查看用户已开通的集群，根据集群执行远程命令和脚本。",
+      "imageUrl": "https://cdn.scnet.cn/assets/images/ac8.15.0/mcp-default-icon.png",
+      "visibility": "PUBLIC",
+      "tags": [
+        {
+          "category": "category",
+          "nameCn": "开发者工具",
+          "nameEn": "开发者工具",
+          "name": "开发者工具"
+        }
+      ],
+      "source": "scnet_community",
+      "sourceId": "",
+      "servers": {
+        "scnet": {
+          "transport": "streamable_http",
+          "url": "${SCNET_MCP_BASE_URL}/mcp/${MCP_API_KEY}/7552849000000000000/mcp"
+        }
+      },
+      "auth": {
+        "type": "api_key",
+        "envVars": []
+      },
+      "timeout": 30,
+      "enabled": true,
+      "available": true,
+      "lastError": null,
+      "builtIn": true,
+      "deferred": false
+    },
+    {
+      "name": "scnet_order",
+      "displayName": "SCNet订单状态查看",
+      "description": "查看用户在SCNet上的订单配置状态, 例如队列配置状态",
+      "imageUrl": "https://cdn.scnet.cn/assets/images/ac8.15.0/mcp-default-icon.png",
+      "visibility": "PUBLIC",
+      "tags": [
+        {
+          "category": "category",
+          "nameCn": "开发者工具",
+          "nameEn": "开发者工具",
+          "name": "开发者工具"
+        }
+      ],
+      "source": "scnet_community",
+      "sourceId": "",
+      "servers": {
+        "scnet_order": {
+          "transport": "streamable_http",
+          "url": "${SCNET_MCP_BASE_URL}/mcp/${MCP_API_KEY}/7552849000000000001/mcp"
+        }
+      },
+      "auth": {
+        "type": "api_key",
+        "envVars": []
+      },
+      "timeout": 30,
+      "enabled": true,
+      "available": true,
+      "lastError": null,
+      "builtIn": true,
+      "deferred": true
+    }
+  ],
+  "dataset": [],
+  "context": {
+    "summarization": {
+      "trigger": {
+        "operator": "any",
+        "fraction": 0.75,
+        "tokens": 500000
+      },
+      "keep": 0.05
+    }
+  },
+  "sseCacheMode": "event"
+}

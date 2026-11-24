@@ -1,0 +1,3 @@
+# Generic iframe viewer origins must be listed exactly before show_iframe can emit a card.
+# Example: iframe_allowed_origins: ["https://earth.example.com"]
+iframe_allowed_origins: []

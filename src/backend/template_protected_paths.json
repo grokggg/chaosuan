@@ -1,0 +1,22 @@
+{
+  "directories": [
+    "skills",
+    "src"
+  ],
+  "files": [
+    ".create",
+    ".gitattributes",
+    ".gitignore",
+    "README.md",
+    "config/agent.json",
+    "pyproject.toml",
+    "scripts/aihub_code_upgrade.sh",
+    "scripts/calculate_sbx_namespace.sh",
+    "scripts/extract_checkpoint_state.py",
+    "scripts/patch_agent_projects.sh",
+    "scripts/sync_agent_project.sh",
+    "scripts/sync_target.sh",
+    "server.py",
+    "uv.lock"
+  ]
+}

@@ -1,0 +1,157 @@
+[project]
+name = "vibe-coding-template"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "a2a-sdk[http-server]==1.1.1",
+    "aiosqlite>=0.22.1",
+    "annotated-doc==0.0.4",
+    "annotated-types==0.7.0",
+    "anthropic==1.2.0",
+    "anyio==4.13.0",
+    "attrs==26.1.0",
+    "bracex==3.0.1",
+    "certifi==2026.2.25",
+    "cffi==2.0.0",
+    "charset-normalizer==3.4.7",
+    "click==8.3.3",
+    "colorama==0.4.6",
+    "cryptography==46.0.7",
+    "deepagents==0.7.11",
+    "distro==1.9.0",
+    "docstring-parser==0.18.0",
+    "dotenv==0.9.9",
+    "fastapi==0.136.0",
+    "filetype==1.2.0",
+    "google-auth==2.49.2",
+    "google-genai==1.73.1",
+    "h11==0.16.0",
+    "httpcore==1.0.9",
+    "httpx==0.28.1",
+    "httpx-sse==0.4.3",
+    "idna==3.12",
+    "jiter==0.14.0",
+    "jsonpatch==1.33",
+    "jsonpointer==3.1.1",
+    "jsonschema==4.26.0",
+    "jsonschema-specifications==2025.9.1",
+    "langchain==1.3.18",
+    "langchain-anthropic==1.7.0",
+    "langchain-core==1.6.1",
+    "langchain-google-genai==4.3.7",
+    "langchain-mcp-adapters==0.2.2",
+    "langchain-openai==1.2.0",
+    "langgraph==1.2.11",
+    "langgraph-checkpoint==4.2.0",
+    "langgraph-checkpoint-sqlite>=3.0.3",
+    "langgraph-prebuilt==1.1.0",
+    "langgraph-sdk==0.4.4",
+    "langsmith==0.11.2",
+    "matplotlib>=3.11.0",
+    "mcp==1.27.0",
+    "numpy>=2.4.6",
+    "openai==2.32.0",
+    "openpyxl>=3.1.0",
+    "orjson==3.11.8",
+    "ormsgpack==1.12.2",
+    "packaging==26.1",
+    "pandas>=3.0.3",
+    "pdfplumber>=0.11.0",
+    "pillow>=12.2.0",
+    "pip>=26.1.1",
+    "pyasn1==0.6.3",
+    "pyasn1-modules==0.4.2",
+    "pycparser==3.0",
+    "pydantic==2.13.3",
+    "pydantic-core==2.46.3",
+    "pydantic-settings==2.14.0",
+    "pyjwt==2.12.1",
+    "pymupdf4llm>=1.27.2.3",
+    "pytest>=9.1.1",
+    "python-docx>=1.1.0",
+    "python-dotenv==1.2.2",
+    "python-multipart==0.0.26",
+    "python-pptx>=1.0.0",
+    "pywin32==311; sys_platform == 'win32'",
+    "pyyaml==6.0.3",
+    "referencing==0.37.0",
+    "regex==2026.4.4",
+    "requests==2.33.1",
+    "requests-toolbelt==1.0.0",
+    "rpds-py==0.30.0",
+    "ruff>=0.15.11",
+    "sniffio==1.3.1",
+    "sse-starlette==3.3.4",
+    "starlette==1.0.0",
+    "tenacity==9.1.4",
+    "tiktoken==0.12.0",
+    "tqdm==4.67.3",
+    "typing-extensions==4.15.0",
+    "typing-inspection==0.4.2",
+    "tzdata==2026.1",
+    "urllib3==2.6.3",
+    "uuid-utils==0.14.1",
+    "uvicorn==0.46.0",
+    "wcmatch==11.0.1",
+    "websockets==16.0",
+    "xlrd>=2.0.1",
+    "xxhash==3.6.0",
+    "zstandard==0.25.0",
+]
+
+[[tool.uv.index]]
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+default = true
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+exclude = [
+    ".venv",
+    "__pycache__",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "W",
+    "F",
+    "I",
+    "B",
+    "C4",
+    "UP",
+]
+ignore = [
+    "E501",
+    "B008",
+    "C901",
+]
+fixable = [
+    "E",
+    "W",
+    "F",
+    "I",
+    "UP",
+    "C4",
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["src"]
+known-third-party = [
+    "deepagents",
+    "dotenv",
+    "fastapi",
+    "langchain",
+    "langchain_core",
+    "langchain_openai",
+    "langgraph",
+    "langchain_mcp_adapters",
+    "pydantic",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"src/test/*.py" = ["E402"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]

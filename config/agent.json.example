@@ -1,0 +1,145 @@
+{
+  "name": "rna_differential_expresssion",
+  "repo_name": "rna_differential_expresssion",
+  "mode": "science",
+  "description": "一个RNA差异分析的智能体，可用于RNA差异分析计算",
+  "avatar": "",
+  "welcome_message": "你好，有什么我可以帮助你的？",
+  "suggested_questions": [
+    {
+      "question": "RNA差异分析需要什么样的输入文件？",
+      "weight": 1,
+      "enable": true
+    },
+    {
+      "question": "进行RNA差异分析",
+      "weight": 1,
+      "enable": true
+    },
+    {
+      "question": "查询我在昆山的队列信息",
+      "weight": 1,
+      "enable": true
+    }
+  ],
+  "system_prompt": "${file:src/prompt/system_prompt.md}",
+  "llm": {},
+  "skills": [
+    "${PROJECT_ROOT}/skills",
+    "$HOME/.data/skills"
+  ],
+  "backend": {
+    "root_dir": "",
+    "virtual_mode": false,
+    "timeout": 120,
+    "inherit_env": true
+  },
+  "mcp": [
+    {
+      "name": "thesis_query",
+      "displayName": "论文查询",
+      "description": "自动搜索 arXiv 和 PubMed 的论文并输出论文总结",
+      "imageUrl": "https://mallcdn.accloud.cn/sugon_scnet/7adb76b0f7bb2147f96c2fbaa1fed034.png",
+      "visibility": "PUBLIC",
+      "tags": [
+        {
+          "category": "",
+          "nameCn": "",
+          "nameEn": "",
+          "name": ""
+        }
+      ],
+      "source": "scnet_community",
+      "sourceId": "987654321",
+      "servers": {
+        "thesis_query": {
+          "transport": "streamable_http",
+          "url": "https://api.scnet.cn/api/mcp/${MCP_API_KEY}/100000001/mcp"
+        }
+      },
+      "auth": {
+        "type": "api_key",
+        "envVars": [
+          {
+            "name": "API_KEY",
+            "type": "string",
+            "defaultValue": null,
+            "required": true,
+            "description": "请输入您在SCNet平台的MCP服务API KEY",
+            "link": "获取 API_KEY: https://www.scnet.cn/ui/console/index.html#/llm/apikeys"
+          }
+        ]
+      },
+      "timeout": 30,
+      "enabled": true,
+      "available": false,
+      "lastError": null,
+      "builtIn": false,
+      "deferred": false
+    },
+    {
+      "name": "scnet_order",
+      "displayName": "SCNet订单状态查看",
+      "description": "查看用户在SCNet上的订单配置状态, 例如队列配置状态",
+      "imageUrl": "https://cdn.scnet.cn/assets/images/ac8.15.0/mcp-default-icon.png",
+      "visibility": "PUBLIC",
+      "tags": [
+        {
+          "category": "category",
+          "nameCn": "开发者工具",
+          "nameEn": "开发者工具",
+          "name": "开发者工具"
+        }
+      ],
+      "source": "scnet_community",
+      "sourceId": "",
+      "servers": {
+        "scnet_order": {
+          "transport": "streamable_http",
+          "url": "${SCNET_MCP_BASE_URL}/mcp/${MCP_API_KEY}/7552849000000000001/mcp"
+        }
+      },
+      "auth": {
+        "type": "api_key",
+        "envVars": []
+      },
+      "timeout": 30,
+      "enabled": true,
+      "available": false,
+      "lastError": null,
+      "builtIn": true,
+      "deferred": true
+    }
+  ],
+  "dataset": [
+    {
+      "nameCn": "AI4S论文解读",
+      "nameEn": "ai4s-paper-reading",
+      "id": "",
+      "visibility": "",
+      "dataset_id": "1de7235cab3311f0b758c6c5696ae28c",
+      "desc": "深度解读 AI for Science、科学智能体等领域前沿方向的论文",
+      "image_url": "https://mallcdn.accloud.cn/openaimodels/7ba1f1fb800009390462e7e0ff4e23dc.png",
+      "tags": [
+        {
+          "category": "",
+          "nameCn": "",
+          "nameEn": "",
+          "name": ""
+        }
+      ],
+      "builtIn": false
+    }
+  ],
+  "context": {
+    "summarization": {
+      "trigger": {
+        "operator": "any",
+        "fraction": 0.75,
+        "tokens": 500000
+      },
+      "keep": 0.05
+    }
+  },
+  "sseCacheMode": "block"
+}

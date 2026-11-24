@@ -1,0 +1,581 @@
+{
+  "contract_version": "tracking_contract_v2",
+  "workspace_name": "早鸟工作台",
+  "exported_at": "2026-11-07",
+  "owner_session": "编程专家",
+  "paths": {
+    "tracking_root": "early_bird/热点资讯追踪",
+    "workbench_root": "early_bird/工作台",
+    "aggregate_log": "early_bird/aggregate.log",
+    "note": "所有路径均相对于项目根目录（PROJECT_ROOT）。原 Coze 路径 /Coze/Drive/编程专家/ 已等价映射到本项目 early_bird/ 目录。"
+  },
+  "global_rules": {
+    "authority_requirement": "high",
+    "min_independent_domains_per_event": 3,
+    "source_rule": "每个事件组必须满足：Tier-1 官方源 ×1，或 Tier-2 主流媒体 ×2（二者满足其一即可，且总独立域名数 ≥ 3）",
+    "uncertainty_policy": "来源不确定或时间不确定的事件一律不提交；宁可空结果，不可编造",
+    "cadence": "每日 09:00 节奏（各领域按错峰时刻表实际触发）",
+    "no_fabrication": "禁止编造 URL、域名、发布时间、机构名称或数据；无法核实即丢弃该事件",
+    "dedup_policy": "同一事件在多领域命中时，归属最贴近其定义的单一领域，避免跨领域重复",
+    "empty_silent_default": true
+  },
+  "briefing_flow": {
+    "name": "briefing",
+    "steps": ["B1", "B2", "B3", "B4"],
+    "terminal_status": "DONE",
+    "step_definitions": {
+      "B1": {
+        "title": "候选信号检索",
+        "goal": "按本领域 focus 方向执行多轮联网检索，收集 24-48 小时内的候选早期信号，不做质量判断，只保证覆盖度。",
+        "artifact": "raw_candidates.json",
+        "schema": {
+          "type": "array",
+          "item_fields": {
+            "title": "候选信号标题（必填）",
+            "url": "原始链接（必填，可访问的真实 URL）",
+            "domain": "链接主域名（必填）",
+            "publisher": "发布机构/媒体名（必填）",
+            "tier": "tier1 | tier2 | unknown（必填）",
+            "published_at": "YYYY-MM-DD 或 YYYY-MM-DDTHH:MM:SS（必填）",
+            "focus_tag": "命中的 focus 方向标签（必填）",
+            "note": "为什么可能是早期信号（选填）"
+          }
+        },
+        "min_items": 5,
+        "on_empty": "若确实检索不到任何候选，允许提交空数组 []，并在 B2 走空结果分支。"
+      },
+      "B2": {
+        "title": "筛选与信源校验",
+        "goal": "按 include/exclude 过滤候选，聚类为事件组，并对每个事件组执行 high 信源校验，产出合格事件列表。",
+        "artifact": "event_list.json",
+        "schema": {
+          "type": "array",
+          "item_fields": {
+            "event_id": "领域slug-YYYYMMDD-序号，如 tech-20261107-01（必填）",
+            "title": "事件标题，一句话讲清发生了什么（必填）",
+            "signal_type": "信号类型，取自本领域 signal_types（必填）",
+            "happened_at": "事件发生/披露日期 YYYY-MM-DD（必填）",
+            "summary": "120-250 字事实性摘要，只写已核实内容（必填）",
+            "why_early_signal": "为什么这是尚未被充分定价的早期信号（必填）",
+            "impact": "潜在扩散路径与影响面（必填）",
+            "confidence": "high | medium（必填，low 不得提交）",
+            "sources": "来源数组，≥3 个独立域名（必填）",
+            "sources[].url": "真实可访问链接（必填）",
+            "sources[].domain": "主域名（必填）",
+            "sources[].publisher": "机构/媒体名（必填）",
+            "sources[].tier": "tier1 | tier2（必填，unknown 不得作为合格来源）",
+            "sources[].published_at": "YYYY-MM-DD（必填）",
+            "sources[].quote": "支撑该事件的关键原文片段或事实点（必填）"
+          }
+        },
+        "validation": [
+          "每个事件组 sources 的独立主域名数 ≥ min_independent_domains_per_event",
+          "每个事件组满足 tier1_count >= 1 或 tier2_count >= 2",
+          "所有 source 的 url/domain/publisher/tier/published_at/quote 均非空",
+          "tier 只能是 tier1 或 tier2；出现 unknown 直接判不合格",
+          "published_at 与 happened_at 必须是可解析日期，且不得晚于运行日 +1 天",
+          "confidence 为 low 的事件不得提交",
+          "命中 exclude 任一条目的事件必须剔除"
+        ],
+        "on_empty": "若过滤与校验后无合格事件，提交空数组 []，脚本将进入空结果分支。"
+      },
+      "B3": {
+        "title": "日报撰写",
+        "goal": "基于合格事件列表撰写当日日报 Markdown，并产出结构化摘要。",
+        "artifacts": ["daily/YYYY-MM-DD.md", "summary.json"],
+        "markdown_requirements": [
+          "首行为一级标题：# 早鸟雷达-{领域} · YYYY-MM-DD",
+          "包含「今日概览」段落：事件数、最高优先级信号、整体判断",
+          "每个事件一个二级标题，按优先级排序，含：事实摘要 / 早期信号价值 / 影响面 / 来源清单（编号 + 机构 + 域名 + 日期 + 链接）",
+          "结尾包含「信源校验」段落，说明各事件独立域名数与 Tier 构成",
+          "空结果日：只写一行说明「今日无满足 high 信源要求的合格早期信号」，不得填充凑数内容"
+        ],
+        "summary_schema": {
+          "date": "YYYY-MM-DD",
+          "domain": "领域中文名",
+          "domain_slug": "领域英文 slug",
+          "setup_token": "setup_xxxxxxxx",
+          "event_count": "整数",
+          "empty": "布尔值",
+          "top_events": "数组，每项含 event_id/title/signal_type/confidence/source_domain_count",
+          "source_stats": "对象，含 tier1_count/tier2_count/independent_domain_count",
+          "generated_at": "ISO8601 时间戳"
+        }
+      },
+      "B4": {
+        "title": "终检与归档",
+        "goal": "对 B1-B3 全部产物做一致性与完整性终检，通过后状态置为 DONE，供聚合器读取。",
+        "artifact": "state.json（由脚本维护，不需手写）",
+        "validation": [
+          "daily/YYYY-MM-DD.md、event_list.json、summary.json 三件产物均存在且非空（空结果日 event_list.json 为 []）",
+          "summary.json.event_count 与 event_list.json 长度一致",
+          "summary.json.date 与文件名日期一致",
+          "summary.json.empty 为 true 时 event_count 必须为 0",
+          "日报 Markdown 中引用的每个事件都能在 event_list.json 中找到对应 event_id"
+        ]
+      }
+    },
+    "status_machine": ["INIT", "B1_DONE", "B2_DONE", "B3_DONE", "DONE", "EMPTY_SILENT"],
+    "retry_policy": "任一步校验未通过时状态不前进，脚本返回具体失败项与修正提示；按提示修正产物后重新提交同一步即可。"
+  },
+  "domains": [
+    {
+      "name_cn": "早鸟雷达-科技",
+      "domain": "科技",
+      "domain_slug": "tech",
+      "setup_token": "setup_0da2e5ce",
+      "schedule_time": "08:03",
+      "output_dir": "early_bird/热点资讯追踪/早鸟雷达-科技",
+      "authority_requirement": "high",
+      "empty_silent": true,
+      "definition": "科技领域早期信号雷达，捕捉尚未被市场充分定价、但已具备扩散潜力的科技动向，聚焦 AI/模型/算力/平台/工具链/基础设施/前沿硬件等科技领域的早期节点（产品预热、内测节点、模型预览、定价调整、平台策略变化、并购前奏、技术路线拐点等）。",
+      "include": [
+        "AI 模型/产品：新一代模型预发布、内测节点、API/订阅定价调整、能力拐点（性能/价格/上下文窗口等）",
+        "大厂平台策略：OpenAI/Anthropic/Google/Meta/Microsoft/字节/阿里/腾讯/百度/华为/智谱/DeepSeek/Kimi 等平台开发者生态、API 政策、补贴调整",
+        "AI 工具链：早期工具发布、开发者平台新能力、Agent 框架升级、开源生态重大节点",
+        "算力与硬件：芯片发布、推理/训练成本拐点、推理基础设施变化、新型硬件（机器人/脑机接口/AR/VR/具身智能）早期节点",
+        "资本与组织：AI 初创早期融资（种子/A 轮）、AI 科学家流动、大厂战略调整、并购前奏",
+        "新范式：Agent、Agentic Workflow、Robotics、AI+Science 等新范式的关键拐点",
+        "政策与监管：与科技直接相关的政策窗口期动作"
+      ],
+      "exclude": [
+        "纯营销/品牌广告（无产品/技术变化）",
+        "已广为人知/被充分定价的成熟产品迭代（除非出现定价/政策拐点）",
+        "纯娱乐/消费类内容",
+        "B 端销售/采购类消息",
+        "个人故事/科普文章（除非有早期信号价值）",
+        "已收录进「AI生态红利雷达」的话题（避免重复）"
+      ],
+      "focus": [
+        "大模型与平台动态（OpenAI/Anthropic/Google/Meta/Microsoft）",
+        "国内大厂 AI 生态（字节/阿里/腾讯/百度/华为/智谱/DeepSeek/Kimi/MiniMax/阶跃/月之暗面）",
+        "开源模型与工具（Llama/Qwen/DeepSeek/Mistral/Phi）",
+        "AI 芯片与算力（NVIDIA/AMD/Intel/昇腾/寒武纪）",
+        "Agent 框架与开发者工具（LangChain/AutoGen/CrewAI/Cursor/扣子）",
+        "前沿硬件（机器人/具身智能/脑机接口/AR/VR/可穿戴）",
+        "AI 科学家流动与大厂战略调整",
+        "AI 初创早期融资"
+      ],
+      "signal_types": [
+        "模型预发布/内测",
+        "定价或API政策调整",
+        "平台生态策略变化",
+        "开源生态节点",
+        "芯片与算力拐点",
+        "前沿硬件早期节点",
+        "早期融资",
+        "组织与人才流动",
+        "并购前奏",
+        "科技政策窗口"
+      ],
+      "sources": {
+        "tier1": [
+          "官方博客/文档/仓库",
+          "官方 X（Twitter）账号",
+          "政府/监管/学术机构官网",
+          "上市公司投资者关系页"
+        ],
+        "tier2": [
+          "The Information",
+          "财新",
+          "36氪深度",
+          "机器之心",
+          "量子位",
+          "Pitchbook",
+          "Crunchbase"
+        ]
+      },
+      "search_seeds": [
+        "OpenAI Anthropic Google DeepMind 模型 预览 内测 发布",
+        "大模型 API 定价 调整 免费额度 开发者",
+        "国产大模型 字节 阿里 智谱 DeepSeek Kimi 新版本",
+        "开源模型 权重 发布 Hugging Face Llama Qwen Mistral",
+        "AI 芯片 推理成本 训练集群 算力 发布",
+        "具身智能 机器人 脑机接口 AR 眼镜 早期量产",
+        "AI 初创 种子轮 A 轮 融资",
+        "Agent 框架 开发者工具 升级 企业级"
+      ]
+    },
+    {
+      "name_cn": "早鸟雷达-医学",
+      "domain": "医学",
+      "domain_slug": "med",
+      "setup_token": "setup_244e21da",
+      "schedule_time": "08:16",
+      "output_dir": "early_bird/热点资讯追踪/早鸟雷达-医学",
+      "authority_requirement": "high",
+      "empty_silent": true,
+      "definition": "医学领域早期信号雷达，捕捉尚未被充分定价、但已具备扩散潜力的医学动向，聚焦临床试验早期节点、新药研发关键事件、医疗 AI 应用落地节点、创新医疗器械、监管政策窗口、跨国医学合作。",
+      "include": [
+        "临床试验（I-III 期关键节点：首例入组、剂量爬坡完成、主要终点 readout、安全性里程碑、招募启停、入组速度异常变化）",
+        "新药研发（IND/NDA/BLA/突破性疗法/快速通道/优先评审、PDUFA 日期、关键 III 期数据公布）",
+        "医疗 AI（FDA/NMPA/CE 关键审批、临床应用落地节点、医疗大模型/Agent 关键拐点、AI 制药早期里程碑）",
+        "医疗器械（创新医疗器械审批、新型手术机器人、可穿戴医疗器械、神经介入/介入治疗创新）",
+        "政策与监管（NMPA/FDA/EMA/PMDA 关键政策窗口、跨境医学合作、罕见病政策）",
+        "前沿医学（基因编辑/细胞治疗/RNA 疗法/AI 制药/脑机接口医学应用等早期商业化节点）"
+      ],
+      "exclude": [
+        "纯病例报告/医生个人故事",
+        "保健品/营养品营销内容",
+        "已广为人知的成熟药物的常规推广",
+        "与医学无直接关联的消费品/商业内容",
+        "单纯学术论文（除非有商业化/政策拐点）"
+      ],
+      "focus": [
+        "FDA/NMPA/EMA/PMDA 关键审批与政策窗口",
+        "ClinicalTrials.gov 重要试验状态变化（暂停/启动/扩面）",
+        "新药研发里程碑（PDUFA、III 期数据 readout、突破性疗法认定）",
+        "医疗 AI 商业化（医疗大模型审批、Agent 临床应用、AI 制药早期）",
+        "创新医疗器械（手术机器人、可穿戴医疗、神经介入）",
+        "细胞治疗/基因编辑/RNA 疗法关键节点",
+        "跨国医学合作与跨境监管协同"
+      ],
+      "signal_types": [
+        "临床试验关键节点",
+        "试验状态变化",
+        "注册审批里程碑",
+        "PDUFA/审评窗口",
+        "医疗AI审批与落地",
+        "创新器械获批",
+        "细胞与基因治疗节点",
+        "监管政策窗口",
+        "跨境医学合作"
+      ],
+      "sources": {
+        "tier1": [
+          "NMPA 官网",
+          "FDA 官网",
+          "EMA 官网",
+          "PMDA 官网",
+          "CDE 官网",
+          "ClinicalTrials.gov",
+          "上市公司公告",
+          "企业投资者关系页"
+        ],
+        "tier2": [
+          "Endpoints News",
+          "Fierce Biotech",
+          "STAT News",
+          "药经理人",
+          "医药魔方",
+          "Insight 数据库"
+        ]
+      },
+      "single_source_policy": "可拒绝单源爆料；单源信息不得作为事件组唯一支撑。",
+      "search_seeds": [
+        "FDA 批准 新药 PDUFA 优先审评 突破性疗法",
+        "NMPA 药监局 获批 创新医疗器械 注册",
+        "III 期临床 主要终点 数据 readout 结果",
+        "ClinicalTrials.gov 试验 暂停 启动 招募",
+        "医疗大模型 AI 辅助诊断 审批 落地医院",
+        "细胞治疗 基因编辑 CAR-T RNA 疗法 商业化",
+        "手术机器人 可穿戴医疗 神经介入 获批",
+        "AI 制药 里程碑 临床前 候选药物"
+      ]
+    },
+    {
+      "name_cn": "早鸟雷达-金融",
+      "domain": "金融",
+      "domain_slug": "fin",
+      "setup_token": "setup_ccbd5295",
+      "schedule_time": "08:29",
+      "output_dir": "early_bird/热点资讯追踪/早鸟雷达-金融",
+      "authority_requirement": "high",
+      "empty_silent": true,
+      "definition": "金融领域早期信号雷达，捕捉尚未被充分定价、但已具备扩散潜力的金融动向，聚焦货币政策窗口、监管新规、金融科技创新、新型金融产品、量化策略拐点、跨境资本流动。",
+      "include": [
+        "央行与货币政策（美联储/FOMC/ECB/PBoC/BOJ 关键表态、利率决议预告、非常规工具启用（QE/YCC 调整/紧急流动性））",
+        "监管与法规（SEC/CSRC/FCA/ESMA 关键新规、跨境监管协同、加密资产监管、稳定币立法）",
+        "金融科技创新（央行数字货币（CBDC）试点扩面、跨境支付新通道、Tokenized Assets/RWA、DeFi 关键拐点）",
+        "新型金融产品（ETF 新品种类（杠杆/反向/主动型/另类资产）、REITs 扩面、ETF 申赎限制调整、指数调整）",
+        "资本市场（IPO 窗口变化、并购重组信号、退市风险、上市公司战略调整）",
+        "量化与机构（AI 量化策略拐点、券商/投行业务调整、保险资金/养老金策略变化）",
+        "汇率与大宗（央行干预信号、新型衍生品、大宗商品供需拐点）"
+      ],
+      "exclude": [
+        "个股日常走势/纯 K 线分析",
+        "已广为人知的成熟政策（除非出现政策窗口新节点）",
+        "单纯财经评论/分析师观点",
+        "已收盘后纯回顾内容",
+        "个人理财/营销类消息（除非有政策窗口）"
+      ],
+      "focus": [
+        "美联储/FOMC/ECB/PBoC/BOJ 关键节点",
+        "SEC/CSRC/FCA/ESMA 关键新规",
+        "跨境支付/数字货币/稳定币/CBDC",
+        "AI 量化策略与对冲基金动向",
+        "ETF/REITs/RWA/Tokenized Assets",
+        "IPO/并购重组/退市",
+        "券商投行战略调整",
+        "汇率干预与大宗商品拐点"
+      ],
+      "signal_types": [
+        "货币政策窗口",
+        "监管新规",
+        "CBDC与跨境支付",
+        "稳定币与加密监管",
+        "新型金融产品",
+        "指数与ETF调整",
+        "IPO窗口变化",
+        "并购重组信号",
+        "量化策略拐点",
+        "汇率与大宗拐点"
+      ],
+      "sources": {
+        "tier1": [
+          "央行官网（美联储/ECB/PBoC/BOJ）",
+          "证监会官网（SEC/CSRC/FCA/ESMA）",
+          "交易所官网",
+          "上市公司投资者关系页",
+          "官方公告与政策文件"
+        ],
+        "tier2": [
+          "Bloomberg",
+          "Reuters",
+          "Financial Times",
+          "华尔街日报",
+          "财新",
+          "路透中文",
+          "21 世纪经济报道"
+        ]
+      },
+      "single_source_policy": "可拒绝单源爆料；单源信息不得作为事件组唯一支撑。",
+      "search_seeds": [
+        "美联储 FOMC 利率决议 表态 降息 缩表",
+        "证监会 SEC CSRC 新规 征求意见 发布",
+        "数字人民币 CBDC 试点 扩面 跨境支付",
+        "稳定币 立法 监管 加密资产 规则",
+        "ETF 新品 获批 REITs 扩募 指数调整",
+        "IPO 窗口 重启 并购重组 退市",
+        "RWA 代币化 资产 Tokenized 试点",
+        "央行 汇率干预 大宗商品 供需拐点"
+      ]
+    },
+    {
+      "name_cn": "早鸟雷达-消费",
+      "domain": "消费",
+      "domain_slug": "consumer",
+      "setup_token": "setup_63c56ee9",
+      "schedule_time": "08:42",
+      "output_dir": "early_bird/热点资讯追踪/早鸟雷达-消费",
+      "authority_requirement": "high",
+      "empty_silent": true,
+      "definition": "消费领域早期信号雷达，捕捉尚未被充分定价、但已具备扩散潜力的消费动向，聚焦新品发布前奏、品牌战略转向、零售渠道变化、消费行为拐点、供应链关键变化。",
+      "include": [
+        "新品预发布/泄露/泄露评测（手机/汽车/家电/3C/美妆/服饰/食品饮料等新品预热节点）",
+        "品牌战略调整（裁员、渠道收缩/扩张、品类扩面、关店、新业务线、退出市场）",
+        "零售渠道（线下门店关停/扩张、电商新模式（直播/即时零售/团购）、跨境电商政策、关税窗口）",
+        "消费行为拐点（消费降级/升级的早期信号（如折扣店扩张、高端品牌降价、Z 世代消费倾向变化））",
+        "供应链关键变化（关键零部件涨价/缺货、新工厂投产、物流重大调整）",
+        "消费政策（消费券、以旧换新扩面、汽车补贴、跨境关税、消费税调整）",
+        "新兴消费（AI 陪伴/具身智能消费级硬件、AR/VR 消费化、宠物经济、银发经济）"
+      ],
+      "exclude": [
+        "纯打折促销/单纯电商节庆",
+        "已广为人知的成熟品牌的常规迭代",
+        "与消费无直接关联的娱乐内容",
+        "纯营销/品牌广告（无产品/战略变化）",
+        "B 端供应链/产业政策（应进入商业领域）"
+      ],
+      "focus": [
+        "新品预发布与泄露（手机/汽车/3C/美妆/食品）",
+        "品牌战略调整（裁员/扩品类/关店/退出市场）",
+        "零售渠道变化（线下/电商/即时零售/跨境）",
+        "消费行为拐点（降级/升级）",
+        "供应链关键变化",
+        "消费政策（消费券/以旧换新/补贴/关税）",
+        "新兴消费（AI 陪伴/具身/AR-VR/宠物/银发）"
+      ],
+      "signal_types": [
+        "新品预热与泄露",
+        "品牌战略调整",
+        "渠道扩张或收缩",
+        "电商新模式",
+        "消费行为拐点",
+        "供应链关键变化",
+        "消费政策窗口",
+        "新兴消费品类"
+      ],
+      "sources": {
+        "tier1": [
+          "品牌官方公告",
+          "上市公司投资者关系页",
+          "政府消费政策官网",
+          "电商平台官方公告"
+        ],
+        "tier2": [
+          "虎嗅",
+          "晚点 LatePost",
+          "36氪深度",
+          "财经媒体",
+          "财新",
+          "路透中文"
+        ]
+      },
+      "search_seeds": [
+        "新品 预热 爆料 发布 手机 汽车 家电",
+        "品牌 关店 裁员 退出市场 渠道调整",
+        "即时零售 直播电商 跨境电商 新模式",
+        "消费降级 折扣店 高端品牌 降价",
+        "消费券 以旧换新 汽车补贴 政策 扩面",
+        "零部件 涨价 缺货 工厂投产 物流",
+        "AI 陪伴 硬件 宠物经济 银发经济",
+        "关税 跨境 消费税 调整"
+      ]
+    },
+    {
+      "name_cn": "早鸟雷达-商业",
+      "domain": "商业",
+      "domain_slug": "biz",
+      "setup_token": "setup_d93a5b44",
+      "schedule_time": "08:55",
+      "output_dir": "early_bird/热点资讯追踪/早鸟雷达-商业",
+      "authority_requirement": "high",
+      "empty_silent": true,
+      "definition": "商业领域早期信号雷达，捕捉尚未被充分定价、但已具备扩散潜力的商业动向，聚焦 B 端 SaaS 行业动态、产业政策、并购重组、跨境贸易、行业拐点、大厂 B 端业务调整。",
+      "include": [
+        "B 端 SaaS（AI SaaS 关键产品发布/定价调整/订阅政策、CRM/ERP/HCM 等关键拐点、垂直 SaaS 早期里程碑）",
+        "大厂 B 端业务（阿里云/华为云/腾讯云/AWS/Azure 关键策略调整、AI Agent 企业级落地）",
+        "产业政策（行业监管新规、税收/补贴政策、产业带政策、跨境贸易规则）",
+        "并购重组信号（早期收购传闻、上市公司战略并购、跨境并购、地缘政治影响的并购）",
+        "行业拐点信号（行业报告/数据异常变化、新进入者搅局、龙头公司战略重大转向）",
+        "跨境贸易（关税/出口管制/制裁清单调整、跨境物流、跨境支付新通道）",
+        "工业与基础设施（新型电力/储能/氢能/碳中和产业链关键节点、AI 在工业的落地）"
+      ],
+      "exclude": [
+        "纯 B 端销售/采购类消息（除非有产品/政策变化）",
+        "纯 C 端消费内容（应进入消费领域）",
+        "已广为人知的成熟大厂常规迭代",
+        "单纯行业评论/分析师观点",
+        "学术论文（除非有商业化拐点）"
+      ],
+      "focus": [
+        "AI SaaS 与 Agent 企业级落地",
+        "大厂 B 端业务（阿里云/华为云/腾讯云/AWS/Azure）",
+        "产业政策（监管/税收/补贴/产业带）",
+        "并购重组信号",
+        "行业拐点信号（新进入者/龙头转向）",
+        "跨境贸易（关税/出口管制/物流）",
+        "工业基础设施（电力/储能/碳中和/AI 工业落地）"
+      ],
+      "signal_types": [
+        "企业级AI落地",
+        "SaaS定价与产品拐点",
+        "云厂商策略调整",
+        "产业政策窗口",
+        "并购重组信号",
+        "行业拐点信号",
+        "跨境贸易与管制",
+        "工业与能源基础设施"
+      ],
+      "sources": {
+        "tier1": [
+          "政府监管官网",
+          "上市公司公告",
+          "行业协会",
+          "官方政策文件"
+        ],
+        "tier2": [
+          "财新",
+          "晚点 LatePost",
+          "36氪深度",
+          "路透中文",
+          "Bloomberg",
+          "Reuters",
+          "Financial Times"
+        ]
+      },
+      "search_seeds": [
+        "企业级 AI Agent 落地 案例 部署",
+        "SaaS 定价 调整 订阅 政策 CRM ERP",
+        "阿里云 华为云 腾讯云 AWS Azure 策略 调整",
+        "产业政策 补贴 税收 监管 新规 发布",
+        "并购 收购 重组 传闻 跨境",
+        "出口管制 制裁清单 关税 调整",
+        "储能 氢能 新型电力 碳中和 项目",
+        "行业报告 数据 异常 新进入者"
+      ]
+    },
+    {
+      "name_cn": "早鸟雷达-人才",
+      "domain": "人才",
+      "domain_slug": "talent",
+      "setup_token": "setup_26010b88",
+      "schedule_time": "09:08",
+      "output_dir": "early_bird/热点资讯追踪/早鸟雷达-人才",
+      "authority_requirement": "high",
+      "empty_silent": true,
+      "definition": "人才领域早期信号雷达，捕捉尚未被充分定价、但已具备扩散潜力的人才动向，聚焦高校奖学金/竞赛启动、AI 科学家流动、人才政策窗口、就业拐点、初创公司招人动向。",
+      "include": [
+        "全球顶级奖学金/竞赛（腾讯青云/马云公益/清华姚班/华为天才少年/IMO/IOI 等启动节点）",
+        "AI 科学家流动（OpenAI/Anthropic/Google DeepMind/Meta/xAI 等核心研究人员动向（离职/加入/创业））",
+        "高校实验室动向（斯坦福/MIT/伯克利/清华/北大等实验室关键发布、AI 教授职位变动）",
+        "人才政策窗口（H-1B/工签/落户/购房/补贴等关键政策调整、AI 人才签证）",
+        "就业市场拐点（CS/AI 类毕业生起薪变化、互联网/AI 公司裁员信号、初创公司大规模招人）",
+        "AI 教育（大学新设 AI 专业、AI 课程平台拐点、AI 训练营/学徒制）",
+        "国际人才争夺（海外引进人才政策、海归人才动向）"
+      ],
+      "exclude": [
+        "纯人事变动/普通公司日常招聘",
+        "纯职场鸡汤/职业规划内容",
+        "已广为人知的成熟奖学金/竞赛（除非有新节点）",
+        "普通高校招生政策（除非与 AI/科技强相关）",
+        "纯学术论文（除非有人才动向关联）"
+      ],
+      "focus": [
+        "全球顶级奖学金/竞赛启动",
+        "AI 科学家流动（OpenAI/Anthropic/Google/Meta/xAI）",
+        "高校实验室关键发布",
+        "人才政策窗口（签证/落户/补贴）",
+        "就业市场拐点（AI 起薪/裁员/招人）",
+        "AI 教育（专业/课程/学徒制）",
+        "国际人才争夺"
+      ],
+      "signal_types": [
+        "奖学金与竞赛启动",
+        "AI科学家流动",
+        "高校实验室动向",
+        "人才政策窗口",
+        "就业市场拐点",
+        "AI教育新节点",
+        "国际人才争夺"
+      ],
+      "sources": {
+        "tier1": [
+          "高校官网",
+          "奖学金官方页面",
+          "公司投资者关系页",
+          "移民局官网（H-1B 等）",
+          "LinkedIn 官方账号"
+        ],
+        "tier2": [
+          "财新",
+          "36氪",
+          "晚点 LatePost",
+          "Bloomberg",
+          "Reuters",
+          "官方媒体"
+        ]
+      },
+      "search_seeds": [
+        "AI 科学家 离职 加入 创业 OpenAI Anthropic DeepMind",
+        "华为天才少年 腾讯青云 奖学金 竞赛 启动",
+        "H-1B 签证 政策 调整 人才签证 落户",
+        "AI 岗位 起薪 变化 招聘 大规模",
+        "互联网 AI 公司 裁员 信号",
+        "高校 新设 人工智能 专业 实验室",
+        "IMO IOI 竞赛 启动 报名",
+        "海外人才引进 海归 政策 补贴"
+      ]
+    }
+  ],
+  "schedule": [
+    {"chain": "科技", "time": "08:03", "action": "guide.py briefing setup_0da2e5ce"},
+    {"chain": "医学", "time": "08:16", "action": "guide.py briefing setup_244e21da"},
+    {"chain": "金融", "time": "08:29", "action": "guide.py briefing setup_ccbd5295"},
+    {"chain": "消费", "time": "08:42", "action": "guide.py briefing setup_63c56ee9"},
+    {"chain": "商业", "time": "08:55", "action": "guide.py briefing setup_d93a5b44"},
+    {"chain": "人才", "time": "09:08", "action": "guide.py briefing setup_26010b88"},
+    {"chain": "聚合", "time": "09:45", "action": "aggregate.py snapshot → index.html + daily/"}
+  ]
+}
