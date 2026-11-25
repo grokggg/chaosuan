@@ -428,6 +428,7 @@ def validate_events(
 
     required_domains = min_domains(contract, domain)
     signal_types = [str(item) for item in domain.get("signal_types", [])]
+    tier2_registry = [str(item).strip().lower() for item in (domain.get("sources") or {}).get("tier2", [])]
     run_day = parse_date(day) or date_cls.today()
     horizon = run_day + timedelta(days=1)
     seen_ids: set[str] = set()
@@ -499,6 +500,14 @@ def validate_events(
                 tier1_count += 1
             elif tier == "tier2":
                 tier2_count += 1
+                publisher = str(source.get("publisher", "")).strip().lower()
+                if tier2_registry and publisher and not any(
+                    publisher in entry or entry in publisher for entry in tier2_registry
+                ):
+                    result.warn(
+                        f"{s_label} 被标为 tier2 但发布机构「{source.get('publisher')}」不在本领域 tier2 信源清单内；"
+                        "如确属主流媒体请将其加入契约 tier2 清单，否则应降为 unknown 并补充清单内来源"
+                    )
             else:
                 result.error(f"{s_label} tier 只能是 tier1/tier2，unknown 不得作为合格来源（当前: {tier or '(空)'}）")
             published = parse_date(source.get("published_at"))

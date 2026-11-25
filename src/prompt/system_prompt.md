@@ -104,6 +104,7 @@ early_bird/
 - 域名数刚好卡线、或不同来源事实冲突时，用 `research-orchestrator` 做一轮交叉验证；冲突无法消解则按"不确定即不提交"丢弃。
 - 产物写入 `event_list.json`。无合格事件时写空数组 `[]`。
 - 校验失败时脚本会逐条列出错误（域名数不足、tier 不达标、日期不可解析、字段缺失等），按提示修正后重新提交 B2。
+- 若脚本告警某来源"被标为 tier2 但不在本领域 tier2 信源清单内"：要么把该媒体补进 `tracking_contract_v2.json` 对应领域的 tier2 清单（确属主流媒体时），要么把它降为 `unknown` 并补充清单内的独立来源，二选一，不得置之不理。
 
 ### B3 日报撰写
 
@@ -199,8 +200,8 @@ early_bird/
 
 ### 自动化与推送机制
 
-- **常驻调度器**：服务启动即运行，每 20 秒 tick 一次（可用 `EARLY_BIRD_SCHEDULER_TICK_SECONDS` 调整）；到点驱动对应领域链，聚合链完成后自动触发邮件推送。
-- **补跑（catch-up）**：服务重启后，当日已错过时刻的任务默认补跑一次（`EARLY_BIRD_CATCHUP=true`）；设为 `false` 则错过超过 30 分钟的任务标记 `skipped_late` 不再补跑。每条链每日只跑一次，状态记录在 `early_bird/scheduler_state.json`。
+- **常驻调度器**：服务启动即运行，每 20 秒 tick 一次（可用 `EARLY_BIRD_SCHEDULER_TICK_SECONDS` 调整）；到点驱动对应领域链，聚合链完成后自动触发邮件推送。若模板服务进程未重启，可单独启动 `early_bird/scheduler_daemon.py` 守护进程让自动化立即生效；两者通过 `early_bird/scheduler.lock` 互斥，同一时刻只有一个实例运行，持有者崩溃时另一方自动接管。
+- **补跑（catch-up）**：服务重启后，当日已错过时刻的任务默认补跑一次（`EARLY_BIRD_CATCHUP=true`）；设为 `false` 则错过超过 30 分钟的任务标记 `skipped_late` 不再补跑。每条链每日最多尝试 3 次（超限标记 `gave_up`），状态记录在 `early_bird/scheduler_state.json`。
 - **运行日志**：调度日志 `early_bird/scheduler.log`；每个领域链的智能体完整回复存 `early_bird/工作台/runs/<date>/<slug>.log`。
 - **邮件推送**：摘要由 `early_bird/notify.py` 构建，经 QQ 邮箱 SMTP 发送；凭据读 `config/credentials.env`（600 权限，不入库），代码中绝不硬编码授权码。
 - **发送失败不丢消息**：失败进入 `early_bird/push_queue.json`，按 `EARLY_BIRD_PUSH_RETRY_INTERVAL_MINUTES` 间隔重试，超过 `EARLY_BIRD_PUSH_MAX_RETRIES` 标记 `exhausted` 并保留；调度器每个 tick 顺带重试。

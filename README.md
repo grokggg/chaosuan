@@ -137,8 +137,19 @@
 - 每 20 秒 tick 一次（`EARLY_BIRD_SCHEDULER_TICK_SECONDS` 可调），按 `tracking_contract_v2.json` 的 schedule 到点驱动对应领域链；
 - 领域链在进程内直接驱动智能体（独立 thread_id，不污染用户会话），完整回复存 `early_bird/工作台/runs/<date>/<slug>.log`；
 - 聚合链完成后自动触发邮件推送；
-- 服务重启后默认补跑当日已错过的任务（`EARLY_BIRD_CATCHUP=true`）；每条链每日只跑一次，状态存 `early_bird/scheduler_state.json`；
+- 服务重启后默认补跑当日已错过的任务（`EARLY_BIRD_CATCHUP=true`）；每条链每日最多 3 次尝试，状态存 `early_bird/scheduler_state.json`；
 - 调度日志：`early_bird/scheduler.log`。
+
+**独立守护进程（`early_bird/scheduler_daemon.py`）**：模板服务进程若未重启（旧代码无调度循环），
+可单独启动守护进程让自动化立即生效：
+
+```bash
+setsid nohup python early_bird/scheduler_daemon.py >> early_bird/daemon.out 2>&1 &
+kill $(cat early_bird/scheduler.lock)   # 停止
+```
+
+守护进程与模板服务内的调度循环通过 `early_bird/scheduler.lock`（flock）互斥：
+同一时刻只有一个实例真正运行，另一个待命；持有者崩溃时内核释放锁，待命方在下一个 tick 自动接管。
 
 ### 邮件推送（`early_bird/notify.py`）
 
