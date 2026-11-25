@@ -51,6 +51,7 @@ _import_started_at = time.perf_counter()
 from src.api.request_monitor import api_usage_monitor_loop, record_api_call
 from src.api.response import api_error
 from src.api.routes.chat import router as chat_router
+from src.api.routes.early_bird import router as early_bird_router
 from src.api.routes.files import router as files_router
 from src.api.routes.general import router as general_router
 from src.logger import get_logger
@@ -103,22 +104,28 @@ async def lifespan(_: FastAPI) -> AsyncIterator[None]:
         await AGENTS.get()
     logger.info("Default agent preloaded")
     api_usage_task = None
+    scheduler_task = None
     if not report_enabled():
         # Restore the public AgentCard after restart or migration in legacy mode.
         from src.api.routes.chat import _register_a2a_agent_card
 
         asyncio.create_task(_register_a2a_agent_card())
         api_usage_task = asyncio.create_task(api_usage_monitor_loop(), name="api_usage_monitor")
+        from src.early_bird_scheduler import scheduler_loop
+
+        scheduler_task = asyncio.create_task(scheduler_loop(), name="early_bird_scheduler")
     # This is the end of FastAPI lifespan initialization, not HTTP readiness.
     # measure_server_startup.py supplies the end-to-end readiness time.
     startup_timer.summary()
     try:
         yield
     finally:
-        if api_usage_task is not None:
-            api_usage_task.cancel()
+        for task in (api_usage_task, scheduler_task):
+            if task is None:
+                continue
+            task.cancel()
             with suppress(asyncio.CancelledError):
-                await api_usage_task
+                await task
 
 
 app = FastAPI(title="user_agent", lifespan=lifespan)
@@ -162,6 +169,7 @@ async def standard_validation_exception_handler(request: Request, exc: RequestVa
 
 
 app.include_router(chat_router, prefix="/api")
+app.include_router(early_bird_router, prefix="/api")
 app.include_router(files_router, prefix="/api")
 app.include_router(general_router, prefix="/api")
 

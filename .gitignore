@@ -11,3 +11,8 @@ __pycache__/
 early_bird/热点资讯追踪/
 early_bird/工作台/
 early_bird/aggregate.log
+early_bird/push_queue.json
+early_bird/scheduler_state.json
+early_bird/scheduler_manual.json
+early_bird/scheduler.log
+config/credentials.env

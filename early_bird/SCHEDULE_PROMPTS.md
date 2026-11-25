@@ -119,7 +119,29 @@
 | 消费 | 08:42 | `setup_63c56ee9` | briefing B1→B4 |
 | 商业 | 08:55 | `setup_d93a5b44` | briefing B1→B4 |
 | 人才 | 09:08 | `setup_26010b88` | briefing B1→B4 |
-| 聚合 | 09:45 | — | snapshot → index.html + daily/ |
+| 聚合 | 09:45 | — | snapshot → index.html + daily/ → 邮件推送 |
+
+## 自动化说明（重要）
+
+本项目**已内置常驻调度器**，上表时刻由 `src/early_bird_scheduler.py` 自动触发，
+**无需在外部平台配置日程**。上面 7 条提示词保留用于两种场景：
+
+1. 你仍想用外部日程平台触发（把提示词贴到平台日程里，平台调用本智能体即可）；
+2. 手动补跑某个领域时，把对应提示词直接发给智能体。
+
+聚合链完成后会自动发送当日邮件摘要（QQ 邮箱 SMTP，凭据在 `config/credentials.env`）。
+发送失败自动入队重试；无论是否发出，摘要都写入站内收件箱 `early_bird/工作台/inbox/`。
+
+手动触发也可走 HTTP 接口，无需粘贴提示词：
+
+```bash
+curl -X POST http://127.0.0.1:8010/api/user/agent/early-bird/run \
+  -H 'Content-Type: application/json' \
+  -d '{"chain":"tech","date":"2026-11-25","push":false}'
+
+curl -X POST http://127.0.0.1:8010/api/user/agent/early-bird/push \
+  -H 'Content-Type: application/json' -d '{"date":"2026-11-25"}'
+```
 
 ## 路径映射（原 Coze → 本项目）
 

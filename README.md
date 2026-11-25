@@ -128,6 +128,52 @@
 智能体会识别原 Coze 提示词，把路径映射到 `early_bird/热点资讯追踪/早鸟雷达-科技/`，
 把 `guide.py` 调用映射为 `early_bird_briefing`，其余流程要求逐条照办。
 
+## 自动化与邮件推送
+
+### 常驻调度器（`src/early_bird_scheduler.py`）
+
+随模板服务启动，无需外部日程平台：
+
+- 每 20 秒 tick 一次（`EARLY_BIRD_SCHEDULER_TICK_SECONDS` 可调），按 `tracking_contract_v2.json` 的 schedule 到点驱动对应领域链；
+- 领域链在进程内直接驱动智能体（独立 thread_id，不污染用户会话），完整回复存 `early_bird/工作台/runs/<date>/<slug>.log`；
+- 聚合链完成后自动触发邮件推送；
+- 服务重启后默认补跑当日已错过的任务（`EARLY_BIRD_CATCHUP=true`）；每条链每日只跑一次，状态存 `early_bird/scheduler_state.json`；
+- 调度日志：`early_bird/scheduler.log`。
+
+### 邮件推送（`early_bird/notify.py`）
+
+- 凭据：`config/credentials.env`（600 权限，已 gitignore；模板见 `credentials_template.env`）。代码只从环境/该文件读取，绝不硬编码授权码。
+- 摘要三档：`concise`（精简，默认）/ `full`（含摘要、信号价值、来源清单）/ `notice`（仅提醒）。
+- 空结果策略：`per_domain`（默认，逐领域报"无合格信号"）/ `all_empty` / `silent`。
+- 发送失败不丢消息：进入 `early_bird/push_queue.json`，按间隔重试（默认 15 分钟），超限标记 `exhausted` 并保留；调度器每个 tick 顺带重试。
+- 站内收件箱：无论邮件是否发出，摘要都写入 `early_bird/工作台/inbox/<date>.json` 与 `latest.json`。
+
+### HTTP 接口（前缀 `/api/user/agent/early-bird`）
+
+| 方法 | 路径 | 用途 |
+| --- | --- | --- |
+| GET | `/status` | 调度开关、时刻表、今日任务状态、手动队列、推送配置（不含授权码） |
+| POST | `/run` | 手动触发某链：`{"chain":"tech|med|fin|consumer|biz|talent|aggregate","date":"YYYY-MM-DD","push":false}` |
+| POST | `/push` | 立即推送某日摘要：`{"date":...,"mode":"concise|full|notice","force":false}` |
+| POST | `/push/test` | 发送测试邮件，验证凭据与网络 |
+| GET | `/push/retry` | 重试失败队列（`?force=true` 忽略间隔） |
+| GET | `/inbox` | 查收件箱（`?date=YYYY-MM-DD`，默认最新） |
+
+### CLI
+
+```bash
+python early_bird/notify.py status                       # 推送配置与队列状态
+python early_bird/notify.py digest --date 2026-11-07     # 只构建摘要并写收件箱
+python early_bird/notify.py digest --date 2026-11-07 --send   # 构建并发送
+python early_bird/notify.py retry                        # 重试失败队列
+python early_bird/notify.py test                         # 测试邮件
+python early_bird/selftest_notify.py                     # 推送模块自检
+```
+
+### 网络限制说明
+
+当前沙箱出网受限（直连与代理 CONNECT 均不可达 smtp.qq.com:465），邮件会进入重试队列等待网络恢复；摘要始终可在站内收件箱查看。若部署到可出网环境，推送即刻生效。
+
 ## 本地运行
 
 ```bash

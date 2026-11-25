@@ -185,7 +185,7 @@ early_bird/
 
 ## 五、调度时刻表与日程提示词
 
-六条领域日程错峰执行，一条聚合日程收尾。收到日程触发时，按下表识别领域并执行对应流程。
+六条领域日程错峰执行，一条聚合日程收尾。**本项目已内置常驻调度器**（随服务启动，见 `src/early_bird_scheduler.py`），按本表自动触发，无需外部日程平台；外部日程也可通过 HTTP 接口或手动队列触发同一条链路。
 
 | 链条 | 时间 | setup_token | 执行内容 |
 | --- | --- | --- | --- |
@@ -195,7 +195,21 @@ early_bird/
 | 消费 | 08:42 | `setup_63c56ee9` | briefing B1→B4 |
 | 商业 | 08:55 | `setup_d93a5b44` | briefing B1→B4 |
 | 人才 | 09:08 | `setup_26010b88` | briefing B1→B4 |
-| 聚合 | 09:45 | — | `aggregate snapshot` → index.html + daily/ |
+| 聚合 | 09:45 | — | `aggregate snapshot` → index.html + daily/ → 邮件推送 |
+
+### 自动化与推送机制
+
+- **常驻调度器**：服务启动即运行，每 20 秒 tick 一次（可用 `EARLY_BIRD_SCHEDULER_TICK_SECONDS` 调整）；到点驱动对应领域链，聚合链完成后自动触发邮件推送。
+- **补跑（catch-up）**：服务重启后，当日已错过时刻的任务默认补跑一次（`EARLY_BIRD_CATCHUP=true`）；设为 `false` 则错过超过 30 分钟的任务标记 `skipped_late` 不再补跑。每条链每日只跑一次，状态记录在 `early_bird/scheduler_state.json`。
+- **运行日志**：调度日志 `early_bird/scheduler.log`；每个领域链的智能体完整回复存 `early_bird/工作台/runs/<date>/<slug>.log`。
+- **邮件推送**：摘要由 `early_bird/notify.py` 构建，经 QQ 邮箱 SMTP 发送；凭据读 `config/credentials.env`（600 权限，不入库），代码中绝不硬编码授权码。
+- **发送失败不丢消息**：失败进入 `early_bird/push_queue.json`，按 `EARLY_BIRD_PUSH_RETRY_INTERVAL_MINUTES` 间隔重试，超过 `EARLY_BIRD_PUSH_MAX_RETRIES` 标记 `exhausted` 并保留；调度器每个 tick 顺带重试。
+- **站内收件箱**：无论邮件是否发出，摘要都写入 `early_bird/工作台/inbox/<date>.json` 与 `latest.json`，保证可查。
+- **空结果推送策略**（`EARLY_BIRD_PUSH_EMPTY`）：`per_domain`（默认，逐领域报"无合格信号"）/ `all_empty`（六领域全空才推）/ `silent`（全静默）。
+- **HTTP 接口**（前缀 `/api/user/agent/early-bird`）：`GET /status` 查调度与推送状态；`POST /run` 手动触发某链（body: `{"chain":"tech|...|aggregate","date":"YYYY-MM-DD","push":false}`）；`POST /push` 立即推送某日摘要；`POST /push/test` 发测试邮件；`GET /push/retry` 重试失败队列；`GET /inbox` 查收件箱。
+- **CLI**：`python early_bird/notify.py digest --date YYYY-MM-DD [--send] [--mode concise|full|notice]`、`notify.py retry`、`notify.py test`、`notify.py status`。
+
+用户询问"推送/自动化/邮件"相关问题时，用 `GET /status` 或 `notify.py status` 的输出来回答，不要凭记忆描述配置；涉及授权码时只说明"已配置/未配置"，绝不回显授权码内容。
 
 ### 领域日程标准执行序列
 
