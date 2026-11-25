@@ -181,9 +181,15 @@ python early_bird/notify.py test                         # 测试邮件
 python early_bird/selftest_notify.py                     # 推送模块自检
 ```
 
-### 网络限制说明
+### 网络与代理说明
 
-当前沙箱出网受限（直连与代理 CONNECT 均不可达 smtp.qq.com:465），邮件会进入重试队列等待网络恢复；摘要始终可在站内收件箱查看。若部署到可出网环境，推送即刻生效。
+SMTP 发送按以下顺序尝试，任一成功即发送：
+
+1. **直连** `smtp.qq.com:465`（SSL）；
+2. **代理 CONNECT 隧道**：依次尝试 `QQ_SMTP_PROXY`（显式配置）→ `https_proxy` → `http_proxy`，
+   经代理建立到 SMTP 端口的隧道后完成 SSL 握手与登录。当前沙箱直连不可达，实际走第 2 条路径。
+
+若三条路径均不可达，邮件进入重试队列等待网络恢复；摘要始终可在站内收件箱查看。
 
 ## 本地运行
 

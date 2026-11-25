@@ -20,10 +20,12 @@ CLI：
 from __future__ import annotations
 
 import argparse
+import base64
 import html
 import json
 import os
 import smtplib
+import socket
 import ssl
 import sys
 import uuid
@@ -34,6 +36,7 @@ from email.mime.text import MIMEText
 from email.utils import formataddr
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlsplit
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
@@ -338,19 +341,121 @@ def _digest_html(
 # --------------------------------------------------------------------------- #
 # 发送与队列
 # --------------------------------------------------------------------------- #
+def _proxy_candidates() -> list[dict[str, Any]]:
+    """收集可用的 HTTP 代理候选（用于 CONNECT 隧道转发 SMTP）。
+
+    优先级：QQ_SMTP_PROXY 显式配置 > https_proxy > http_proxy。
+    仅返回 host/port/凭据结构，不记录到日志。
+    """
+    raw_values: list[str] = []
+    explicit = (os.getenv("QQ_SMTP_PROXY") or "").strip()
+    if explicit:
+        raw_values.append(explicit)
+    for name in ("https_proxy", "HTTPS_PROXY", "http_proxy", "HTTP_PROXY"):
+        value = (os.getenv(name) or "").strip()
+        if value:
+            raw_values.append(value)
+
+    candidates: list[dict[str, Any]] = []
+    seen: set[tuple[str, int]] = set()
+    for value in raw_values:
+        parsed = urlsplit(value if "://" in value else f"http://{value}")
+        host = parsed.hostname
+        port = parsed.port or 3128
+        if not host or (host, port) in seen:
+            continue
+        seen.add((host, port))
+        candidates.append(
+            {"host": host, "port": port, "user": parsed.username, "password": parsed.password}
+        )
+    return candidates
+
+
+def _proxy_connect(proxy: dict[str, Any], host: str, port: int, timeout: float) -> socket.socket:
+    """经 HTTP 代理建立到 host:port 的 CONNECT 隧道，返回裸 TCP socket。"""
+    raw = socket.create_connection((proxy["host"], proxy["port"]), timeout=timeout)
+    lines = [f"CONNECT {host}:{port} HTTP/1.1", f"Host: {host}:{port}"]
+    if proxy.get("user"):
+        token = base64.b64encode(f"{proxy['user']}:{proxy.get('password') or ''}".encode()).decode()
+        lines.append(f"Proxy-Authorization: Basic {token}")
+    lines += ["", ""]
+    raw.sendall("\r\n".join(lines).encode("ascii"))
+    response = b""
+    while b"\r\n\r\n" not in response and len(response) < 65536:
+        chunk = raw.recv(4096)
+        if not chunk:
+            break
+        response += chunk
+    status_line = response.split(b"\r\n", 1)[0].decode("ascii", "replace")
+    parts = status_line.split()
+    if len(parts) < 2 or parts[1] != "200":
+        raw.close()
+        raise OSError(f"proxy CONNECT rejected: {status_line}")
+    return raw
+
+
+class _ProxiedSMTPSSL(smtplib.SMTP_SSL):
+    """SMTP over SSL，连接经 HTTP 代理 CONNECT 隧道建立。"""
+
+    def __init__(self, host: str, port: int, timeout: float, context: ssl.SSLContext, proxy: dict[str, Any]):
+        self._tunnel_proxy = proxy
+        super().__init__(host, port, timeout=timeout, context=context)
+
+    def _get_socket(self, host: str, port: int, timeout):  # noqa: ANN001, ANN202
+        raw = _proxy_connect(self._tunnel_proxy, host, port, timeout or 30)
+        return self.context.wrap_socket(raw, server_hostname=host)
+
+
+class _ProxiedSMTP(smtplib.SMTP):
+    """SMTP（STARTTLS），连接经 HTTP 代理 CONNECT 隧道建立。"""
+
+    def __init__(self, host: str, port: int, timeout: float, proxy: dict[str, Any]):
+        self._tunnel_proxy = proxy
+        super().__init__(host, port, timeout=timeout)
+
+    def _get_socket(self, host: str, port: int, timeout):  # noqa: ANN001, ANN202
+        return _proxy_connect(self._tunnel_proxy, host, port, timeout or 30)
+
+
 def _connect(config: dict[str, Any]) -> smtplib.SMTP:
+    """先直连，直连不可达时依次尝试代理 CONNECT 隧道。"""
     host = config["smtp_host"]
     port = int(config["smtp_port"])
-    if config["use_ssl"]:
-        context = ssl.create_default_context()
-        client = smtplib.SMTP_SSL(host, port, timeout=30, context=context)
-    else:
-        client = smtplib.SMTP(host, port, timeout=30)
-        client.ehlo()
-        client.starttls(context=ssl.create_default_context())
-        client.ehlo()
-    client.login(config["sender"], config["auth_code"])
-    return client
+    context = ssl.create_default_context()
+    errors: list[str] = []
+
+    try:
+        if config["use_ssl"]:
+            client: smtplib.SMTP = smtplib.SMTP_SSL(host, port, timeout=30, context=context)
+        else:
+            client = smtplib.SMTP(host, port, timeout=30)
+            client.ehlo()
+            client.starttls(context=context)
+            client.ehlo()
+        client.login(config["sender"], config["auth_code"])
+        return client
+    except OSError as exc:
+        errors.append(f"direct: {type(exc).__name__}: {exc}")
+    except smtplib.SMTPAuthenticationError:
+        raise
+
+    for proxy in _proxy_candidates():
+        try:
+            if config["use_ssl"]:
+                client = _ProxiedSMTPSSL(host, port, 30, context, proxy)
+            else:
+                client = _ProxiedSMTP(host, port, 30, proxy)
+                client.ehlo()
+                client.starttls(context=context)
+                client.ehlo()
+            client.login(config["sender"], config["auth_code"])
+            return client
+        except OSError as exc:
+            errors.append(f"proxy {proxy['host']}:{proxy['port']}: {type(exc).__name__}: {exc}")
+        except smtplib.SMTPAuthenticationError:
+            raise
+
+    raise OSError(" | ".join(errors))
 
 
 def send_email(subject: str, text_body: str, html_body: str, config: dict[str, Any] | None = None) -> dict[str, Any]:
