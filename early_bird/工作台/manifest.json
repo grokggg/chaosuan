@@ -1,0 +1,119 @@
+{
+  "date": "2026-11-25",
+  "generated_at": "2026-11-25T09:50:20+08:00",
+  "index": "/public/home/acybv4o9xw/.sag/.vibe-coding/2125351205224071170/project/early_bird/工作台/index.html",
+  "snapshot": "/public/home/acybv4o9xw/.sag/.vibe-coding/2125351205224071170/project/early_bird/工作台/daily/2026-11-25.html",
+  "index_bytes": 81085,
+  "domains": [
+    {
+      "name_cn": "早鸟雷达-科技",
+      "domain_slug": "tech",
+      "setup_token": "setup_0da2e5ce",
+      "report_date": "2026-11-25",
+      "status": "DONE",
+      "event_count": 5,
+      "empty": false,
+      "stale": false,
+      "source_stats": {
+        "tier1_count": 0,
+        "tier2_count": 15,
+        "independent_domain_count": 11
+      },
+      "issues": [
+        "summary.source_stats.independent_domain_count=15 与事件实算 11 不一致，已采用实算值"
+      ]
+    },
+    {
+      "name_cn": "早鸟雷达-医学",
+      "domain_slug": "med",
+      "setup_token": "setup_244e21da",
+      "report_date": "2026-11-25",
+      "status": "DONE",
+      "event_count": 5,
+      "empty": false,
+      "stale": false,
+      "source_stats": {
+        "tier1_count": 0,
+        "tier2_count": 15,
+        "independent_domain_count": 12
+      },
+      "issues": [
+        "summary.source_stats.independent_domain_count=15 与事件实算 12 不一致，已采用实算值"
+      ]
+    },
+    {
+      "name_cn": "早鸟雷达-金融",
+      "domain_slug": "fin",
+      "setup_token": "setup_ccbd5295",
+      "report_date": "2026-11-25",
+      "status": "DONE",
+      "event_count": 4,
+      "empty": false,
+      "stale": false,
+      "source_stats": {
+        "tier1_count": 1,
+        "tier2_count": 11,
+        "independent_domain_count": 11
+      },
+      "issues": [
+        "summary.source_stats.independent_domain_count=12 与事件实算 11 不一致，已采用实算值"
+      ]
+    },
+    {
+      "name_cn": "早鸟雷达-消费",
+      "domain_slug": "consumer",
+      "setup_token": "setup_63c56ee9",
+      "report_date": "2026-11-25",
+      "status": "DONE",
+      "event_count": 5,
+      "empty": false,
+      "stale": false,
+      "source_stats": {
+        "tier1_count": 1,
+        "tier2_count": 14,
+        "independent_domain_count": 13
+      },
+      "issues": [
+        "summary.source_stats.independent_domain_count=15 与事件实算 13 不一致，已采用实算值"
+      ]
+    },
+    {
+      "name_cn": "早鸟雷达-商业",
+      "domain_slug": "biz",
+      "setup_token": "setup_d93a5b44",
+      "report_date": "2026-11-25",
+      "status": "DONE",
+      "event_count": 3,
+      "empty": false,
+      "stale": false,
+      "source_stats": {
+        "tier1_count": 6,
+        "tier2_count": 3,
+        "independent_domain_count": 9
+      },
+      "issues": []
+    },
+    {
+      "name_cn": "早鸟雷达-人才",
+      "domain_slug": "talent",
+      "setup_token": "setup_26010b88",
+      "report_date": "2026-11-25",
+      "status": "DONE",
+      "event_count": 4,
+      "empty": false,
+      "stale": false,
+      "source_stats": {
+        "tier1_count": 1,
+        "tier2_count": 11,
+        "independent_domain_count": 12
+      },
+      "issues": []
+    }
+  ],
+  "totals": {
+    "event_count": 26,
+    "reported_domains": 6,
+    "domain_count": 6,
+    "issue_count": 4
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-25",
+  "domain": "消费",
+  "domain_slug": "consumer",
+  "setup_token": "setup_63c56ee9",
+  "event_count": 5,
+  "empty": false,
+  "top_events": [
+    {
+      "event_id": "consumer-20261125-01",
+      "title": "GANNI暂停中国线上旗舰店运营，海外时尚品牌在华渠道持续收缩",
+      "signal_type": "品牌战略调整",
+      "confidence": "high",
+      "source_domain_count": 3
+    },
+    {
+      "event_id": "consumer-20261125-02",
+      "title": "即时零售双11销售额891亿同比增33%，商务部确认增速超两位数",
+      "signal_type": "电商新模式",
+      "confidence": "high",
+      "source_domain_count": 3
+    },
+    {
+      "event_id": "consumer-20261125-03",
+      "title": "AI陪伴硬件进入新品类临界点，Bubbo与Ora-Orb两条路径独立验证",
+      "signal_type": "新兴消费品类",
+      "confidence": "medium",
+      "source_domain_count": 3
+    },
+    {
+      "event_id": "consumer-20261125-04",
+      "title": "《2026中国宠物行业白皮书》发布，宠物经济2.0从产品向服务情感升级",
+      "signal_type": "新兴消费品类",
+      "confidence": "medium",
+      "source_domain_count": 3
+    },
+    {
+      "event_id": "consumer-20261125-05",
+      "title": "多地汽车以旧换新补贴进入倒计时，成都高新区补贴规模翻倍至8000万",
+      "signal_type": "消费政策窗口",
+      "confidence": "high",
+      "source_domain_count": 3
+    }
+  ],
+  "source_stats": {
+    "tier1_count": 1,
+    "tier2_count": 14,
+    "independent_domain_count": 15
+  },
+  "generated_at": "2026-11-25T09:28:00+08:00"
+}

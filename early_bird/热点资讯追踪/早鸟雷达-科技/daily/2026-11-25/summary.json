@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-25",
+  "domain": "科技",
+  "domain_slug": "tech",
+  "setup_token": "setup_0da2e5ce",
+  "event_count": 5,
+  "empty": false,
+  "top_events": [
+    {
+      "event_id": "tech-20261125-01",
+      "title": "Anthropic与OpenAI内部模型能力过强引发安全担忧，或推迟公开发布",
+      "signal_type": "模型预发布/内测",
+      "confidence": "high",
+      "source_domain_count": 3
+    },
+    {
+      "event_id": "tech-20261125-02",
+      "title": "智谱发布新一代旗舰模型GLM-5.4，首次采用Loop Transformer架构",
+      "signal_type": "模型预发布/内测",
+      "confidence": "high",
+      "source_domain_count": 3
+    },
+    {
+      "event_id": "tech-20261125-03",
+      "title": "腾讯混元Hy4正式开源，Apache 2.0许可证允许商业使用",
+      "signal_type": "开源生态节点",
+      "confidence": "high",
+      "source_domain_count": 3
+    },
+    {
+      "event_id": "tech-20261125-04",
+      "title": "DeepSeek调整API计费规则：服务端搜索与网页抓取不再单独计费",
+      "signal_type": "定价或API政策调整",
+      "confidence": "high",
+      "source_domain_count": 3
+    },
+    {
+      "event_id": "tech-20261125-05",
+      "title": "谷歌发布Gemini 4 Neon，7周内推出第4款Gemini 4系列模型",
+      "signal_type": "模型预发布/内测",
+      "confidence": "high",
+      "source_domain_count": 3
+    }
+  ],
+  "source_stats": {
+    "tier1_count": 0,
+    "tier2_count": 15,
+    "independent_domain_count": 15
+  },
+  "generated_at": "2026-11-25T09:04:00+08:00"
+}

@@ -1,0 +1,90 @@
+{
+  "date": "2026-11-25",
+  "generated_at": "2026-11-25T08:57:03+08:00",
+  "subject": "早鸟工作台 · 2026-11-25 · 今日无合格早期信号（0/6 领域出报）",
+  "text": "早鸟工作台每日推送 · 数据日期 2026-11-25\n生成时间 2026-11-25T08:56:46+08:00\n合格早期信号 0 条 ｜ 出报领域 0/6 ｜ 待处理告警 6\n信源门槛：每事件组 ≥3 独立域名，Tier-1 官方源 ×1 或 Tier-2 主流媒体 ×2\n\n【早鸟雷达-科技】缺报 · 事件 0 条\n  无日报产物（缺报）。\n\n【早鸟雷达-医学】缺报 · 事件 0 条\n  无日报产物（缺报）。\n\n【早鸟雷达-金融】缺报 · 事件 0 条\n  无日报产物（缺报）。\n\n【早鸟雷达-消费】缺报 · 事件 0 条\n  无日报产物（缺报）。\n\n【早鸟雷达-商业】缺报 · 事件 0 条\n  无日报产物（缺报）。\n\n【早鸟雷达-人才】缺报 · 事件 0 条\n  无日报产物（缺报）。\n\n待处理告警：\n  - 早鸟雷达-科技：未找到任何日报（daily/*.md）\n  - 早鸟雷达-医学：未找到任何日报（daily/*.md）\n  - 早鸟雷达-金融：未找到任何日报（daily/*.md）\n  - 早鸟雷达-消费：未找到任何日报（daily/*.md）\n  - 早鸟雷达-商业：未找到任何日报（daily/*.md）\n  - 早鸟雷达-人才：未找到任何日报（daily/*.md）\n\n工作台页面：/public/home/acybv4o9xw/.sag/.vibe-coding/2125351205224071170/project/early_bird/工作台/index.html\n（本邮件由早鸟工作台定时任务自动发送；空结果不代表任务未运行。）",
+  "html": "<div style=\"font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;font-size:14px;color:#222\">\n<h2 style=\"margin:0 0 4px\">早鸟工作台 · 2026-11-25</h2>\n<p style=\"color:#666;font-size:12px;margin:0 0 12px\">\n合格早期信号 <b>0</b> 条 ｜ 出报领域 <b>0/6</b> ｜ 告警 <b>6</b> ｜\n信源门槛：≥3 独立域名 + Tier-1×1 或 Tier-2×2</p>\n<table style=\"border-collapse:collapse;width:100%\">\n<tr style=\"background:#f5f5f5\">\n<th style=\"padding:8px;border:1px solid #ddd;text-align:left\">领域</th>\n<th style=\"padding:8px;border:1px solid #ddd\">事件数</th>\n<th style=\"padding:8px;border:1px solid #ddd;text-align:left\">要点</th>\n</tr>\n<tr><td style='padding:8px;border:1px solid #ddd;white-space:nowrap'><b>早鸟雷达-科技</b><br><span style='color:#c62828;font-size:12px'>缺报</span></td><td style='padding:8px;border:1px solid #ddd;text-align:center'>0</td><td style='padding:8px;border:1px solid #ddd;font-size:13px'>无日报产物（缺报）。</td></tr><tr><td style='padding:8px;border:1px solid #ddd;white-space:nowrap'><b>早鸟雷达-医学</b><br><span style='color:#c62828;font-size:12px'>缺报</span></td><td style='padding:8px;border:1px solid #ddd;text-align:center'>0</td><td style='padding:8px;border:1px solid #ddd;font-size:13px'>无日报产物（缺报）。</td></tr><tr><td style='padding:8px;border:1px solid #ddd;white-space:nowrap'><b>早鸟雷达-金融</b><br><span style='color:#c62828;font-size:12px'>缺报</span></td><td style='padding:8px;border:1px solid #ddd;text-align:center'>0</td><td style='padding:8px;border:1px solid #ddd;font-size:13px'>无日报产物（缺报）。</td></tr><tr><td style='padding:8px;border:1px solid #ddd;white-space:nowrap'><b>早鸟雷达-消费</b><br><span style='color:#c62828;font-size:12px'>缺报</span></td><td style='padding:8px;border:1px solid #ddd;text-align:center'>0</td><td style='padding:8px;border:1px solid #ddd;font-size:13px'>无日报产物（缺报）。</td></tr><tr><td style='padding:8px;border:1px solid #ddd;white-space:nowrap'><b>早鸟雷达-商业</b><br><span style='color:#c62828;font-size:12px'>缺报</span></td><td style='padding:8px;border:1px solid #ddd;text-align:center'>0</td><td style='padding:8px;border:1px solid #ddd;font-size:13px'>无日报产物（缺报）。</td></tr><tr><td style='padding:8px;border:1px solid #ddd;white-space:nowrap'><b>早鸟雷达-人才</b><br><span style='color:#c62828;font-size:12px'>缺报</span></td><td style='padding:8px;border:1px solid #ddd;text-align:center'>0</td><td style='padding:8px;border:1px solid #ddd;font-size:13px'>无日报产物（缺报）。</td></tr>\n</table>\n<p style='color:#c62828'><b>待处理告警</b></p><ul style='font-size:13px'><li>早鸟雷达-科技：未找到任何日报（daily/*.md）</li><li>早鸟雷达-医学：未找到任何日报（daily/*.md）</li><li>早鸟雷达-金融：未找到任何日报（daily/*.md）</li><li>早鸟雷达-消费：未找到任何日报（daily/*.md）</li><li>早鸟雷达-商业：未找到任何日报（daily/*.md）</li><li>早鸟雷达-人才：未找到任何日报（daily/*.md）</li></ul>\n<p style=\"font-size:12px;color:#666;margin-top:12px\">\n工作台页面：<code>/public/home/acybv4o9xw/.sag/.vibe-coding/2125351205224071170/project/early_bird/工作台/index.html</code><br>\n本邮件由早鸟工作台定时任务自动发送；空结果不代表任务未运行。</p>\n</div>",
+  "mode": "concise",
+  "should_push": true,
+  "skip_reason": null,
+  "totals": {
+    "event_count": 0,
+    "reported_domains": 0,
+    "domain_count": 6,
+    "issue_count": 6
+  },
+  "entries": [
+    {
+      "name_cn": "早鸟雷达-科技",
+      "domain_slug": "tech",
+      "status": "missing",
+      "report_date": null,
+      "event_count": 0,
+      "stale": false,
+      "issues": [
+        "未找到任何日报（daily/*.md）"
+      ]
+    },
+    {
+      "name_cn": "早鸟雷达-医学",
+      "domain_slug": "med",
+      "status": "missing",
+      "report_date": null,
+      "event_count": 0,
+      "stale": false,
+      "issues": [
+        "未找到任何日报（daily/*.md）"
+      ]
+    },
+    {
+      "name_cn": "早鸟雷达-金融",
+      "domain_slug": "fin",
+      "status": "missing",
+      "report_date": null,
+      "event_count": 0,
+      "stale": false,
+      "issues": [
+        "未找到任何日报（daily/*.md）"
+      ]
+    },
+    {
+      "name_cn": "早鸟雷达-消费",
+      "domain_slug": "consumer",
+      "status": "missing",
+      "report_date": null,
+      "event_count": 0,
+      "stale": false,
+      "issues": [
+        "未找到任何日报（daily/*.md）"
+      ]
+    },
+    {
+      "name_cn": "早鸟雷达-商业",
+      "domain_slug": "biz",
+      "status": "missing",
+      "report_date": null,
+      "event_count": 0,
+      "stale": false,
+      "issues": [
+        "未找到任何日报（daily/*.md）"
+      ]
+    },
+    {
+      "name_cn": "早鸟雷达-人才",
+      "domain_slug": "talent",
+      "status": "missing",
+      "report_date": null,
+      "event_count": 0,
+      "stale": false,
+      "issues": [
+        "未找到任何日报（daily/*.md）"
+      ]
+    }
+  ],
+  "send": {
+    "ok": false,
+    "error": "网络不可达或连接失败: OSError: [Errno 101] Network is unreachable",
+    "queued": true,
+    "queue_id": "d74bf91e796e"
+  }
+}

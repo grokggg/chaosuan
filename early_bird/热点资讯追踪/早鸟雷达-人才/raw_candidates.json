@@ -1,0 +1,162 @@
+[
+  {
+    "title": "OpenAI解散独立机器人团队，研究人员并入核心模型主线",
+    "url": "https://www.fortunechina.com/shangye/c/2026-11/21/content_478316.htm",
+    "domain": "fortunechina.com",
+    "publisher": "财富中文网",
+    "tier": "tier2",
+    "published_at": "2026-11-21",
+    "focus_tag": "AI科学家流动",
+    "note": "成立仅半年的Robotics团队被撤销，研究人员并入核心研究团队向Mark Chen汇报，硬件人员并入应用部门向Greg Brockman汇报；此前已预订的CoRL展位空置。这是继Sora之后OpenAI再次撤销明星团队，反映AI人才在组织战略调整中的重新配置。"
+  },
+  {
+    "title": "OpenAI撤销机器人团队：成立166天后研究人员并入模型主线",
+    "url": "https://www.thepaper.cn/newsDetail_forward_34494914",
+    "domain": "thepaper.cn",
+    "publisher": "澎湃新闻",
+    "tier": "tier2",
+    "published_at": "2026-11-21",
+    "focus_tag": "AI科学家流动",
+    "note": "详细报道OpenAI Robotics团队从成立到撤销的全过程，指出招聘页面上年薪最高48.5万美元的机器人岗位尚未撤下，与行业持续加码形成对比。"
+  },
+  {
+    "title": "OpenAI确认撤销独立机器人团队，机器人研究并入通用模型体系",
+    "url": "https://stock.stockstar.com/JC2026112300018459.shtml",
+    "domain": "stock.stockstar.com",
+    "publisher": "证券之星",
+    "tier": "unknown",
+    "published_at": "2026-11-23",
+    "focus_tag": "AI科学家流动",
+    "note": "引用湘财证券研报，指出OpenAI发现Sora及GPT-6 Astra等通用模型已能直接应用于机器人任务，因此将机器人研究人员并入通用模型研发体系。"
+  },
+  {
+    "title": "微软向约6万名员工发出自愿离职要约，AI重组驱动人才结构调整",
+    "url": "https://www.infzm.com/contents/344953?source=134",
+    "domain": "infzm.com",
+    "publisher": "南方周末",
+    "tier": "tier2",
+    "published_at": "2026-11-22",
+    "focus_tag": "就业市场拐点",
+    "note": "覆盖美加印英四国、占员工总数27%的自愿离职计划，主要针对中层管理、销售客服和部分编码岗位；公司披露新代码中AI生成比例从20%提至30%，部分团队超一半。年内第三轮人员调整。"
+  },
+  {
+    "title": "微软CEO纳德拉回应6万人自愿离职计划：不是AI取代人，是转向管理AI",
+    "url": "https://www.citicsf.com/e-futures/content/000501/826998",
+    "domain": "citicsf.com",
+    "publisher": "中信期货",
+    "tier": "unknown",
+    "published_at": "2026-11-19",
+    "focus_tag": "就业市场拐点",
+    "note": "纳德拉在DealBook峰会回应称自愿离职是为给员工自主选择空间，长远看所有员工将转向指挥和管理AI智能体。Xbox、Windows、Copilot等部门全面参与。"
+  },
+  {
+    "title": "美国H-1B签证发放量减少约三分之一，IBM停止部分岗位签证担保",
+    "url": "https://www.cls.cn/detail/2540631",
+    "domain": "cls.cn",
+    "publisher": "财联社",
+    "tier": "tier2",
+    "published_at": "2026-11-21",
+    "focus_tag": "人才政策窗口",
+    "note": "特朗普第二任期首年H-1B签发量减少约1/3；2027财年H-1B注册量211,600份，较上财年减少38.5%；IBM停止为最大业务部门多数职位提供签证担保；部分企业考虑外迁招聘与研发。"
+  },
+  {
+    "title": "H-1B签证收紧致科技人才外流：工程师从'黄金囚笼'主动离场",
+    "url": "https://news.qq.com/rain/a/20261120A0GAX800",
+    "domain": "news.qq.com",
+    "publisher": "腾讯新闻",
+    "tier": "unknown",
+    "published_at": "2026-11-20",
+    "focus_tag": "人才政策窗口",
+    "note": "彭博报道H-1B审批延误加剧，大批高技能外籍科技工作者放弃在美发展；微软、Adobe被禁止参与关键绿卡担保项目；2025财年临时非移民签证减少约26万份，今秋新增外国留学生人数估计下降15%。"
+  },
+  {
+    "title": "美国H-1B签证发放量明显下滑，企业调整招聘区域布局",
+    "url": "https://finance.eastmoney.com/a/202611213936541845.html",
+    "domain": "finance.eastmoney.com",
+    "publisher": "东方财富网",
+    "tier": "unknown",
+    "published_at": "2026-11-21",
+    "focus_tag": "人才政策窗口",
+    "note": "转载财联社报道，补充国土安全部拟对每份新H-1B申请加收高额费用的新规细节。"
+  },
+  {
+    "title": "高通在加州裁员超500人，向AI基础设施与汽车技术转型",
+    "url": "https://news.qq.com/rain/a/20261119A05PF700",
+    "domain": "news.qq.com",
+    "publisher": "腾讯新闻",
+    "tier": "unknown",
+    "published_at": "2026-11-19",
+    "focus_tag": "就业市场拐点",
+    "note": "WARN通知显示圣地亚哥总部442人、圣塔克拉拉75人被裁，1月12日生效；CEO阿蒙备忘录称年度考核后实施以绩效为导向的裁员，应对智能手机需求放缓并向AI基础设施转型。"
+  },
+  {
+    "title": "高通在加州各地裁员数百人",
+    "url": "https://www.gelonghui.com/live/2768676",
+    "domain": "gelonghui.com",
+    "publisher": "格隆汇",
+    "tier": "unknown",
+    "published_at": "2026-11-19",
+    "focus_tag": "就业市场拐点",
+    "note": "转引洛杉矶时报报道，确认高通圣地亚哥442人、圣塔克拉拉75人裁员，今年4月已在圣地亚哥裁撤105个职位。"
+  },
+  {
+    "title": "Anthropic纳斯达克上市，七位联合创始人每人账面身家突破百亿美元",
+    "url": "https://news.china.com/socialgd/10000169/20261120/49890755.html",
+    "domain": "news.china.com",
+    "publisher": "中华网",
+    "tier": "unknown",
+    "published_at": "2026-11-20",
+    "focus_tag": "AI科学家流动",
+    "note": "Anthropic IPO发行价83美元，募资约813亿美元创全球纪录；七位联合创始人（均从OpenAI出走）每人持股约1.4%，账面身家各约199亿美元；约600名员工持股超1亿美元。"
+  },
+  {
+    "title": "Anthropic上市造富：约600名员工持股超1亿美元，2800人跻身千万富翁",
+    "url": "https://usstock.jrj.com.cn/2026/11/20074759211916.shtml",
+    "domain": "usstock.jrj.com.cn",
+    "publisher": "金融界",
+    "tier": "unknown",
+    "published_at": "2026-11-20",
+    "focus_tag": "AI科学家流动",
+    "note": "华尔街日报报道，按IPO发行价计算约600名非创始员工持股价值达或超1亿美元，约2800名员工持股超1000万美元，大多数员工持股破百万美元。"
+  },
+  {
+    "title": "央视记者观察：AI岗位扩容，企业选人青睐实战型人才",
+    "url": "https://5g.cctv.com/2026/11/23/ARTIGL35KetxbXlfMJsiQf5Z261123.shtml",
+    "domain": "5g.cctv.com",
+    "publisher": "央视网",
+    "tier": "tier1",
+    "published_at": "2026-11-23",
+    "focus_tag": "就业市场拐点",
+    "note": "面向2027届毕业生的秋招中，AI类岗位持续扩容；上海交大招聘会超230家企业推出4200多个岗位；企业重点关注专业理论、实习经历、跨领域协作和AI工具使用四项核心能力。"
+  },
+  {
+    "title": "AI类岗位扩容、技能人才需求旺，就业市场出现新趋势",
+    "url": "http://www.zkxww.com/rdzh/2026-11-23/12128.html",
+    "domain": "zkxww.com",
+    "publisher": "中科新闻网",
+    "tier": "unknown",
+    "published_at": "2026-11-23",
+    "focus_tag": "就业市场拐点",
+    "note": "转载央视新闻内容，补充船舶建造等传统制造企业数字化转型带来AI人才需求，招聘不再局限于传统专业。"
+  },
+  {
+    "title": "36氪深度：AI抢走的不是饭碗，是往上爬的那道梯子",
+    "url": "https://www.36kr.com/p/4077576253133953",
+    "domain": "36kr.com",
+    "publisher": "36氪",
+    "tier": "tier2",
+    "published_at": "2026-11-23",
+    "focus_tag": "就业市场拐点",
+    "note": "引用上海科技大学覆盖7.43亿条招聘信息的研究，AI收缩效应集中在月薪5000-8000元、1-3年经验的入门中端人群；基础运营、财务核算、图文内容、电话销售四个领域需求缩减最明显。"
+  },
+  {
+    "title": "横琴粤澳深度合作区启动2026年度人才住房补贴申报",
+    "url": "https://www.hengqin.gov.cn/macao_zh_hans/hzqgl/dtyw/dtxx/content/post_3960681.html",
+    "domain": "hengqin.gov.cn",
+    "publisher": "横琴粤澳深度合作区政府",
+    "tier": "tier1",
+    "published_at": "2026-11-22",
+    "focus_tag": "人才政策窗口",
+    "note": "面向杰出人才、领军人才、拔尖人才、青年英才及全日制本科以上引进人才，常年申报集中审核；依据粤澳深合执字〔2026〕17号文件执行。"
+  }
+]

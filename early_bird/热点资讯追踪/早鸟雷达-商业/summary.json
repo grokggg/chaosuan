@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-25",
+  "domain": "商业",
+  "domain_slug": "biz",
+  "setup_token": "setup_d93a5b44",
+  "event_count": 3,
+  "empty": false,
+  "top_events": [
+    {
+      "event_id": "biz-20261125-01",
+      "title": "国家发改委国家能源局印发十五五新型储能实施方案，2030年装机目标3亿千瓦",
+      "signal_type": "工业与能源基础设施",
+      "confidence": "high",
+      "source_domain_count": 3
+    },
+    {
+      "event_id": "biz-20261125-02",
+      "title": "国务院国资委宣布新一轮国资国企改革台账编制完成，进入全面实施阶段",
+      "signal_type": "产业政策窗口",
+      "confidence": "high",
+      "source_domain_count": 3
+    },
+    {
+      "event_id": "biz-20261125-03",
+      "title": "阿里云下调云业务营收增速指引至30%-45%，算力出口管制影响产能扩张",
+      "signal_type": "云厂商策略调整",
+      "confidence": "high",
+      "source_domain_count": 3
+    }
+  ],
+  "source_stats": {
+    "tier1_count": 6,
+    "tier2_count": 3,
+    "independent_domain_count": 9
+  },
+  "generated_at": "2026-11-25T09:39:30+08:00"
+}

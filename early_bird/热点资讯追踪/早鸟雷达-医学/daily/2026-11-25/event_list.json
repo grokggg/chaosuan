@@ -1,0 +1,182 @@
+[
+  {
+    "event_id": "med-20261125-01",
+    "title": "FDA批准首款siRNA疗法Livsayis治疗全身型重症肌无力，年仅需4次给药",
+    "signal_type": "注册审批里程碑",
+    "happened_at": "2026-11-18",
+    "summary": "美国FDA于11月18日批准再生元(Regeneron)的Livsayis(cemdisiran)上市，用于治疗抗乙酰胆碱受体(AChR)抗体阳性的成人全身型重症肌无力(gMG)。这是首款获FDA批准治疗gMG的siRNA疗法，通过RNA干扰机制沉默肝脏补体C5表达，每年仅需4次皮下注射。该药由Alnylam开发，再生元负责商业化。此次获批标志着siRNA技术从罕见病向神经免疫疾病扩展的关键节点。",
+    "why_early_signal": "siRNA疗法首次进入神经免疫领域，打破了gMG治疗长期依赖补体抑制剂单抗和FcRn拮抗剂的格局。年4次的超低频给药方案有望重塑患者依从性和长期管理范式，对后续siRNA在自身免疫适应症的拓展具有标杆意义。",
+    "impact": "直接影响gMG约8万美国患者的治疗选择；对Alnylam/再生元的RNA平台估值产生正向催化；推动其他siRNA管线（如高血压、心血管）加速临床验证；可能倒逼现有C5抑制剂和FcRn拮抗剂重新评估定价与差异化策略。",
+    "confidence": "high",
+    "sources": [
+      {
+        "url": "https://bydrug.pharmcube.com/news/detail/0c29466319bb8f685da90a60de66a4f5",
+        "domain": "bydrug.pharmcube.com",
+        "publisher": "医药魔方",
+        "tier": "tier2",
+        "published_at": "2026-11-18",
+        "quote": "FDA批准再生元公司的Livsayis(cemdisiran)，用于AChR抗体阳性成人全身型重症肌无力患者，这是首款获FDA批准治疗gMG的siRNA疗法"
+      },
+      {
+        "url": "https://www.healio.com/news/neurology/20261120/fda-approves-livsayis-first-small-interfering-rna-drug-for-generalized-myasthenia-gravis",
+        "domain": "healio.com",
+        "publisher": "Healio",
+        "tier": "tier2",
+        "published_at": "2026-11-20",
+        "quote": "FDA approves Livsayis, first small interfering RNA drug for generalized myasthenia gravis. The treatment is administered subcutaneously."
+      },
+      {
+        "url": "https://news.qq.com/rain/a/20261122A048MQ00",
+        "domain": "news.qq.com",
+        "publisher": "腾讯新闻/药明康德TIDES周报",
+        "tier": "tier2",
+        "published_at": "2026-11-22",
+        "quote": "11月18日，再生元宣布美国FDA批准小干扰RNA(siRNA)疗法Livsayis(cemdisiran)上市，用于治疗抗乙酰胆碱受体(AChR)抗体阳性的成人全身型重症肌无力(gMG)患者，该药是首款获FDA批准治疗gMG的siRNA疗法"
+      }
+    ]
+  },
+  {
+    "event_id": "med-20261125-02",
+    "title": "辉瑞26.3亿美元引进星锐医药体内CAR-T项目，押注自身免疫疾病新范式",
+    "signal_type": "细胞与基因治疗关键节点",
+    "happened_at": "2026-11-18",
+    "summary": "辉瑞于11月18日宣布与中国创新药企星锐医药(Starna Therapeutics)达成独家许可协议，以3.3亿美元首付款加最高23亿美元里程碑付款（合计最高26.3亿美元），获得三款处于IND申报前阶段、用于治疗自身免疫性疾病的体内CAR-T(in vivo CAR-T)项目在大中华区以外的独家权益。辉瑞同时获得在炎症与免疫及肿瘤领域使用星锐专有体内CAR-T技术的权利。星锐医药聚焦肝外靶向递送和mRNA/LNP平台，此前已完成B轮和B+轮融资。",
+    "why_early_signal": "体内CAR-T是下一代细胞治疗的核心方向，绕开体外制造的供应链瓶颈和高成本问题。辉瑞作为全球Top5药企首次以超20亿美元级别押注该赛道，标志着体内CAR-T从学术概念验证进入大药企战略配置阶段。三款管线均处于IND前阶段即获如此高额交易，反映行业对自身免疫疾病体内CAR-T重置免疫的预期正在快速升温。",
+    "impact": "直接催化体内CAR-T赛道估值重估；为自身免疫疾病（SLE、系统性硬化症等）提供潜在一次性治愈选项；推动LNP/mRNA递送技术在细胞治疗中的应用验证；对中国biotech出海模式产生示范效应——IND前阶段即可获得大额全球权益交易。",
+    "confidence": "high",
+    "sources": [
+      {
+        "url": "https://bydrug.pharmcube.com/news/detail/f04975a2d3cca3d8a0ef91e0e708c06c",
+        "domain": "bydrug.pharmcube.com",
+        "publisher": "医药魔方",
+        "tier": "tier2",
+        "published_at": "2026-11-18",
+        "quote": "辉瑞将以最高26.3亿美元获得三款处于IND申报前阶段、旨在治疗自身免疫性疾病的体内嵌合抗原受体T细胞(in vivo CAR-T)项目在大中华区以外地域的独家开发、生产及商业化权益"
+      },
+      {
+        "url": "https://www.medvalley.cn/yiyao/80071.html",
+        "domain": "medvalley.cn",
+        "publisher": "医谷",
+        "tier": "tier2",
+        "published_at": "2026-11-18",
+        "quote": "辉瑞获得三款处于IND申报前阶段、旨在治疗自身免疫性疾病的体内嵌合抗原受体T细胞(in vivo CAR-T)项目在大中华区以外地域的独家开发、生产及商业化权益。星锐医药将获得3.3亿美元的首付款"
+      },
+      {
+        "url": "https://news.pharmnet.com.cn/news/2026/11/20/628947.html",
+        "domain": "news.pharmnet.com.cn",
+        "publisher": "医药网",
+        "tier": "tier2",
+        "published_at": "2026-11-20",
+        "quote": "辉瑞26.3亿美元引进星锐医药体内CAR-T项目"
+      }
+    ]
+  },
+  {
+    "event_id": "med-20261125-03",
+    "title": "Isomorphic Labs完成50亿美元C轮融资，AI制药资本规模再破纪录",
+    "signal_type": "AI制药早期里程碑",
+    "happened_at": "2026-11-17",
+    "summary": "Alphabet旗下AI新药研发企业Isomorphic Labs于11月17日宣布完成50亿美元C轮融资，由Greenoaks和红杉资本联合领投，a16z等新投资者加入，Alphabet继续大额投资。这是该公司20个月内第三次大额融资，半年内两轮融资合计71亿美元，刷新生物科技行业单轮私募融资纪录。公司自研AI药物设计引擎IsoDDE在蛋白-配体结构预测等多项指标上超越AlphaFold3，已与礼来、诺华、强生达成研发合作。",
+    "why_early_signal": "50亿美元单笔融资远超此前Altos Labs 30亿美元的纪录，表明资本市场对AI原生制药平台的信心已从概念验证转向规模化投入。Isomorphic Labs尚无自有药物进入临床，但融资规模已接近中型biotech IPO水平，预示AI制药正从辅助工具定位升级为独立药物发现引擎。20个月三轮融资的节奏也暗示AI制药赛道的竞争窗口正在快速收窄。",
+    "impact": "重新定义AI制药赛道的资本门槛和估值基准；加速IsoDDE引擎迭代和多条临床前管线推进；对传统CRO和早期biotech形成替代压力；推动大型药企加快自建或收购AI制药能力的步伐。",
+    "confidence": "high",
+    "sources": [
+      {
+        "url": "https://bydrug.pharmcube.com/news/detail/7d88e3726e4c63b48f04661a0cb15080",
+        "domain": "bydrug.pharmcube.com",
+        "publisher": "医药魔方",
+        "tier": "tier2",
+        "published_at": "2026-11-17",
+        "quote": "2026年11月17日，Isomorphic Labs宣布完成50亿美元C轮融资，由Greenoaks和红杉资本联合领投，a16z等新投资者加入，Alphabet继续大额投资"
+      },
+      {
+        "url": "https://www.donews.com/news/detail/1/6774283.html",
+        "domain": "donews.com",
+        "publisher": "DoNews",
+        "tier": "tier2",
+        "published_at": "2026-11-18",
+        "quote": "Alphabet旗下、由DeepMind孵化的AI新药研发企业Isomorphic Labs正式披露50亿美元C轮融资消息。本轮由Greenoaks与红杉资本联合领投"
+      },
+      {
+        "url": "https://www.drugtimes.cn/2026/11/18/50yimeiyuanquanqiuzuidaaizhiyaorongzidansheng/",
+        "domain": "drugtimes.cn",
+        "publisher": "药时代",
+        "tier": "tier2",
+        "published_at": "2026-11-18",
+        "quote": "Isomorphic Labs官宣完成50亿美元C轮融资，这也是这家AI新药研发初创公司半年内第二笔数十亿美元级融资"
+      }
+    ]
+  },
+  {
+    "event_id": "med-20261125-04",
+    "title": "思路迪3D189全球III期REGAL试验达主要终点，AML维持治疗死亡风险降低41%",
+    "signal_type": "临床试验关键节点",
+    "happened_at": "2026-11-17",
+    "summary": "思路迪医药合作方SELLAS于11月17日公布全球关键性随机III期REGAL试验(NCT04229979)顶线结果：3D189(Galinpepimut-S)用于经治疗后达到二次及以上完全缓解、不适合干细胞移植的急性髓系白血病(AML)患者维持治疗，成功达到预设主要终点。与最佳支持治疗相比，3D189使死亡风险降低41%(HR=0.59, p=0.035)，中位总生存期24.0个月vs对照组14.7个月。安全性良好，未出现新增信号。SELLAS拟与FDA沟通加速审批路径，计划2027年上半年提交BLA。",
+    "why_early_signal": "AML维持治疗是高度未满足需求领域，目前缺乏标准方案。REGAL是首个在该人群中证明OS获益的随机III期试验，且数据来自全球多中心。若获FDA加速审批，将成为AML维持治疗首个获批药物，开辟全新细分市场。从III期数据读出到BLA提交的时间窗口仅约半年，商业化节奏较快。",
+    "impact": "为不适合移植的AML患者提供首个循证维持治疗选项；推动AML治疗从诱导缓解向长期管理转型；对思路迪/SELLAS管线估值产生直接催化；可能带动同类疫苗/免疫调节剂在血液肿瘤维持治疗的开发热潮。",
+    "confidence": "high",
+    "sources": [
+      {
+        "url": "https://www.zhitongcaijing.com/content/detail/1524864.html",
+        "domain": "zhitongcaijing.com",
+        "publisher": "智通财经",
+        "tier": "tier2",
+        "published_at": "2026-11-18",
+        "quote": "REGAL试验成功达到预设主要疗效终点。数据显示，相较于研究者选择的现有最佳治疗方案，3D189可使患者死亡风险降低41%，风险比为0.59，双侧p值为0.035"
+      },
+      {
+        "url": "https://www.gplp.cn/archives/165463",
+        "domain": "gplp.cn",
+        "publisher": "GPLP犀牛财经",
+        "tier": "tier2",
+        "published_at": "2026-11-18",
+        "quote": "合作项目3D189的全球关键性III期REGAL试验取得积极数据，已达到主要终点。与最佳支持治疗相比，3D189可使死亡风险降低41%"
+      },
+      {
+        "url": "https://cfi.cn/p20261118000328.html",
+        "domain": "cfi.cn",
+        "publisher": "中财网",
+        "tier": "tier2",
+        "published_at": "2026-11-18",
+        "quote": "思路迪医药股份自愿公告：合作项目3D189之全球关键性III期REGAL试验取得积极数据，SELLAS于二零二六年十一月十七日公布主要终点顶线结果"
+      }
+    ]
+  },
+  {
+    "event_id": "med-20261125-05",
+    "title": "CAR-T瑞基奥仑赛首次纳入国家基本医保目录，谈判价降至28.86万元",
+    "signal_type": "监管政策窗口",
+    "happened_at": "2026-11-14",
+    "summary": "2026年版国家基本医保药品目录于11月14日公布，药明巨诺的瑞基奥仑赛注射液(倍诺达)成为首款也是目前唯一纳入基本医保目录的CAR-T产品。谈判价从原挂网价129万元/支降至28.86万元/支，降幅77.6%，患者经医保报销后自付部分预计降至10万元以内。新版目录将于2027年1月1日起正式执行。这是CAR-T疗法在中国上市6年来首次进入基本医保支付体系，标志着细胞治疗从纯自费/商保模式迈向多层次支付的新阶段。",
+    "why_early_signal": "CAR-T进医保打破了先进疗法'天价不可及'的市场天花板，为后续9款已获批国产CAR-T产品的医保谈判树立价格锚点。28.86万元的谈判价远低于欧美同类产品，可能引发全球CAR-T定价体系的重新审视。基本医保+商保目录的双轨支付格局成型，将显著扩大CAR-T的可及人群和市场容量，对整个细胞治疗产业链的商业化预期产生深远影响。",
+    "impact": "直接扩大CAR-T在中国的可及患者群体；为其他CAR-T和细胞治疗产品的医保准入建立参照系；推动细胞治疗企业从'高单价低销量'向'合理价格放量'模式转型；倒逼上游原材料和CDMO降本增效；对全球CAR-T定价策略产生溢出效应。",
+    "confidence": "high",
+    "sources": [
+      {
+        "url": "https://weekly.caixin.com/2026-11-21/102507440.html",
+        "domain": "weekly.caixin.com",
+        "publisher": "财新周刊",
+        "tier": "tier2",
+        "published_at": "2026-11-21",
+        "quote": "药明巨诺的瑞基奥仑赛成为首款也是目前惟一一个进入基本医保目录的CAR-T产品。价格将由原来的129万元降至略低于30万元"
+      },
+      {
+        "url": "https://bydrug.pharmcube.com/news/detail/c0f566314cb9db1a6ac69b6da93f5312",
+        "domain": "bydrug.pharmcube.com",
+        "publisher": "医药魔方",
+        "tier": "tier2",
+        "published_at": "2026-11-14",
+        "quote": "药明巨诺的瑞基奥仑赛(倍诺达)在列，成为国内首个进医保的CAR-T。谈判价约28.86万元/支，报销后患者自付约10万元，比现有挂网价129万降了77.6%"
+      },
+      {
+        "url": "https://epaper.xiancn.com/xdbjb/pad/html/202611/20/content_379767.html",
+        "domain": "epaper.xiancn.com",
+        "publisher": "西安日报/中国经济网",
+        "tier": "tier2",
+        "published_at": "2026-11-20",
+        "quote": "药明巨诺的CAR-T药物倍诺达已被纳入医保目录。这是首个且目前唯一进入国家基本医保目录的CAR-T类药物"
+      }
+    ]
+  }
+]

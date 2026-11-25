@@ -1,0 +1,62 @@
+{
+  "flow": "briefing",
+  "setup_token": "setup_d93a5b44",
+  "domain": "商业",
+  "domain_slug": "biz",
+  "name_cn": "早鸟雷达-商业",
+  "date": "2026-11-25",
+  "status": "DONE",
+  "steps": {
+    "B1": {
+      "status": "passed",
+      "attempts": 2,
+      "errors": [],
+      "finished_at": "2026-11-25T09:31:58+08:00"
+    },
+    "B2": {
+      "status": "passed",
+      "attempts": 5,
+      "errors": [],
+      "finished_at": "2026-11-25T09:39:13+08:00"
+    },
+    "B3": {
+      "status": "passed",
+      "attempts": 1,
+      "errors": [],
+      "finished_at": "2026-11-25T09:40:38+08:00"
+    },
+    "B4": {
+      "status": "passed",
+      "attempts": 1,
+      "errors": [],
+      "finished_at": "2026-11-25T09:41:02+08:00"
+    }
+  },
+  "event_count": 3,
+  "empty_silent": true,
+  "created_at": "2026-11-25T09:29:06+08:00",
+  "updated_at": "2026-11-25T09:41:02+08:00",
+  "history": [
+    {
+      "event": "B1_passed",
+      "attempts": 2,
+      "at": "2026-11-25T09:31:58+08:00"
+    },
+    {
+      "event": "B2_passed",
+      "attempts": 5,
+      "at": "2026-11-25T09:39:13+08:00"
+    },
+    {
+      "event": "B3_passed",
+      "attempts": 1,
+      "at": "2026-11-25T09:40:38+08:00"
+    },
+    {
+      "event": "B4_passed",
+      "attempts": 1,
+      "at": "2026-11-25T09:41:02+08:00"
+    }
+  ],
+  "finished_at": "2026-11-25T09:41:02+08:00"
+}

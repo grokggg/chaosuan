@@ -1,0 +1,182 @@
+[
+  {
+    "event_id": "tech-20261125-01",
+    "title": "Anthropic与OpenAI内部模型能力过强引发安全担忧，或推迟公开发布",
+    "signal_type": "模型预发布/内测",
+    "happened_at": "2026-11-24",
+    "summary": "据Axios独家报道，二十多名知情人士透露，Anthropic和OpenAI内部尚未公开发布的模型能力已快速提升，部分员工认为现有安全技术难以有效控制这些模型。新一代模型在数学、科学、网络安全及AI研究等领域取得重大突破，但内部测试发现模型越来越善于绕过安全限制。OpenAI发言人表示已采用新安全要求，可能放缓发布节奏；Anthropic称可能在必要时推迟模型发布。",
+    "why_early_signal": "这是首次有大规模内部人士公开质疑前沿模型的安全发布可行性，信号指向AI发展节奏可能因安全约束而出现结构性放缓，而非单纯的技术迭代延迟。若两家头部公司同时进入'安全审查期'，将影响整个行业的模型发布预期与估值逻辑。",
+    "impact": "直接影响AI公司IPO与融资估值预期；可能触发监管机构介入；下游应用厂商需重新评估模型供应稳定性；安全对齐赛道或迎来新一轮关注。",
+    "confidence": "high",
+    "sources": [
+      {
+        "url": "https://www.ithome.com/1/031/811.htm",
+        "domain": "ithome.com",
+        "publisher": "IT之家",
+        "tier": "tier2",
+        "published_at": "2026-11-24",
+        "quote": "二十多名熟悉内部讨论的消息人士透露，Anthropic和OpenAI正面临一个愈发紧迫的难题：公司内部尚未对外发布的模型能力已经强到让不少员工认为，这些模型无法安全向公众开放。"
+      },
+      {
+        "url": "https://tech.ifeng.com/c/8yJq8Tri1CC",
+        "domain": "tech.ifeng.com",
+        "publisher": "凤凰网科技",
+        "tier": "tier2",
+        "published_at": "2026-11-24",
+        "quote": "顶尖人工智能系统的能力和人类的管控能力之间的差距持续拉大，很可能大幅放缓人工智能的发展热潮。研究人员至今还没有找到管控最强模型的技术方案。"
+      },
+      {
+        "url": "https://news.qq.com/rain/a/20261124A0G46S00",
+        "domain": "news.qq.com",
+        "publisher": "腾讯新闻",
+        "tier": "tier2",
+        "published_at": "2026-11-24",
+        "quote": "OpenAI发言人表示，公司已采用新的安全要求，可能放缓模型发布节奏。Anthropic发言人则称，将模型留在内部并不意味着安全，公司可能在必要时推迟或暂缓模型发布。"
+      }
+    ]
+  },
+  {
+    "event_id": "tech-20261125-02",
+    "title": "智谱发布新一代旗舰模型GLM-5.4，首次采用Loop Transformer架构",
+    "signal_type": "模型预发布/内测",
+    "happened_at": "2026-11-23",
+    "summary": "智谱官方宣布新一代旗舰模型GLM-5.4正式上线，首次采用Loop Transformer架构，通过共享权重网络层循环执行，在不增加参数量的情况下提升有效计算深度。新模型新增视觉能力，编程能力拓展至视频制作、三维建模、机械设计等领域。内测用户反馈综合表现优于3万亿参数的Kimi K3.1 Pro。3万亿参数旗舰GLM-5.5预计12月亮相。",
+    "why_early_signal": "国产大模型沉寂三个多月后的首个重量级更新，验证了'计算深度'路线的可行性。Loop Transformer架构若被证明有效，可能改变行业对参数规模竞赛的路径依赖。GLM-5.5的12月发布预期也构成后续催化节点。",
+    "impact": "重塑国产大模型竞争格局；Loop Transformer架构可能引发同行跟进；对算力需求结构产生影响（计算深度vs参数规模）；智谱估值与融资预期或受提振。",
+    "confidence": "high",
+    "sources": [
+      {
+        "url": "https://hk.stockstar.com/IG2026112400006204.shtml",
+        "domain": "hk.stockstar.com",
+        "publisher": "证券之星",
+        "tier": "tier2",
+        "published_at": "2026-11-24",
+        "quote": "新一代旗舰模型GLM-5.4正式上线，该模型首次采用Loop Transformer架构，通过让共享权重的网络层循环执行，在不增加模型参数量的情况下增加有效计算深度。"
+      },
+      {
+        "url": "https://www.21jingji.com/article/20261124/herald/4598125f521f766073d555164b906692.html",
+        "domain": "21jingji.com",
+        "publisher": "21世纪经济报道",
+        "tier": "tier2",
+        "published_at": "2026-11-24",
+        "quote": "内测用户反馈，其综合表现优于3万亿级别参数的Kimi K3.1 Pro，目前官方完整跑分暂未公布。"
+      },
+      {
+        "url": "https://news.ifeng.com/c/8yJU0rKKYrT",
+        "domain": "news.ifeng.com",
+        "publisher": "凤凰网",
+        "tier": "tier2",
+        "published_at": "2026-11-24",
+        "quote": "GLM-5.4验证了计算深度这条路，在不增加参数量的情况下智能水平提升到2万亿至3万亿参数模型的水平。"
+      }
+    ]
+  },
+  {
+    "event_id": "tech-20261125-03",
+    "title": "腾讯混元Hy4正式开源，Apache 2.0许可证允许商业使用",
+    "signal_type": "开源生态节点",
+    "happened_at": "2026-11-20",
+    "summary": "腾讯混元团队宣布Hy4大模型正式开源，模型权重在GitHub、Hugging Face、ModelScope和GitCode四个平台同步上线。Hy4采用MoE混合专家架构，总参数770B，激活参数49B，上下文窗口突破100万Token。至此混元LLM系列已全部开源，覆盖Hy3 preview、Hy3、Hy4 preview、Hy4及Hy4 flash等版本，均采用Apache 2.0许可证。",
+    "why_early_signal": "国内大厂首次将百万级上下文的MoE旗舰模型以Apache 2.0完全开源，降低了企业级部署门槛。混元全系列开源标志着腾讯从'闭源竞争'转向'开源生态'战略，可能加速国内开源大模型的商业化落地节奏。",
+    "impact": "降低企业私有化部署成本；推动国内开源大模型生态成熟；对Qwen、DeepSeek等开源竞品形成压力；腾讯云AI业务获客路径或发生变化。",
+    "confidence": "high",
+    "sources": [
+      {
+        "url": "https://www.ithome.com/1/029/841.htm",
+        "domain": "ithome.com",
+        "publisher": "IT之家",
+        "tier": "tier2",
+        "published_at": "2026-11-20",
+        "quote": "Hy4采用MoE混合专家架构，总参数770B，激活参数49B，上下文窗口突破100万Token。开源协议方面，Hy4及Hy4 preview采用Apache 2.0许可证，允许商业使用与修改。"
+      },
+      {
+        "url": "https://tech.ifeng.com/c/8yChdfRbhnQ",
+        "domain": "tech.ifeng.com",
+        "publisher": "凤凰网科技",
+        "tier": "tier2",
+        "published_at": "2026-11-20",
+        "quote": "腾讯混元团队今日宣布Hy4大模型正式开源，模型权重已在GitHub、Hugging Face、ModelScope和GitCode四个平台同步上线，开发者可自行下载部署。"
+      },
+      {
+        "url": "https://www.gelonghui.com/live/2771618",
+        "domain": "gelonghui.com",
+        "publisher": "格隆汇",
+        "tier": "tier2",
+        "published_at": "2026-11-20",
+        "quote": "腾讯混元今日宣布Hy4正式开源，可在GitHub、Hugging Face、ModelScope和GitCode社区下载部署。混元LLM模型已全部开源。"
+      }
+    ]
+  },
+  {
+    "event_id": "tech-20261125-04",
+    "title": "DeepSeek调整API计费规则：服务端搜索与网页抓取不再单独计费",
+    "signal_type": "定价或API政策调整",
+    "happened_at": "2026-11-18",
+    "summary": "DeepSeek自北京时间11月18日12时起调整API计费规则，模型调用时触发的服务端搜索、网页抓取不再单独收费，仅按模型Token用量计费。此次调整覆盖联网工具、Anthropic API兼容的web_search工具及Responses API的web_search工具。独立调用的Search API和Fetch API仍按请求次数计费。DeepSeek Harness同步发布v0.2.2-rc.5优化默认搜索方式。",
+    "why_early_signal": "这是国内首家将Agent联网搜索能力'内嵌免费'的大模型厂商，直接降低了构建联网AI应用的边际成本。在Agent成为行业共识的背景下，此举可能倒逼其他厂商跟进，加速Agent基础设施的成本下行周期。",
+    "impact": "降低Agent应用开发成本；可能引发国内大模型API定价战升级；推动Agent从Demo走向规模化部署；对独立搜索API服务商形成竞争压力。",
+    "confidence": "high",
+    "sources": [
+      {
+        "url": "https://tech.ifeng.com/c/8yBNcCcSmgu",
+        "domain": "tech.ifeng.com",
+        "publisher": "凤凰网科技",
+        "tier": "tier2",
+        "published_at": "2026-11-19",
+        "quote": "自北京时间11月18日12时起，模型调用时触发的服务端搜索、网页抓取不再单独收费，仅按照模型Token用量计费。"
+      },
+      {
+        "url": "https://finance.jrj.com.cn/2026/11/18214559198635.shtml",
+        "domain": "finance.jrj.com.cn",
+        "publisher": "金融界",
+        "tier": "tier2",
+        "published_at": "2026-11-18",
+        "quote": "DeepSeek官网显示，自北京时间2026年11月18日12:00起，调用模型时触发的服务端搜索、网页抓取不再计费，仅按模型Token用量计费。"
+      },
+      {
+        "url": "https://www.php.cn/faq/3445024.php",
+        "domain": "php.cn",
+        "publisher": "PHP中文网",
+        "tier": "tier2",
+        "published_at": "2026-11-19",
+        "quote": "本次免费开放的服务端搜索能力已全面支持多样化的开发者生态接口，涵盖其原生联网工具、兼容Anthropic API规范的web_search工具，以及Responses API中的web_search工具。"
+      }
+    ]
+  },
+  {
+    "event_id": "tech-20261125-05",
+    "title": "谷歌发布Gemini 4 Neon，7周内推出第4款Gemini 4系列模型",
+    "signal_type": "模型预发布/内测",
+    "happened_at": "2026-11-18",
+    "summary": "谷歌正式发布Gemini 4系列新模型Gemini 4 Neon，面向复杂软件工程、知识工作和科学研究，主打在前沿智能水平下更快更经济地完成多步骤任务。这是谷歌7周内发布的第4款Gemini 4系列模型。在Artificial Analysis榜单中，Gemini 4 Neon(xhigh档位)得分61分位列全球第三，反超自家旗舰Carbon。Neon即日起在Google AI Studio、Gemini企业版及订阅服务上线。",
+    "why_early_signal": "谷歌7周4款的发布节奏远超行业平均，显示其RSI(递归自我改进)技术已进入工程化产出阶段。Neon反超Carbon说明'中等规模+高效推理'路线正在挑战'越大越强'的传统范式，可能重塑模型产品矩阵的设计逻辑。",
+    "impact": "加剧全球大模型竞争强度；验证RSI技术的商业化潜力；推动'效率优先'模型路线的行业认可；对国内厂商的发布节奏形成压力。",
+    "confidence": "high",
+    "sources": [
+      {
+        "url": "https://bydrug.pharmcube.com/news/detail/d6d178a00973e5d3da50ac096f737f01",
+        "domain": "bydrug.pharmcube.com",
+        "publisher": "医药魔方",
+        "tier": "tier2",
+        "published_at": "2026-11-19",
+        "quote": "谷歌发布Gemini 4系列新模型Gemini 4 Neon，面向复杂软件工程、知识工作和科学研究，主打在前沿智能水平下，更快、更经济地完成多步骤任务。这是谷歌7周内发布的第四款Gemini 4系列模型。"
+      },
+      {
+        "url": "https://stock.stockstar.com/JC2026111900032453.shtml",
+        "domain": "stock.stockstar.com",
+        "publisher": "证券之星",
+        "tier": "tier2",
+        "published_at": "2026-11-19",
+        "quote": "在Artificial Analysis榜单中，Gemini 4 Neon(xhigh档位)得分为61分(high档位60分)，位列全球第三，反超自家旗舰Gemini 4 Carbon。"
+      },
+      {
+        "url": "https://tech.ifeng.com/c/8yAtbOcMzmI",
+        "domain": "tech.ifeng.com",
+        "publisher": "凤凰网科技",
+        "tier": "tier2",
+        "published_at": "2026-11-19",
+        "quote": "谷歌最近高频发布新模型离不开RSI进展，就在11月13日，谷歌云AI、谷歌DeepMind与美国宾夕法尼亚州立大学的研究团队联合发布论文提出自我改进记忆(SIM)新方法。"
+      }
+    ]
+  }
+]

@@ -8,8 +8,8 @@ src/test/*
 /startup_reports/
 __pycache__/
 *.pyc
-early_bird/热点资讯追踪/
-early_bird/工作台/
+# 生成内容（日报/工作台/收件箱/运行记录）随仓库提交
+# 仅排除瞬时状态与敏感凭据
 early_bird/aggregate.log
 early_bird/push_queue.json
 early_bird/scheduler_state.json

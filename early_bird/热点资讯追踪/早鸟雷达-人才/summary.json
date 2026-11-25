@@ -1,0 +1,44 @@
+{
+  "date": "2026-11-25",
+  "domain": "人才",
+  "domain_slug": "talent",
+  "setup_token": "setup_26010b88",
+  "event_count": 4,
+  "empty": false,
+  "top_events": [
+    {
+      "event_id": "talent-20261125-03",
+      "title": "美国H-1B签证发放量减少约三分之一，IBM停止部分岗位签证担保，科技人才外流加速",
+      "signal_type": "人才政策窗口",
+      "confidence": "high",
+      "source_domain_count": 3
+    },
+    {
+      "event_id": "talent-20261125-01",
+      "title": "OpenAI解散独立机器人团队，研究人员并入核心模型主线",
+      "signal_type": "AI科学家流动",
+      "confidence": "high",
+      "source_domain_count": 3
+    },
+    {
+      "event_id": "talent-20261125-02",
+      "title": "微软向约6万名员工发出自愿离职要约，AI驱动年内第三轮人员结构调整",
+      "signal_type": "就业市场拐点",
+      "confidence": "high",
+      "source_domain_count": 3
+    },
+    {
+      "event_id": "talent-20261125-04",
+      "title": "央视报道AI岗位持续扩容，秋招企业选人标准转向实战型与AI工具能力",
+      "signal_type": "就业市场拐点",
+      "confidence": "medium",
+      "source_domain_count": 3
+    }
+  ],
+  "source_stats": {
+    "tier1_count": 1,
+    "tier2_count": 11,
+    "independent_domain_count": 12
+  },
+  "generated_at": "2026-11-25T09:48:30+08:00"
+}

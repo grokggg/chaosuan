@@ -1,0 +1,44 @@
+{
+  "date": "2026-11-25",
+  "domain": "金融",
+  "domain_slug": "fin",
+  "setup_token": "setup_ccbd5295",
+  "event_count": 4,
+  "empty": false,
+  "top_events": [
+    {
+      "event_id": "fin-20261125-01",
+      "title": "美联储10月会议纪要释放显著鹰派信号，12月加息25个基点概率达97.4%",
+      "signal_type": "货币政策窗口",
+      "confidence": "high",
+      "source_domain_count": 3
+    },
+    {
+      "event_id": "fin-20261125-02",
+      "title": "深交所就创业板股票做市交易业务细则公开征求意见，引入做市商制度增强市场韧性",
+      "signal_type": "监管新规",
+      "confidence": "high",
+      "source_domain_count": 3
+    },
+    {
+      "event_id": "fin-20261125-03",
+      "title": "上海浦东离岸金融草案征求意见，支持数字人民币跨境基础设施互联互通",
+      "signal_type": "CBDC与跨境支付",
+      "confidence": "high",
+      "source_domain_count": 3
+    },
+    {
+      "event_id": "fin-20261125-04",
+      "title": "央行11月25日开展8000亿元MLF操作，保持银行体系流动性充裕",
+      "signal_type": "货币政策窗口",
+      "confidence": "medium",
+      "source_domain_count": 3
+    }
+  ],
+  "source_stats": {
+    "tier1_count": 1,
+    "tier2_count": 11,
+    "independent_domain_count": 12
+  },
+  "generated_at": "2026-11-25T09:22:00+08:00"
+}

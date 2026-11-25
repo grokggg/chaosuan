@@ -1,0 +1,232 @@
+[
+  {
+    "title": "Anthropic与OpenAI内部模型能力过强引发安全担忧，或推迟公开发布",
+    "url": "https://www.ithome.com/1/031/811.htm",
+    "domain": "ithome.com",
+    "publisher": "IT之家",
+    "tier": "tier2",
+    "published_at": "2026-11-24",
+    "focus_tag": "大模型与平台动态（OpenAI/Anthropic/Google/Meta/Microsoft）",
+    "note": "Axios独家报道，20+知情人士透露两家内部未发布模型能力已超出安全管控能力"
+  },
+  {
+    "title": "Anthropic与OpenAI内部模型过于强大难以安全发布",
+    "url": "https://tech.ifeng.com/c/8yJq8Tri1CC",
+    "domain": "tech.ifeng.com",
+    "publisher": "凤凰网科技",
+    "tier": "tier2",
+    "published_at": "2026-11-24",
+    "focus_tag": "大模型与平台动态（OpenAI/Anthropic/Google/Meta/Microsoft）",
+    "note": "同一事件不同媒体报道，引用Axios原始信源"
+  },
+  {
+    "title": "OpenAI和Anthropic内部模型安全性引发员工担忧",
+    "url": "https://news.qq.com/rain/a/20261124A0G46S00",
+    "domain": "news.qq.com",
+    "publisher": "腾讯新闻",
+    "tier": "unknown",
+    "published_at": "2026-11-24",
+    "focus_tag": "大模型与平台动态（OpenAI/Anthropic/Google/Meta/Microsoft）",
+    "note": "转载Axios报道"
+  },
+  {
+    "title": "智谱发布新一代旗舰模型GLM-5.4，首次采用Loop Transformer架构",
+    "url": "https://hk.stockstar.com/IG2026112400006204.shtml",
+    "domain": "hk.stockstar.com",
+    "publisher": "证券之星",
+    "tier": "unknown",
+    "published_at": "2026-11-24",
+    "focus_tag": "国内大厂 AI 生态（字节/阿里/腾讯/百度/华为/智谱/DeepSeek/Kimi/MiniMax/阶跃/月之暗面）",
+    "note": "智谱官方公众号消息，GLM-5.4上线"
+  },
+  {
+    "title": "智谱GLM-5.4正式上线，综合表现优于Kimi K3.1 Pro",
+    "url": "https://www.21jingji.com/article/20261124/herald/4598125f521f766073d555164b906692.html",
+    "domain": "21jingji.com",
+    "publisher": "21世纪经济报道",
+    "tier": "tier2",
+    "published_at": "2026-11-24",
+    "focus_tag": "国内大厂 AI 生态（字节/阿里/腾讯/百度/华为/智谱/DeepSeek/Kimi/MiniMax/阶跃/月之暗面）",
+    "note": "21世纪经济报道确认GLM-5.4发布"
+  },
+  {
+    "title": "智谱GLM-5.4向全量用户开放，3万亿参数新模型有望下月推出",
+    "url": "https://news.ifeng.com/c/8yJU0rKKYrT",
+    "domain": "news.ifeng.com",
+    "publisher": "凤凰网",
+    "tier": "tier2",
+    "published_at": "2026-11-24",
+    "focus_tag": "国内大厂 AI 生态（字节/阿里/腾讯/百度/华为/智谱/DeepSeek/Kimi/MiniMax/阶跃/月之暗面）",
+    "note": "凤凰网报道GLM-5.4发布及GLM-5.5预期"
+  },
+  {
+    "title": "腾讯混元Hy4正式开源，Apache 2.0许可证",
+    "url": "https://www.ithome.com/1/029/841.htm",
+    "domain": "ithome.com",
+    "publisher": "IT之家",
+    "tier": "tier2",
+    "published_at": "2026-11-20",
+    "focus_tag": "开源模型与工具（Llama/Qwen/DeepSeek/Mistral/Phi）",
+    "note": "Hy4 MoE架构770B总参数49B激活，上下文100万Token"
+  },
+  {
+    "title": "腾讯混元Hy4开源，GitHub/HuggingFace/ModelScope/GitCode同步上线",
+    "url": "https://tech.ifeng.com/c/8yChdfRbhnQ",
+    "domain": "tech.ifeng.com",
+    "publisher": "凤凰网科技",
+    "tier": "tier2",
+    "published_at": "2026-11-20",
+    "focus_tag": "开源模型与工具（Llama/Qwen/DeepSeek/Mistral/Phi）",
+    "note": "同一事件多源报道"
+  },
+  {
+    "title": "腾讯混元正式开源Hy4",
+    "url": "https://www.gelonghui.com/live/2771618",
+    "domain": "gelonghui.com",
+    "publisher": "格隆汇",
+    "tier": "unknown",
+    "published_at": "2026-11-20",
+    "focus_tag": "开源模型与工具（Llama/Qwen/DeepSeek/Mistral/Phi）",
+    "note": "格隆汇快讯确认Hy4开源"
+  },
+  {
+    "title": "DeepSeek调整API计费规则：服务端搜索与网页抓取不再单独计费",
+    "url": "https://tech.ifeng.com/c/8yBNcCcSmgu",
+    "domain": "tech.ifeng.com",
+    "publisher": "凤凰网科技",
+    "tier": "tier2",
+    "published_at": "2026-11-19",
+    "focus_tag": "国内大厂 AI 生态（字节/阿里/腾讯/百度/华为/智谱/DeepSeek/Kimi/MiniMax/阶跃/月之暗面）",
+    "note": "11月18日起模型调用触发的搜索/抓取免费"
+  },
+  {
+    "title": "DeepSeek API定价调整：搜索抓取不再单独计费",
+    "url": "https://finance.jrj.com.cn/2026/11/18214559198635.shtml",
+    "domain": "finance.jrj.com.cn",
+    "publisher": "金融界",
+    "tier": "unknown",
+    "published_at": "2026-11-18",
+    "focus_tag": "国内大厂 AI 生态（字节/阿里/腾讯/百度/华为/智谱/DeepSeek/Kimi/MiniMax/阶跃/月之暗面）",
+    "note": "金融界确认DeepSeek计费规则变更"
+  },
+  {
+    "title": "DeepSeek启用全新API计费机制",
+    "url": "https://www.php.cn/faq/3445024.php",
+    "domain": "php.cn",
+    "publisher": "PHP中文网",
+    "tier": "unknown",
+    "published_at": "2026-11-19",
+    "focus_tag": "国内大厂 AI 生态（字节/阿里/腾讯/百度/华为/智谱/DeepSeek/Kimi/MiniMax/阶跃/月之暗面）",
+    "note": "技术社区解读DeepSeek新计费对Agent开发的影响"
+  },
+  {
+    "title": "谷歌发布Gemini 4 Neon，智能指数61分位列全球第三",
+    "url": "https://bydrug.pharmcube.com/news/detail/d6d178a00973e5d3da50ac096f737f01",
+    "domain": "bydrug.pharmcube.com",
+    "publisher": "医药魔方",
+    "tier": "unknown",
+    "published_at": "2026-11-19",
+    "focus_tag": "大模型与平台动态（OpenAI/Anthropic/Google/Meta/Microsoft）",
+    "note": "Gemini 4系列第4款模型，7周内密集发布"
+  },
+  {
+    "title": "Google Gemini 4 Neon智能指数反超Carbon，三档模型阵容成型",
+    "url": "https://stock.stockstar.com/JC2026111900032453.shtml",
+    "domain": "stock.stockstar.com",
+    "publisher": "证券之星",
+    "tier": "unknown",
+    "published_at": "2026-11-19",
+    "focus_tag": "大模型与平台动态（OpenAI/Anthropic/Google/Meta/Microsoft）",
+    "note": "西南证券研报确认Gemini 4 Neon发布"
+  },
+  {
+    "title": "谷歌发布Gemini 4 Neon面向复杂软件工程与科学研究",
+    "url": "https://tech.ifeng.com/c/8yAtbOcMzmI",
+    "domain": "tech.ifeng.com",
+    "publisher": "凤凰网科技",
+    "tier": "tier2",
+    "published_at": "2026-11-19",
+    "focus_tag": "大模型与平台动态（OpenAI/Anthropic/Google/Meta/Microsoft）",
+    "note": "智东西编译报道Gemini 4 Neon发布详情"
+  },
+  {
+    "title": "Google DeepMind发布生成式模型Genie 4，主攻复杂内容创作与系统模拟",
+    "url": "https://juejin.cn/post/7709758398561386532",
+    "domain": "juejin.cn",
+    "publisher": "掘金",
+    "tier": "unknown",
+    "published_at": "2026-11-19",
+    "focus_tag": "大模型与平台动态（OpenAI/Anthropic/Google/Meta/Microsoft）",
+    "note": "Genie 4开放使用，支持实时原生音频和对话"
+  },
+  {
+    "title": "Qt Creator 21发布，默认启用Agentic AI Chat与MCP服务器",
+    "url": "https://tech.ifeng.com/c/8yJNJVCUCYB",
+    "domain": "tech.ifeng.com",
+    "publisher": "凤凰网科技",
+    "tier": "tier2",
+    "published_at": "2026-11-24",
+    "focus_tag": "Agent 框架与开发者工具（LangChain/AutoGen/CrewAI/Cursor/扣子）",
+    "note": "IDE原生集成Agent能力，MCP增加Bearer Token认证"
+  },
+  {
+    "title": "Qt Creator 21加强AI Agent与IDE协作能力",
+    "url": "https://tech.ifeng.com/c/8yJHaysBVQv",
+    "domain": "tech.ifeng.com",
+    "publisher": "凤凰网科技",
+    "tier": "tier2",
+    "published_at": "2026-11-24",
+    "focus_tag": "Agent 框架与开发者工具（LangChain/AutoGen/CrewAI/Cursor/扣子）",
+    "note": "同一事件重复确认"
+  },
+  {
+    "title": "11月6个Agent工具更新聚焦基础设施层",
+    "url": "https://juejin.cn/post/7711231601590796323",
+    "domain": "juejin.cn",
+    "publisher": "掘金",
+    "tier": "unknown",
+    "published_at": "2026-11-22",
+    "focus_tag": "Agent 框架与开发者工具（LangChain/AutoGen/CrewAI/Cursor/扣子）",
+    "note": "GitHub Copilot Evals公测、LoopForge 0.4.0、Vercel eve 1.0 GA等集中发布"
+  },
+  {
+    "title": "优必选签约400台U1 Pro人形机器人，雷鸟双11破亿",
+    "url": "https://industry.cfi.cn/p20261124000274.html",
+    "domain": "industry.cfi.cn",
+    "publisher": "中财网",
+    "tier": "unknown",
+    "published_at": "2026-11-24",
+    "focus_tag": "前沿硬件（机器人/具身智能/脑机接口/AR/VR/可穿戴）",
+    "note": "具身智能机器人销售额增长25.2%"
+  },
+  {
+    "title": "国内人形机器人2026年产量预计破10万台",
+    "url": "https://finance.jrj.com.cn/2026/11/22212059226646.shtml",
+    "domain": "finance.jrj.com.cn",
+    "publisher": "金融界",
+    "tier": "unknown",
+    "published_at": "2026-11-22",
+    "focus_tag": "前沿硬件（机器人/具身智能/脑机接口/AR/VR/可穿戴）",
+    "note": "2026世界计算大会披露行业进入落地验证阶段"
+  },
+  {
+    "title": "Isomorphic Labs完成50亿美元C轮融资",
+    "url": "https://bydrug.pharmcube.com/news/detail/da44f1971b8bf5606d7adcf54eccd958",
+    "domain": "bydrug.pharmcube.com",
+    "publisher": "医药魔方",
+    "tier": "unknown",
+    "published_at": "2026-11-17",
+    "focus_tag": "AI 初创早期融资",
+    "note": "AI药物开发商，生物科技行业最大单笔私人融资"
+  },
+  {
+    "title": "前Anthropic研究员创立Mirendil完成10亿美元A轮融资",
+    "url": "https://www.zyzhan.com/news/detail/100861.html",
+    "domain": "zyzhan.com",
+    "publisher": "制药网",
+    "tier": "unknown",
+    "published_at": "2026-11-17",
+    "focus_tag": "AI 初创早期融资",
+    "note": "Kleiner Perkins与Clearlake Capital领投"
+  }
+]

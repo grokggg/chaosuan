@@ -1,0 +1,68 @@
+{
+  "flow": "briefing",
+  "setup_token": "setup_63c56ee9",
+  "domain": "消费",
+  "domain_slug": "consumer",
+  "name_cn": "早鸟雷达-消费",
+  "date": "2026-11-25",
+  "status": "DONE",
+  "steps": {
+    "B1": {
+      "status": "passed",
+      "attempts": 2,
+      "errors": [],
+      "finished_at": "2026-11-25T09:26:11+08:00"
+    },
+    "B2": {
+      "status": "passed",
+      "attempts": 1,
+      "errors": [],
+      "finished_at": "2026-11-25T09:27:21+08:00"
+    },
+    "B3": {
+      "status": "passed",
+      "attempts": 1,
+      "errors": [],
+      "finished_at": "2026-11-25T09:28:30+08:00"
+    },
+    "B4": {
+      "status": "passed",
+      "attempts": 1,
+      "errors": [],
+      "finished_at": "2026-11-25T09:28:46+08:00"
+    }
+  },
+  "event_count": 5,
+  "empty_silent": true,
+  "created_at": "2026-11-25T09:23:00+08:00",
+  "updated_at": "2026-11-25T09:28:46+08:00",
+  "history": [
+    {
+      "event": "B1_passed",
+      "attempts": 2,
+      "at": "2026-11-25T09:26:11+08:00"
+    },
+    {
+      "event": "B2_passed",
+      "attempts": 1,
+      "at": "2026-11-25T09:27:21+08:00"
+    },
+    {
+      "event": "B3_passed",
+      "attempts": 1,
+      "at": "2026-11-25T09:28:30+08:00"
+    },
+    {
+      "event": "B4_passed",
+      "attempts": 1,
+      "at": "2026-11-25T09:28:46+08:00"
+    }
+  ],
+  "finished_at": "2026-11-25T09:28:46+08:00",
+  "archived": [
+    "/public/home/acybv4o9xw/.sag/.vibe-coding/2125351205224071170/project/early_bird/热点资讯追踪/早鸟雷达-消费/daily/2026-11-25/state.json",
+    "/public/home/acybv4o9xw/.sag/.vibe-coding/2125351205224071170/project/early_bird/热点资讯追踪/早鸟雷达-消费/daily/2026-11-25/raw_candidates.json",
+    "/public/home/acybv4o9xw/.sag/.vibe-coding/2125351205224071170/project/early_bird/热点资讯追踪/早鸟雷达-消费/daily/2026-11-25/event_list.json",
+    "/public/home/acybv4o9xw/.sag/.vibe-coding/2125351205224071170/project/early_bird/热点资讯追踪/早鸟雷达-消费/daily/2026-11-25/summary.json"
+  ]
+}

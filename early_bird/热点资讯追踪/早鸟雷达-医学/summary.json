@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-25",
+  "domain": "医学",
+  "domain_slug": "med",
+  "setup_token": "setup_244e21da",
+  "event_count": 5,
+  "empty": false,
+  "top_events": [
+    {
+      "event_id": "med-20261125-01",
+      "title": "FDA批准首款siRNA疗法Livsayis治疗全身型重症肌无力，年仅需4次给药",
+      "signal_type": "注册审批里程碑",
+      "confidence": "high",
+      "source_domain_count": 3
+    },
+    {
+      "event_id": "med-20261125-02",
+      "title": "辉瑞26.3亿美元引进星锐医药体内CAR-T项目，押注自身免疫疾病新范式",
+      "signal_type": "细胞与基因治疗关键节点",
+      "confidence": "high",
+      "source_domain_count": 3
+    },
+    {
+      "event_id": "med-20261125-03",
+      "title": "Isomorphic Labs完成50亿美元C轮融资，AI制药资本规模再破纪录",
+      "signal_type": "AI制药早期里程碑",
+      "confidence": "high",
+      "source_domain_count": 3
+    },
+    {
+      "event_id": "med-20261125-04",
+      "title": "思路迪3D189全球III期REGAL试验达主要终点，AML维持治疗死亡风险降低41%",
+      "signal_type": "临床试验关键节点",
+      "confidence": "high",
+      "source_domain_count": 3
+    },
+    {
+      "event_id": "med-20261125-05",
+      "title": "CAR-T瑞基奥仑赛首次纳入国家基本医保目录，谈判价降至28.86万元",
+      "signal_type": "监管政策窗口",
+      "confidence": "high",
+      "source_domain_count": 3
+    }
+  ],
+  "source_stats": {
+    "tier1_count": 0,
+    "tier2_count": 15,
+    "independent_domain_count": 15
+  },
+  "generated_at": "2026-11-25T09:10:00+08:00"
+}

@@ -1,0 +1,62 @@
+{
+  "flow": "briefing",
+  "setup_token": "setup_26010b88",
+  "domain": "人才",
+  "domain_slug": "talent",
+  "name_cn": "早鸟雷达-人才",
+  "date": "2026-11-25",
+  "status": "DONE",
+  "steps": {
+    "B1": {
+      "status": "passed",
+      "attempts": 2,
+      "errors": [],
+      "finished_at": "2026-11-25T09:45:44+08:00"
+    },
+    "B2": {
+      "status": "passed",
+      "attempts": 1,
+      "errors": [],
+      "finished_at": "2026-11-25T09:48:03+08:00"
+    },
+    "B3": {
+      "status": "passed",
+      "attempts": 1,
+      "errors": [],
+      "finished_at": "2026-11-25T09:49:23+08:00"
+    },
+    "B4": {
+      "status": "passed",
+      "attempts": 1,
+      "errors": [],
+      "finished_at": "2026-11-25T09:49:39+08:00"
+    }
+  },
+  "event_count": 4,
+  "empty_silent": true,
+  "created_at": "2026-11-25T09:42:09+08:00",
+  "updated_at": "2026-11-25T09:49:39+08:00",
+  "history": [
+    {
+      "event": "B1_passed",
+      "attempts": 2,
+      "at": "2026-11-25T09:45:44+08:00"
+    },
+    {
+      "event": "B2_passed",
+      "attempts": 1,
+      "at": "2026-11-25T09:48:03+08:00"
+    },
+    {
+      "event": "B3_passed",
+      "attempts": 1,
+      "at": "2026-11-25T09:49:23+08:00"
+    },
+    {
+      "event": "B4_passed",
+      "attempts": 1,
+      "at": "2026-11-25T09:49:39+08:00"
+    }
+  ],
+  "finished_at": "2026-11-25T09:49:39+08:00"
+}
