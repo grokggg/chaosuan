@@ -413,6 +413,13 @@ async def scheduler_loop() -> None:
                 item["finished_at"] = datetime.now().isoformat()
                 item["result"] = {k: v for k, v in result.items() if k != "reply"}
                 save_manual_queue(manual)
+                push_result = result.get("push")
+                if isinstance(push_result, dict):
+                    day_state(state, target_day)["push"] = {
+                        "status": push_result.get("status"),
+                        "subject": push_result.get("subject"),
+                        "at": datetime.now().isoformat(),
+                    }
                 record = job_record(state, target_day, f"manual:{chain}")
                 record.update(
                     {
@@ -457,7 +464,16 @@ async def scheduler_loop() -> None:
                 save_state(state)
 
                 if slug == AGGREGATE_CHAIN:
-                    result = await dispatch_chain(AGGREGATE_CHAIN, day)
+                    # 聚合链固定带推送：渲染工作台后发送当日摘要邮件
+                    result = await dispatch_chain(AGGREGATE_CHAIN, day, push=True)
+                    push_result = result.get("push")
+                    if isinstance(push_result, dict):
+                        day_state(state, day)["push"] = {
+                            "status": push_result.get("status"),
+                            "subject": push_result.get("subject"),
+                            "at": datetime.now().isoformat(),
+                        }
+                        save_state(state)
                 else:
                     result = await dispatch_chain(slug, day)
 
@@ -466,7 +482,23 @@ async def scheduler_loop() -> None:
                 record["detail"] = {k: v for k, v in result.items() if k not in {"reply", "detail"}}
                 save_state(state)
 
-            # 3) 邮件失败队列重试
+            # 3) 每日推送兜底：聚合已完成但推送缺失/失败时补推一次
+            aggregate_record = job_record(state, day, AGGREGATE_CHAIN)
+            push_record = day_state(state, day).get("push")
+            if (
+                aggregate_record.get("status") == "done"
+                and not (isinstance(push_record, dict) and push_record.get("status") in {"sent", "queued", "skipped"})
+            ):
+                push_result = await run_push(day)
+                day_state(state, day)["push"] = {
+                    "status": push_result.get("status"),
+                    "subject": push_result.get("subject"),
+                    "at": datetime.now().isoformat(),
+                }
+                save_state(state)
+                _log(f"daily push backfill status={push_result.get('status')} date={day}")
+
+            # 4) 邮件失败队列重试
             await run_retry_queue()
         except asyncio.CancelledError:
             _log("scheduler loop cancelled")

@@ -1,90 +1,86 @@
 {
   "date": "2026-11-25",
-  "generated_at": "2026-11-25T08:57:03+08:00",
-  "subject": "早鸟工作台 · 2026-11-25 · 今日无合格早期信号（0/6 领域出报）",
-  "text": "早鸟工作台每日推送 · 数据日期 2026-11-25\n生成时间 2026-11-25T08:56:46+08:00\n合格早期信号 0 条 ｜ 出报领域 0/6 ｜ 待处理告警 6\n信源门槛：每事件组 ≥3 独立域名，Tier-1 官方源 ×1 或 Tier-2 主流媒体 ×2\n\n【早鸟雷达-科技】缺报 · 事件 0 条\n  无日报产物（缺报）。\n\n【早鸟雷达-医学】缺报 · 事件 0 条\n  无日报产物（缺报）。\n\n【早鸟雷达-金融】缺报 · 事件 0 条\n  无日报产物（缺报）。\n\n【早鸟雷达-消费】缺报 · 事件 0 条\n  无日报产物（缺报）。\n\n【早鸟雷达-商业】缺报 · 事件 0 条\n  无日报产物（缺报）。\n\n【早鸟雷达-人才】缺报 · 事件 0 条\n  无日报产物（缺报）。\n\n待处理告警：\n  - 早鸟雷达-科技：未找到任何日报（daily/*.md）\n  - 早鸟雷达-医学：未找到任何日报（daily/*.md）\n  - 早鸟雷达-金融：未找到任何日报（daily/*.md）\n  - 早鸟雷达-消费：未找到任何日报（daily/*.md）\n  - 早鸟雷达-商业：未找到任何日报（daily/*.md）\n  - 早鸟雷达-人才：未找到任何日报（daily/*.md）\n\n工作台页面：/public/home/acybv4o9xw/.sag/.vibe-coding/2125351205224071170/project/early_bird/工作台/index.html\n（本邮件由早鸟工作台定时任务自动发送；空结果不代表任务未运行。）",
-  "html": "<div style=\"font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;font-size:14px;color:#222\">\n<h2 style=\"margin:0 0 4px\">早鸟工作台 · 2026-11-25</h2>\n<p style=\"color:#666;font-size:12px;margin:0 0 12px\">\n合格早期信号 <b>0</b> 条 ｜ 出报领域 <b>0/6</b> ｜ 告警 <b>6</b> ｜\n信源门槛：≥3 独立域名 + Tier-1×1 或 Tier-2×2</p>\n<table style=\"border-collapse:collapse;width:100%\">\n<tr style=\"background:#f5f5f5\">\n<th style=\"padding:8px;border:1px solid #ddd;text-align:left\">领域</th>\n<th style=\"padding:8px;border:1px solid #ddd\">事件数</th>\n<th style=\"padding:8px;border:1px solid #ddd;text-align:left\">要点</th>\n</tr>\n<tr><td style='padding:8px;border:1px solid #ddd;white-space:nowrap'><b>早鸟雷达-科技</b><br><span style='color:#c62828;font-size:12px'>缺报</span></td><td style='padding:8px;border:1px solid #ddd;text-align:center'>0</td><td style='padding:8px;border:1px solid #ddd;font-size:13px'>无日报产物（缺报）。</td></tr><tr><td style='padding:8px;border:1px solid #ddd;white-space:nowrap'><b>早鸟雷达-医学</b><br><span style='color:#c62828;font-size:12px'>缺报</span></td><td style='padding:8px;border:1px solid #ddd;text-align:center'>0</td><td style='padding:8px;border:1px solid #ddd;font-size:13px'>无日报产物（缺报）。</td></tr><tr><td style='padding:8px;border:1px solid #ddd;white-space:nowrap'><b>早鸟雷达-金融</b><br><span style='color:#c62828;font-size:12px'>缺报</span></td><td style='padding:8px;border:1px solid #ddd;text-align:center'>0</td><td style='padding:8px;border:1px solid #ddd;font-size:13px'>无日报产物（缺报）。</td></tr><tr><td style='padding:8px;border:1px solid #ddd;white-space:nowrap'><b>早鸟雷达-消费</b><br><span style='color:#c62828;font-size:12px'>缺报</span></td><td style='padding:8px;border:1px solid #ddd;text-align:center'>0</td><td style='padding:8px;border:1px solid #ddd;font-size:13px'>无日报产物（缺报）。</td></tr><tr><td style='padding:8px;border:1px solid #ddd;white-space:nowrap'><b>早鸟雷达-商业</b><br><span style='color:#c62828;font-size:12px'>缺报</span></td><td style='padding:8px;border:1px solid #ddd;text-align:center'>0</td><td style='padding:8px;border:1px solid #ddd;font-size:13px'>无日报产物（缺报）。</td></tr><tr><td style='padding:8px;border:1px solid #ddd;white-space:nowrap'><b>早鸟雷达-人才</b><br><span style='color:#c62828;font-size:12px'>缺报</span></td><td style='padding:8px;border:1px solid #ddd;text-align:center'>0</td><td style='padding:8px;border:1px solid #ddd;font-size:13px'>无日报产物（缺报）。</td></tr>\n</table>\n<p style='color:#c62828'><b>待处理告警</b></p><ul style='font-size:13px'><li>早鸟雷达-科技：未找到任何日报（daily/*.md）</li><li>早鸟雷达-医学：未找到任何日报（daily/*.md）</li><li>早鸟雷达-金融：未找到任何日报（daily/*.md）</li><li>早鸟雷达-消费：未找到任何日报（daily/*.md）</li><li>早鸟雷达-商业：未找到任何日报（daily/*.md）</li><li>早鸟雷达-人才：未找到任何日报（daily/*.md）</li></ul>\n<p style=\"font-size:12px;color:#666;margin-top:12px\">\n工作台页面：<code>/public/home/acybv4o9xw/.sag/.vibe-coding/2125351205224071170/project/early_bird/工作台/index.html</code><br>\n本邮件由早鸟工作台定时任务自动发送；空结果不代表任务未运行。</p>\n</div>",
+  "generated_at": "2026-11-25T12:27:43+08:00",
+  "subject": "早鸟工作台 · 2026-11-25 · 26 条早期信号（6/6 领域出报）",
+  "text": "早鸟工作台每日推送 · 数据日期 2026-11-25\n生成时间 2026-11-25T12:27:24+08:00\n合格早期信号 26 条 ｜ 出报领域 6/6 ｜ 待处理告警 4\n信源门槛：每事件组 ≥3 独立域名，Tier-1 官方源 ×1 或 Tier-2 主流媒体 ×2\n\n【早鸟雷达-科技】已完成 · 事件 5 条\n  · [模型预发布/内测] Anthropic与OpenAI内部模型能力过强引发安全担忧，或推迟公开发布（3 独立域名）\n  · [模型预发布/内测] 智谱发布新一代旗舰模型GLM-5.4，首次采用Loop Transformer架构（3 独立域名）\n  · [开源生态节点] 腾讯混元Hy4正式开源，Apache 2.0许可证允许商业使用（3 独立域名）\n  …另有 2 条，详见工作台页面。\n\n【早鸟雷达-医学】已完成 · 事件 5 条\n  · [注册审批里程碑] FDA批准首款siRNA疗法Livsayis治疗全身型重症肌无力，年仅需4次给药（3 独立域名）\n  · [细胞与基因治疗关键节点] 辉瑞26.3亿美元引进星锐医药体内CAR-T项目，押注自身免疫疾病新范式（3 独立域名）\n  · [AI制药早期里程碑] Isomorphic Labs完成50亿美元C轮融资，AI制药资本规模再破纪录（3 独立域名）\n  …另有 2 条，详见工作台页面。\n\n【早鸟雷达-金融】已完成 · 事件 4 条\n  · [货币政策窗口] 美联储10月会议纪要释放显著鹰派信号，12月加息25个基点概率达97.4%（3 独立域名）\n  · [监管新规] 深交所就创业板股票做市交易业务细则公开征求意见，引入做市商制度增强市场韧性（3 独立域名）\n  · [CBDC与跨境支付] 上海浦东离岸金融草案征求意见，支持数字人民币跨境基础设施互联互通（3 独立域名）\n  …另有 1 条，详见工作台页面。\n\n【早鸟雷达-消费】已完成 · 事件 5 条\n  · [品牌战略调整] GANNI暂停中国线上旗舰店运营，海外时尚品牌在华渠道持续收缩（3 独立域名）\n  · [电商新模式] 即时零售双11销售额891亿同比增33%，商务部确认增速超两位数（3 独立域名）\n  · [新兴消费品类] AI陪伴硬件进入新品类临界点，Bubbo与Ora-Orb两条路径独立验证（3 独立域名）\n  …另有 2 条，详见工作台页面。\n\n【早鸟雷达-商业】已完成 · 事件 3 条\n  · [工业与能源基础设施] 国家发改委国家能源局印发十五五新型储能实施方案，2030年装机目标3亿千瓦（3 独立域名）\n  · [产业政策窗口] 国务院国资委宣布新一轮国资国企改革台账编制完成，进入全面实施阶段（3 独立域名）\n  · [云厂商策略调整] 阿里云下调云业务营收增速指引至30%-45%，算力出口管制影响产能扩张（3 独立域名）\n\n【早鸟雷达-人才】已完成 · 事件 4 条\n  · [AI科学家流动] OpenAI解散独立机器人团队，研究人员并入核心模型主线（3 独立域名）\n  · [就业市场拐点] 微软向约6万名员工发出自愿离职要约，AI驱动年内第三轮人员结构调整（3 独立域名）\n  · [人才政策窗口] 美国H-1B签证发放量减少约三分之一，IBM停止部分岗位签证担保，科技人才外流加速（3 独立域名）\n  …另有 1 条，详见工作台页面。\n\n待处理告警：\n  - 早鸟雷达-科技：summary.source_stats.independent_domain_count=15 与事件实算 11 不一致，已采用实算值\n  - 早鸟雷达-医学：summary.source_stats.independent_domain_count=15 与事件实算 12 不一致，已采用实算值\n  - 早鸟雷达-金融：summary.source_stats.independent_domain_count=12 与事件实算 11 不一致，已采用实算值\n  - 早鸟雷达-消费：summary.source_stats.independent_domain_count=15 与事件实算 13 不一致，已采用实算值\n\n工作台页面：/public/home/acybv4o9xw/.sag/.vibe-coding/2125351205224071170/project/early_bird/工作台/index.html\n（本邮件由早鸟工作台定时任务自动发送；空结果不代表任务未运行。）",
+  "html": "<div style=\"font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;font-size:14px;color:#222\">\n<h2 style=\"margin:0 0 4px\">早鸟工作台 · 2026-11-25</h2>\n<p style=\"color:#666;font-size:12px;margin:0 0 12px\">\n合格早期信号 <b>26</b> 条 ｜ 出报领域 <b>6/6</b> ｜ 告警 <b>4</b> ｜\n信源门槛：≥3 独立域名 + Tier-1×1 或 Tier-2×2</p>\n<table style=\"border-collapse:collapse;width:100%\">\n<tr style=\"background:#f5f5f5\">\n<th style=\"padding:8px;border:1px solid #ddd;text-align:left\">领域</th>\n<th style=\"padding:8px;border:1px solid #ddd\">事件数</th>\n<th style=\"padding:8px;border:1px solid #ddd;text-align:left\">要点</th>\n</tr>\n<tr><td style='padding:8px;border:1px solid #ddd;white-space:nowrap'><b>早鸟雷达-科技</b><br><span style='color:#ef6c00;font-size:12px'>已完成</span></td><td style='padding:8px;border:1px solid #ddd;text-align:center'>5</td><td style='padding:8px;border:1px solid #ddd;font-size:13px'>· [模型预发布/内测] Anthropic与OpenAI内部模型能力过强引发安全担忧，或推迟公开发布<br>· [模型预发布/内测] 智谱发布新一代旗舰模型GLM-5.4，首次采用Loop Transformer架构<br>· [开源生态节点] 腾讯混元Hy4正式开源，Apache 2.0许可证允许商业使用<br>…另有 2 条</td></tr><tr><td style='padding:8px;border:1px solid #ddd;white-space:nowrap'><b>早鸟雷达-医学</b><br><span style='color:#ef6c00;font-size:12px'>已完成</span></td><td style='padding:8px;border:1px solid #ddd;text-align:center'>5</td><td style='padding:8px;border:1px solid #ddd;font-size:13px'>· [注册审批里程碑] FDA批准首款siRNA疗法Livsayis治疗全身型重症肌无力，年仅需4次给药<br>· [细胞与基因治疗关键节点] 辉瑞26.3亿美元引进星锐医药体内CAR-T项目，押注自身免疫疾病新范式<br>· [AI制药早期里程碑] Isomorphic Labs完成50亿美元C轮融资，AI制药资本规模再破纪录<br>…另有 2 条</td></tr><tr><td style='padding:8px;border:1px solid #ddd;white-space:nowrap'><b>早鸟雷达-金融</b><br><span style='color:#ef6c00;font-size:12px'>已完成</span></td><td style='padding:8px;border:1px solid #ddd;text-align:center'>4</td><td style='padding:8px;border:1px solid #ddd;font-size:13px'>· [货币政策窗口] 美联储10月会议纪要释放显著鹰派信号，12月加息25个基点概率达97.4%<br>· [监管新规] 深交所就创业板股票做市交易业务细则公开征求意见，引入做市商制度增强市场韧性<br>· [CBDC与跨境支付] 上海浦东离岸金融草案征求意见，支持数字人民币跨境基础设施互联互通<br>…另有 1 条</td></tr><tr><td style='padding:8px;border:1px solid #ddd;white-space:nowrap'><b>早鸟雷达-消费</b><br><span style='color:#ef6c00;font-size:12px'>已完成</span></td><td style='padding:8px;border:1px solid #ddd;text-align:center'>5</td><td style='padding:8px;border:1px solid #ddd;font-size:13px'>· [品牌战略调整] GANNI暂停中国线上旗舰店运营，海外时尚品牌在华渠道持续收缩<br>· [电商新模式] 即时零售双11销售额891亿同比增33%，商务部确认增速超两位数<br>· [新兴消费品类] AI陪伴硬件进入新品类临界点，Bubbo与Ora-Orb两条路径独立验证<br>…另有 2 条</td></tr><tr><td style='padding:8px;border:1px solid #ddd;white-space:nowrap'><b>早鸟雷达-商业</b><br><span style='color:#2e7d32;font-size:12px'>已完成</span></td><td style='padding:8px;border:1px solid #ddd;text-align:center'>3</td><td style='padding:8px;border:1px solid #ddd;font-size:13px'>· [工业与能源基础设施] 国家发改委国家能源局印发十五五新型储能实施方案，2030年装机目标3亿千瓦<br>· [产业政策窗口] 国务院国资委宣布新一轮国资国企改革台账编制完成，进入全面实施阶段<br>· [云厂商策略调整] 阿里云下调云业务营收增速指引至30%-45%，算力出口管制影响产能扩张</td></tr><tr><td style='padding:8px;border:1px solid #ddd;white-space:nowrap'><b>早鸟雷达-人才</b><br><span style='color:#2e7d32;font-size:12px'>已完成</span></td><td style='padding:8px;border:1px solid #ddd;text-align:center'>4</td><td style='padding:8px;border:1px solid #ddd;font-size:13px'>· [AI科学家流动] OpenAI解散独立机器人团队，研究人员并入核心模型主线<br>· [就业市场拐点] 微软向约6万名员工发出自愿离职要约，AI驱动年内第三轮人员结构调整<br>· [人才政策窗口] 美国H-1B签证发放量减少约三分之一，IBM停止部分岗位签证担保，科技人才外流加速<br>…另有 1 条</td></tr>\n</table>\n<p style='color:#c62828'><b>待处理告警</b></p><ul style='font-size:13px'><li>早鸟雷达-科技：summary.source_stats.independent_domain_count=15 与事件实算 11 不一致，已采用实算值</li><li>早鸟雷达-医学：summary.source_stats.independent_domain_count=15 与事件实算 12 不一致，已采用实算值</li><li>早鸟雷达-金融：summary.source_stats.independent_domain_count=12 与事件实算 11 不一致，已采用实算值</li><li>早鸟雷达-消费：summary.source_stats.independent_domain_count=15 与事件实算 13 不一致，已采用实算值</li></ul>\n<p style=\"font-size:12px;color:#666;margin-top:12px\">\n工作台页面：<code>/public/home/acybv4o9xw/.sag/.vibe-coding/2125351205224071170/project/early_bird/工作台/index.html</code><br>\n本邮件由早鸟工作台定时任务自动发送；空结果不代表任务未运行。</p>\n</div>",
   "mode": "concise",
   "should_push": true,
   "skip_reason": null,
   "totals": {
-    "event_count": 0,
-    "reported_domains": 0,
+    "event_count": 26,
+    "reported_domains": 6,
     "domain_count": 6,
-    "issue_count": 6
+    "issue_count": 4
   },
   "entries": [
     {
       "name_cn": "早鸟雷达-科技",
       "domain_slug": "tech",
-      "status": "missing",
-      "report_date": null,
-      "event_count": 0,
+      "status": "DONE",
+      "report_date": "2026-11-25",
+      "event_count": 5,
       "stale": false,
       "issues": [
-        "未找到任何日报（daily/*.md）"
+        "summary.source_stats.independent_domain_count=15 与事件实算 11 不一致，已采用实算值"
       ]
     },
     {
       "name_cn": "早鸟雷达-医学",
       "domain_slug": "med",
-      "status": "missing",
-      "report_date": null,
-      "event_count": 0,
+      "status": "DONE",
+      "report_date": "2026-11-25",
+      "event_count": 5,
       "stale": false,
       "issues": [
-        "未找到任何日报（daily/*.md）"
+        "summary.source_stats.independent_domain_count=15 与事件实算 12 不一致，已采用实算值"
       ]
     },
     {
       "name_cn": "早鸟雷达-金融",
       "domain_slug": "fin",
-      "status": "missing",
-      "report_date": null,
-      "event_count": 0,
+      "status": "DONE",
+      "report_date": "2026-11-25",
+      "event_count": 4,
       "stale": false,
       "issues": [
-        "未找到任何日报（daily/*.md）"
+        "summary.source_stats.independent_domain_count=12 与事件实算 11 不一致，已采用实算值"
       ]
     },
     {
       "name_cn": "早鸟雷达-消费",
       "domain_slug": "consumer",
-      "status": "missing",
-      "report_date": null,
-      "event_count": 0,
+      "status": "DONE",
+      "report_date": "2026-11-25",
+      "event_count": 5,
       "stale": false,
       "issues": [
-        "未找到任何日报（daily/*.md）"
+        "summary.source_stats.independent_domain_count=15 与事件实算 13 不一致，已采用实算值"
       ]
     },
     {
       "name_cn": "早鸟雷达-商业",
       "domain_slug": "biz",
-      "status": "missing",
-      "report_date": null,
-      "event_count": 0,
+      "status": "DONE",
+      "report_date": "2026-11-25",
+      "event_count": 3,
       "stale": false,
-      "issues": [
-        "未找到任何日报（daily/*.md）"
-      ]
+      "issues": []
     },
     {
       "name_cn": "早鸟雷达-人才",
       "domain_slug": "talent",
-      "status": "missing",
-      "report_date": null,
-      "event_count": 0,
+      "status": "DONE",
+      "report_date": "2026-11-25",
+      "event_count": 4,
       "stale": false,
-      "issues": [
-        "未找到任何日报（daily/*.md）"
-      ]
+      "issues": []
     }
   ],
   "send": {
-    "ok": false,
-    "error": "网络不可达或连接失败: OSError: [Errno 101] Network is unreachable",
-    "queued": true,
-    "queue_id": "d74bf91e796e"
+    "ok": true,
+    "recipients": [
+      "1130381659@qq.com"
+    ]
   }
 }
