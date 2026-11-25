@@ -37,8 +37,43 @@ RUNS_DIR = EARLY_BIRD_DIR / "工作台" / "runs"
 DEFAULT_TICK_SECONDS = 20
 DOMAIN_JOB_TIMEOUT_SECONDS = 30 * 60
 AGGREGATE_TIMEOUT_SECONDS = 5 * 60
+MAX_JOB_ATTEMPTS_PER_DAY = 3
+LOCK_PATH = EARLY_BIRD_DIR / "scheduler.lock"
 
 AGGREGATE_CHAIN = "aggregate"
+
+_SCHEDULER_LOCK_FD: int | None = None
+
+
+def acquire_scheduler_lock() -> bool:
+    """进程间单写者锁：同一时刻只允许一个调度循环运行。
+
+    独立守护进程与模板服务内的调度循环竞争同一把锁；持有者崩溃时
+    内核自动释放锁，另一方在下一个 tick 接管，实现无感故障切换。
+    """
+    global _SCHEDULER_LOCK_FD
+    if _SCHEDULER_LOCK_FD is not None:
+        return True
+    import fcntl
+    import os
+
+    try:
+        LOCK_PATH.parent.mkdir(parents=True, exist_ok=True)
+        fd = os.open(str(LOCK_PATH), os.O_CREAT | os.O_RDWR, 0o644)
+        fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except OSError:
+        return False
+    try:
+        os.ftruncate(fd, 0)
+        os.write(fd, f"{os.getpid()}\n".encode("utf-8"))
+    except OSError:
+        pass
+    _SCHEDULER_LOCK_FD = fd
+    return True
+
+
+def scheduler_lock_held_by_us() -> bool:
+    return _SCHEDULER_LOCK_FD is not None
 
 
 # --------------------------------------------------------------------------- #
@@ -351,6 +386,11 @@ async def scheduler_loop() -> None:
     while True:
         try:
             await asyncio.sleep(tick)
+            if not scheduler_lock_held_by_us():
+                if not acquire_scheduler_lock():
+                    # 另一个调度实例（守护进程或模板服务）持有锁，本实例待命
+                    continue
+                _log(f"scheduler lock acquired pid={os.getpid()}")
             if not _env_flag("EARLY_BIRD_SCHEDULER_ENABLED", True):
                 continue
 
@@ -358,32 +398,31 @@ async def scheduler_loop() -> None:
             day = now.strftime("%Y-%m-%d")
             state = load_state()
 
-            # 1) 手动队列优先
+            # 1) 手动队列优先（仅当存在待处理项时才跳过定时表）
             manual = load_manual_queue()
-            if manual:
-                pending = [item for item in manual if item.get("status") == "queued"]
-                if pending:
-                    item = pending[0]
-                    item["status"] = "running"
-                    save_manual_queue(manual)
-                    chain = str(item.get("chain") or "")
-                    target_day = str(item.get("date") or day)
-                    result = await dispatch_chain(chain, target_day, push=bool(item.get("push")))
-                    failed = result.get("status") in {"error", "timeout", "interrupted", "unknown_chain"}
-                    item["status"] = "failed" if failed else "done"
-                    item["finished_at"] = datetime.now().isoformat()
-                    item["result"] = {k: v for k, v in result.items() if k != "reply"}
-                    save_manual_queue(manual)
-                    record = job_record(state, target_day, f"manual:{chain}")
-                    record.update(
-                        {
-                            "status": "failed" if failed else "done",
-                            "finished_at": item["finished_at"],
-                            "detail": {k: v for k, v in result.items() if k not in {"reply", "detail"}},
-                        }
-                    )
-                    save_state(state)
-                    _log(f"manual run {'failed' if failed else 'done'} chain={chain} date={target_day}")
+            pending = [item for item in manual if item.get("status") == "queued"]
+            if pending:
+                item = pending[0]
+                item["status"] = "running"
+                save_manual_queue(manual)
+                chain = str(item.get("chain") or "")
+                target_day = str(item.get("date") or day)
+                result = await dispatch_chain(chain, target_day, push=bool(item.get("push")))
+                failed = result.get("status") in {"error", "timeout", "interrupted", "unknown_chain"}
+                item["status"] = "failed" if failed else "done"
+                item["finished_at"] = datetime.now().isoformat()
+                item["result"] = {k: v for k, v in result.items() if k != "reply"}
+                save_manual_queue(manual)
+                record = job_record(state, target_day, f"manual:{chain}")
+                record.update(
+                    {
+                        "status": "failed" if failed else "done",
+                        "finished_at": item["finished_at"],
+                        "detail": {k: v for k, v in result.items() if k not in {"reply", "detail"}},
+                    }
+                )
+                save_state(state)
+                _log(f"manual run {'failed' if failed else 'done'} chain={chain} date={target_day}")
                 continue
 
             # 2) 定时表

@@ -15,4 +15,6 @@ early_bird/push_queue.json
 early_bird/scheduler_state.json
 early_bird/scheduler_manual.json
 early_bird/scheduler.log
+early_bird/scheduler.lock
+early_bird/daemon.out
 config/credentials.env
