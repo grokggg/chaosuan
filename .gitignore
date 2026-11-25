@@ -17,4 +17,7 @@ early_bird/scheduler_manual.json
 early_bird/scheduler.log
 early_bird/scheduler.lock
 early_bird/daemon.out
+early_bird/watchdog.lock
+early_bird/watchdog.log
+early_bird/watchdog.out
 config/credentials.env
